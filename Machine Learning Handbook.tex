@@ -54,34 +54,102 @@ Theorems:
     \item Bayesian Theorem $$P(H|D) = \frac{P(D|H) P(H)}{P(D)}$$ P(H)-prior probability, P(D|H)-likelihood, P(H|D)-posterior probability,
 \end{itemize}
 
+\subsection{Important Distributions, Moment Generating Functions}
+
+\begin{enumerate}
+	\item Normal Distribution, See next chapter
+	\item Exponential Distribution $f_x(x,\theta) = \theta e^{-\theta x} $
+	
+\end{enumerate}
+
+
 \section{Statistics}
 
-Concepts:
+\subsection{Concepts}
 
 \begin{itemize}
-    \item data, sample, statistics, population
-    \item point estimation, interval estimation, confidence interval(intepreation??)
-    \item method of moments: $E(X^k)$ based on LOLN.
-    \item maximum likelihood estimation. Multiply p.m.f/p.d.f since every sample is independent. Maximize the likelihood of finding samples. 
+    \item parameter(constant for probability model), statistic (model of sample data), data, sample, population
+    \item point estimation, interval estimation, Confidence Interval( $P(L \leq \theta \leq U )$, notice: $\theta$ is not random, L, U is random! ( We repeat constructing confidence interval a n times, $\alpha$ percent of the times, it will contain $theta$.
+    \item Estimator and Estimation
+       \begin{itemize}
+    	\item Method of Moments: $E(X^k)$ based on LOLN.\\ 
+    	If We have p parameters, we can use p moments to form a system of equations to solve $\theta_1,...\theta_p$
+    	$$\sum_{i=1}^n X_i^j= E(X^j)$$, for j = 1,...,p
+    	\item Maximum Likelihood Estimation. Multiply p.m.f/p.d.f since every sample is independent. Maximize the likelihood of finding samples. 
+    	$$ l(\theta) =  \prod_{i=1}^n f_{X_i} f_{x_i} (x_i; \theta), L(\theta ) = log l(\theta)$$
+    	$$ \hat{\theta}_{MLE}= argmax_{\theta} f_x(x;\theta ) = argmax_{\theta} L(\theta )$$
+    	Analytical or Numerically solved. $$ \frac{\partial}{\partial \theta} [log L(\theta ) ] = 0, \frac{\partial}{\partial \theta^2} [log L(\theta ) ] < 0$$, for multiple parameters, we need the Hessian matrix to be negative definite $x^tHx<0, \forall x$ 
+    \end{itemize}
     \item Estimation criteria
    		\begin{itemize}
-   		 \item unbiased
-   		 \item efficient
-   		 \item coherent
+   		 \item Unbiased $E(\hat{\theta}) = \theta$
+   		 \item Minimum Variance (MVUE, minimum variance unbiased estimator) $Var(\hat{\theta}) < Var(\theta')$
+   		 \item Efficient
+   		 \item Coherent
    		\end{itemize}
-   	\item Hypotheis test, type-I error(wrongly reject), type-II error(wrongly accept)
+   	\item Hypothesis test, type-I error(wrongly reject), type-II error(wrongly accept)
 \end{itemize}
 
+\subsection{Important Distributions}
 
-Theorems:
+\begin{enumerate}
+	\item Normal Distribution, $X_1,...X_n \sim N(\mu,\sigma^2)$ then
+	\begin{enumerate}
+		\item  $\bar{X}$ and $s^2$ are independent
+		\item  $\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} \sim N(0,1)$
+		\item  $\frac{(n-1)s^2}{\sigma^2} \sim \chi_{n-1}^2$
+		\item  $\frac{\bar{X}-\mu }{s/\sqrt{n}} = \frac{\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}}{\frac{(n-1)s^2}{\sigma^2} \frac{1}{\sqrt{n-1}}} \sim t_{n-1}$
+	\end{enumerate}
+	\item Multi-variate normal distribution
+	$$ f_x(x) = \frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))$$
+	\begin{enumerate}
+		\item $X_1,...X_n$ normal $\Leftarrow (X_1,...X_n)$ is multivariate normal. (Not equivalent)
+		\item $E(X)=\mu, Var(X) = \Sigma$
+		\item Linear transformations $AX+b \sim N(A\mu+b, A\Sigma A^T)$ remain multivariate normal
+		\item Marginals are multivariate normal, each sub-vector is multivariate normal, the parameters are just sub-matrices.
+		\item All conditionals are multivariate normal 
+	\end{enumerate}
+	\item t-distribution: like normal distribution, but heavier tails
+	\begin{enumerate}
+		\item $Z \sim N(0,1), Y \sim \chi^2_{\nu}$, Z, Y independent, $$ X= Z/\sqrt{Y/\nu} \sim t_{\nu} $$
+		\item pdf has polynomial tails (decays much slower than exponential ones)
+		\item $\nu=1$, it is the \textbf{Cauchy Distribution}, with very heavy tails (no expectation)
+		\item The MCF not exist. $E(|X|^k) < \infty$ for $k<\nu$, $E(|X|^k) = \infty$ for $k>\nu$
+		\item $X\sim t_\nu, E(X)=0, Var(X)=\frac{\nu}{\nu-2}$
+		$$ f_X(x)=\frac{1}{\pi(1+x^2)}$$
+	\end{enumerate}
+	\item $\chi^2$ distribution
+	$$ f_x(x) = \frac{1}{(2^{k/2}\Gamma(k/2)}x^{\frac{k}{2}-1}e^{-\frac{x}{2}}, x\in [0,\infty) \sim Gamma(\frac{k}{2},\frac{1}{2})$$
+	\begin{enumerate}
+		\item $E(X)=k, Var(X)=2k, M_X(t)= (\frac{1}{1-2^t})^{k/2}$
+		\item $X \sim N(0,1) \Rightarrow X^2 \sim \chi^2$, $X_1,...X_n \sim N(0,1) i.i.d \Rightarrow \sum X_i^2 \sim \chi^2$,
+		$$ f_X(x)=\frac{1}{\pi(1+x^2)}$$
+	\end{enumerate}
+	
+\end{enumerate}
+
+
+\subsection{Theorems}
 
 \begin{itemize}
     \item Law of Large Number
     \item Central Limit Theorem
         \item Bias/Variance decomposition (error = bias + variance + noise)
-        $$E[(Y-\hat{\mu}(X))^2]  = = E[(Y-f(x) + f(x) -\hat{\mu}(X))^2]$$
+        $$MSE(\mu(X) ) = E[(Y-\hat{\mu}(X))^2]  = = E[(Y-f(x) + f(x) -\hat{\mu}(X))^2]$$
     $$= E[(Y-f(x)]^2 + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + E[(f(x)-\hat{\mu}(X))^2]$$
+     $$= E[(Y-f(x)]^2 + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + (f(x)-\hat{\mu}(X))^2$$
     $$ =\sigma_x^2 + Bias(\hat{\mu}(X))^2 + Var(\hat{\mu}(X))$$
+ 
+\end{itemize}
+   
+\subsection{Practice/Examples}
+
+\begin{itemize}
+    \item sample mean($\bar{X}$).is unbiased. Sample variance ($\frac{1}{n-1}\sum_{i=1}^n x_i^n$) is unbiased. But sample std is not unbiased. $SE(\bar{X})=\frac{\sigma^2}{n}$
+    \item $\hat{Cov}(X.Y) = \frac{1}{n-1} \sum_{i=1}^n(X_i-\bar{X})(X_i-\bar{Y})$ is unbiased
+    \item Distributions with Expectation not exist? (Cauchy) 
+    \item Common Confidence Intervals:\\ $\mu$: $P(-t_{\alpha/2, n-1} \leq \frac{\bar{X}-\mu}{s/\sqrt{n}} \leq t_{\alpha/2, n-1})= 1- \alpha$, \\$\sigma$: $P(a \leq \frac{(n-1)s^2}{\sigma^2} \leq b)= 1-\alpha$
+    \item Solve MLE/MOM for beta, exponential ($n/\sum{X_i}$, normal 
  
 \end{itemize}
  

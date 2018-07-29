@@ -1,0 +1,33 @@
+\contentsline {part}{I\hspace {1em}High-level Views}{1}
+\contentsline {chapter}{\numberline {1}Math Review}{2}
+\contentsline {section}{\numberline {1.1}Linear Algebra}{2}
+\contentsline {section}{\numberline {1.2}Probability}{3}
+\contentsline {subsection}{\numberline {1.2.1}Important Distributions, Moment Generating Functions}{4}
+\contentsline {section}{\numberline {1.3}Statistics}{4}
+\contentsline {subsection}{\numberline {1.3.1}Concepts}{4}
+\contentsline {subsection}{\numberline {1.3.2}Important Distributions}{5}
+\contentsline {subsection}{\numberline {1.3.3}Theorems}{6}
+\contentsline {subsection}{\numberline {1.3.4}Practice/Examples}{7}
+\contentsline {section}{\numberline {1.4}Optimization Theory}{7}
+\contentsline {section}{\numberline {1.5}Information Theory}{8}
+\contentsline {section}{\numberline {1.6}Formal Logic}{9}
+\contentsline {chapter}{\numberline {2}Computational Learning Theory}{10}
+\contentsline {part}{II\hspace {1em}Supervised Learning Models}{11}
+\contentsline {chapter}{\numberline {3}Regression}{12}
+\contentsline {section}{\numberline {3.1}Linear Regressions}{12}
+\contentsline {subsection}{\numberline {3.1.1}Assumptions}{12}
+\contentsline {subsection}{\numberline {3.1.2}Inteprataion}{12}
+\contentsline {subsection}{\numberline {3.1.3}Lasso-Least Absolute Shrinkage and Selection Operator}{13}
+\contentsline {chapter}{\numberline {4}Logistic Regression and General Linear Model}{14}
+\contentsline {chapter}{\numberline {5}Naive Bayesian}{15}
+\contentsline {chapter}{\numberline {6}Tree Models and Ensemble Learning}{16}
+\contentsline {part}{III\hspace {1em}Unsupervised Learning Models}{17}
+\contentsline {chapter}{\numberline {7}Clustering}{18}
+\contentsline {chapter}{\numberline {8}Dimension Reduction}{19}
+\contentsline {part}{IV\hspace {1em}Deep Learning and Enhanced Learning Theory}{20}
+\contentsline {chapter}{\numberline {9}Multi-layer Perceptron}{21}
+\contentsline {chapter}{\numberline {10}Multi-layer Perceptron}{22}
+\contentsline {chapter}{\numberline {11}Multi-layer Perceptron}{23}
+\contentsline {chapter}{\numberline {12}Multi-layer Perceptron}{24}
+\contentsline {chapter}{\numberline {13}Multi-layer Perceptron}{25}
+\contentsline {chapter}{\numberline {14}Multi-layer Perceptron}{26}
