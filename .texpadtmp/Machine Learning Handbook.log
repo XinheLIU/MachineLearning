@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  29 JUL 2018 11:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  29 JUL 2018 20:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -79,87 +79,92 @@ Missing character: There is no ¼ in font cmr10!
 Missing character: There is no Œ in font cmr10!
  [2
 
-] [3] [4] [5] [6]
+] [3] [4] [5]
+Overfull \hbox (45.93217pt too wide) detected at line 109
+[]\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 logf\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; ^^R\OT1/cmr/m/n/10.95 )] \OMS/cmsy/m/n/10.95 ^^T \OML/cmm/m/it/10.95 M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.95 8\OML/cmm/m/it/10.95 x \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/it/10.95 ^^_; ^^R[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 c < ^^R < ^^R[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 c; E[]\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )] \OML/cmm/m/it/10.95 < \OMS/cmsy/m/n/10.95 1
+ []
+
+[6] [7]
 Missing character: There is no ï in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 Missing character: There is no Œ in font cmr10!
- [7]
-Overfull \hbox (12.09561pt too wide) detected at line 195
+ [8] [9]
+Overfull \hbox (12.09561pt too wide) detected at line 230
 \OML/cmm/m/it/10.95 H\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 X\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m/n/10.95 ^^@ [] \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 H\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 X \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m/n/10.95 ^^@ [] \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 ) [] \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 log[]p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 )
  []
 
-[8] [9]
+[10] [11]
 Chapter 2.
-[10
+[12
 
-] [11
+] [13
 
 ]
 Chapter 3.
-[12
-
-] [13]
-Chapter 4.
 [14
+
+] [15]
+Chapter 4.
+[16
 
 ]
 Chapter 5.
-[15
+[17
 
 ]
 Chapter 6.
-[16
+[18
 
-] [17
+] [19
 
 ]
 Chapter 7.
-[18
+[20
 
 ]
 Chapter 8.
-[19
+[21
 
-] [20
+] [22
 
 ]
 Chapter 9.
-[21
-
-]
-Chapter 10.
-[22
-
-]
-Chapter 11.
 [23
 
 ]
-Chapter 12.
+Chapter 10.
 [24
 
 ]
-Chapter 13.
+Chapter 11.
 [25
 
 ]
-Chapter 14.
+Chapter 12.
 [26
+
+]
+Chapter 13.
+[27
+
+]
+Chapter 14.
+[28
 
 ] (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.aux) ) 
 Here is how much of TeX's memory you used:
- 289 strings out of 493014
- 3995 string characters out of 6133351
+ 291 strings out of 493014
+ 4019 string characters out of 6133351
  60601 words of memory out of 5000000
- 3897 multiletter control sequences out of 15000+600000
- 11304 words of font info for 39 fonts, out of 8000000 for 9000
+ 3898 multiletter control sequences out of 15000+600000
+ 11650 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 23i,6n,19p,309b,281s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.pdf" (30 pages, 202586 bytes).
+ 23i,6n,19p,312b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.pdf" (32 pages, 221740 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 112 compressed objects within 2 object streams
+ 172 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

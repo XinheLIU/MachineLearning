@@ -58,7 +58,9 @@ Theorems:
 
 \begin{enumerate}
 	\item Normal Distribution, See next chapter
+	\item Bernoulli Distribution 
 	\item Exponential Distribution $f_x(x,\theta) = \theta e^{-\theta x} $
+	\item Poisson Distribution
 	
 \end{enumerate}
 
@@ -71,14 +73,44 @@ Theorems:
     \item parameter(constant for probability model), statistic (model of sample data), data, sample, population
     \item point estimation, interval estimation, Confidence Interval( $P(L \leq \theta \leq U )$, notice: $\theta$ is not random, L, U is random! ( We repeat constructing confidence interval a n times, $\alpha$ percent of the times, it will contain $theta$.
     \item Estimator and Estimation
-       \begin{itemize}
+     \begin{itemize}
     	\item Method of Moments: $E(X^k)$ based on LOLN.\\ 
     	If We have p parameters, we can use p moments to form a system of equations to solve $\theta_1,...\theta_p$
     	$$\sum_{i=1}^n X_i^j= E(X^j)$$, for j = 1,...,p
-    	\item Maximum Likelihood Estimation. Multiply p.m.f/p.d.f since every sample is independent. Maximize the likelihood of finding samples. 
+    	\item Maximum Likelihood Estimation. Multiply p.m.f/p.d.f since every sample is independent. Maximize the likelihood of finding samples. \\ If $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x, \theta)$, 
     	$$ l(\theta) =  \prod_{i=1}^n f_{X_i} f_{x_i} (x_i; \theta), L(\theta ) = log l(\theta)$$
     	$$ \hat{\theta}_{MLE}= argmax_{\theta} f_x(x;\theta ) = argmax_{\theta} L(\theta )$$
-    	Analytical or Numerically solved. $$ \frac{\partial}{\partial \theta} [log L(\theta ) ] = 0, \frac{\partial}{\partial \theta^2} [log L(\theta ) ] < 0$$, for multiple parameters, we need the Hessian matrix to be negative definite $x^tHx<0, \forall x$ 
+    	Analytical or Numerically solved. $$ \frac{\partial}{\partial \theta} [log L(\theta ) ] = 0, \frac{\partial^2}{\partial \theta^2} [log L(\theta ) ] < 0$$, for multiple parameters, we need the Hessian matrix to be negative definite $x^tHx<0, \forall x$ \\
+    	\item Properties of MLE
+    	\begin{enumerate}
+    		\item Invariance $\hat{\theta}$ is MLE of $\theta$, then $g(\hat{\theta})$ is MLE of $g(\theta)$
+    		\item Consistency $$P(\hat{\theta} - \theta ) \rightarrow 0$$ as $n \rightarrow 0, \forall \epsilon > 0$ Under the conditions
+    		\begin{enumerate}
+    			\item $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x|\theta)$
+    			\item parameters are identifiable, $\theta \neq \theta', f_x(x|\theta) \neq f_x(x|\theta')$
+    			\item densities $f_x(x|\theta)$ has common support(set of x with positive density/probability), $f_x(x|\theta)$ is differentiable at $\theta$
+    			\item parameter space $\Omega$ contains open set $\omega$ where true $\theta_0$ is an interior point
+    		\end{enumerate}
+    		\item Asymptotic Normality 
+    		$$ \sqrt{n}(\hat{\theta}_{MLE} - \theta_0) \rightarrow N(0, I^{-1}(\theta_0)) $$
+    		$$ I(\theta_0) = E( -(\frac{\partial}{\partial \theta} [log f(x, \theta ) ])^2)=E(-\frac{\partial^2}{\partial \theta^2} [log f(x, \theta ) ] )$$ called the Fisher Information
+    		$$ \hat{\theta}_{MLE} \approx N(\theta_0, \frac{1}{n I(\theta_0)})$$
+    		$$ n I(\theta_0) = E( -\frac{\partial^2}{\partial \theta^2} log L(\theta) )$$
+    		So the Variance of MLE( $1/ E( -\frac{\partial^2}{\partial \theta^2} log L(\theta) )$) is the reciprocal of amount of curvature at MLE. \\
+    		Usually, We can just use the \textit{observed Fisher Information} (curvature near $\theta_{MLE}$) instead. ($I(\theta_{MLE})$) \\
+    		$\frac{1}{ n I(\theta_0)}$ is called Cramer-Rao Lower Bound. \\ Under Multi-dimensional Case, 
+    		
+    		$$ I(\theta_0)_{ij} = =E(-\frac{\partial^2}{\partial \theta_i \partial \theta_j} [log f(x, \theta ) ] )$$ $Hessian \approx nI(\theta_0)$ $Hessian^{-1} \approx nI(\theta_0)$ when we use numerical approach. 
+
+    		Under the above four conditions plus 
+    		\begin{enumerate}
+    			\item $ \forall x \in \chi$, $f_x(x|\theta)$ is three times differentiable with respect to $\theta$, and third derivative is continuous at $\theta$, and $\int f_x(x|\theta) dx$ can be differentiated three times under integral sign
+    			\item $ \forall \theta \in \Omega, \exists c, M(x)$ (both depends on $\theta_0$) such that
+    			$$ \frac{\partial^3}{\partial \theta^3} [log f(x, \theta ) ] \leq M(x), \forall x \in \chi, \theta_0-c<\theta < \theta_0+c, E_{\theta_0} [M(x)] < \infty$$
+    		\end{enumerate}
+    	\end{enumerate}
+    	 \item $\Delta$ -Method: $g(\hat{theta}_{MLE})$ is approximately
+    	  $$ N(g(\theta), (g'(\theta))^2 \frac{1}{nI(\theta)})$$ if asymptotic normality is satisfied.
     \end{itemize}
     \item Estimation criteria
    		\begin{itemize}
@@ -144,14 +176,17 @@ Theorems:
    
 \subsection{Practice/Examples}
 
-\begin{itemize}
-    \item sample mean($\bar{X}$).is unbiased. Sample variance ($\frac{1}{n-1}\sum_{i=1}^n x_i^n$) is unbiased. But sample std is not unbiased. $SE(\bar{X})=\frac{\sigma^2}{n}$
+\begin{enumerate}
+
+    \item sample mean($\bar{X}$) is unbiased. Sample variance ($\frac{1}{n-1}\sum_{i=1}^n x_i^n$) is unbiased. But sample std is not unbiased. $SE(\bar{X})=\frac{\sigma^2}{n}$
     \item $\hat{Cov}(X.Y) = \frac{1}{n-1} \sum_{i=1}^n(X_i-\bar{X})(X_i-\bar{Y})$ is unbiased
     \item Distributions with Expectation not exist? (Cauchy) 
     \item Common Confidence Intervals:\\ $\mu$: $P(-t_{\alpha/2, n-1} \leq \frac{\bar{X}-\mu}{s/\sqrt{n}} \leq t_{\alpha/2, n-1})= 1- \alpha$, \\$\sigma$: $P(a \leq \frac{(n-1)s^2}{\sigma^2} \leq b)= 1-\alpha$
     \item Solve MLE/MOM for beta, exponential ($n/\sum{X_i}$, normal 
+    \item * prove Asymptotic Normality of MLE( hint: using Taylor Expansion for $\theta, \hat{\theta}$ )
+    \item * Use $t^{th}$ quantile to approximate c.d.f, what's the distribution? ($Y_n=\frac{1}{n} \sum I(X_i <x)$, a Bernoulli distribution with $p=F_x(x)$, $\sqrt{n}[Y_n(x) - F_x(x)] \sim N(0, F(x)(1-F(x))$.
  
-\end{itemize}
+\end{enumerate}
  
  
 \section{Optimization Theory}
