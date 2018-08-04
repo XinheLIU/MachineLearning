@@ -72,16 +72,20 @@ Theorems:
 \begin{itemize}
     \item parameter(constant for probability model), statistic (model of sample data), data, sample, population
     \item point estimation, interval estimation, Confidence Interval( $P(L \leq \theta \leq U )$, notice: $\theta$ is not random, L, U is random! ( We repeat constructing confidence interval a n times, $\alpha$ percent of the times, it will contain $theta$.
-    \item Estimator and Estimation
-     \begin{itemize}
-    	\item Method of Moments: $E(X^k)$ based on LOLN.\\ 
+     \item Hypothesis test, type-I error(wrongly reject), type-II error(wrongly accept)
+\end{itemize}
+
+Estimator and Estimation：
+
+\begin{itemize}
+    \item Method of Moments: $E(X^k)$ based on LOLN.\\ 
     	If We have p parameters, we can use p moments to form a system of equations to solve $\theta_1,...\theta_p$
     	$$\sum_{i=1}^n X_i^j= E(X^j)$$, for j = 1,...,p
-    	\item Maximum Likelihood Estimation. Multiply p.m.f/p.d.f since every sample is independent. Maximize the likelihood of finding samples. \\ If $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x, \theta)$, 
+    \item Maximum Likelihood Estimation. Multiply p.m.f/p.d.f since every sample is independent. Maximize the likelihood of finding samples. \\ If $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x, \theta)$, 
     	$$ l(\theta) =  \prod_{i=1}^n f_{X_i} f_{x_i} (x_i; \theta), L(\theta ) = log l(\theta)$$
     	$$ \hat{\theta}_{MLE}= argmax_{\theta} f_x(x;\theta ) = argmax_{\theta} L(\theta )$$
     	Analytical or Numerically solved. $$ \frac{\partial}{\partial \theta} [log L(\theta ) ] = 0, \frac{\partial^2}{\partial \theta^2} [log L(\theta ) ] < 0$$, for multiple parameters, we need the Hessian matrix to be negative definite $x^tHx<0, \forall x$ \\
-    	\item Properties of MLE
+    \item Properties of MLE
     	\begin{enumerate}
     		\item Invariance $\hat{\theta}$ is MLE of $\theta$, then $g(\hat{\theta})$ is MLE of $g(\theta)$
     		\item Consistency $$P(\hat{\theta} - \theta ) \rightarrow 0$$ as $n \rightarrow 0, \forall \epsilon > 0$ Under the conditions
@@ -109,18 +113,17 @@ Theorems:
     			$$ \frac{\partial^3}{\partial \theta^3} [log f(x, \theta ) ] \leq M(x), \forall x \in \chi, \theta_0-c<\theta < \theta_0+c, E_{\theta_0} [M(x)] < \infty$$
     		\end{enumerate}
     	\end{enumerate}
-    	 \item $\Delta$ -Method: $g(\hat{theta}_{MLE})$ is approximately
+    \item $\Delta$ -Method: $g(\hat{theta}_{MLE})$ is approximately
     	  $$ N(g(\theta), (g'(\theta))^2 \frac{1}{nI(\theta)})$$ if asymptotic normality is satisfied.
-    \end{itemize}
     \item Estimation criteria
    		\begin{itemize}
    		 \item Unbiased $E(\hat{\theta}) = \theta$
    		 \item Minimum Variance (MVUE, minimum variance unbiased estimator) $Var(\hat{\theta}) < Var(\theta')$
    		 \item Efficient
    		 \item Coherent
-   		\end{itemize}
-   	\item Hypothesis test, type-I error(wrongly reject), type-II error(wrongly accept)
+   		 \end{itemize}
 \end{itemize}
+
 
 \subsection{Important Distributions}
 
