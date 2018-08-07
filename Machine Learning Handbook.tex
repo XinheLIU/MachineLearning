@@ -1,7 +1,7 @@
 \documentclass[11pt, openany]{book}              % Book class in 11 points
 \parindent0pt  \parskip10pt             % make block paragraphs
 \raggedright                            % do not right justify
-
+\usepackage{amsmath}
 
 \title{\bf Machine Learning Handbook}    % Supply information
 \author{Xinhe Liu}              %   for the title page.
@@ -62,20 +62,79 @@ Theorems:
 	\item Exponential Distribution $f_x(x,\theta) = \theta e^{-\theta x} $
 	\item Poisson Distribution
 	
-\end{enumerate}
+\end{enumerate} 
+\section{Information Theory}
+
+Concepts:
+
+\begin{itemize}
+    \item Information $$h(A) = -log_2 p(A)$$ (bit)
+    \item (Information Source) Entropy $$ H(X) = -\sum_{i=1}^n p(a_i)log_2p(a_i) \leq log_2 n$$ Maximize under equal probability
+    \item Conditional Entropy $$H(Y|X)  = -\sum_{i=1}^n p(x_i)H(Y|X=x_i)= -\sum_{i=1}^n p(x_i)\sum_{j=1}^n p(y_j|x_i) log_2p(y_j|x_i) $$ $$ = \sum_{i=1}^n \sum_{j=1}^n p(x_i,y_j) log_2p(y_j|x_i) $$
+    \item Mutual Information/Information Gain $$I(X;Y) = H(Y) - H(Y|X)$$
+    \item Kullback-Leibler Divergence (K-L) Divergence 
+      $$D_{KL}(P||Q) = \sum_{i=1}^n p(x_i) log_2\frac{p(x_i)}{q(x_i)} \neq D_{KL}(Q||P)$$
+      $$D_{KL}(f,\hat{f})) = \int_{-\infty}^{\infty} log(\frac{f_X(x)}{\hat{f(x)}})f_X(x)dx $$
+    Measures the Distance of two distributions. The optimal encoding of information has the same bits as the entropy. Measures the extra bits if the real distribution is q rather than p. (Using P to approximate Q) K-L divergence plays an important role in both information theory and MLE theory. MLE $\hat{\theta}$ is actually finding the closest K-L Distance approximation of $f(x;\theta)$ to sample distribution.
+\end{itemize}
 
 
-\section{Statistics}
+Theorems:
 
-\subsection{Concepts}
+\begin{itemize}
+    \item The Maximum Entropy Principle. Without extra assumption, max entropy/equal probability has the minimum prediction risk. 
+\end{itemize}
+ 
+\section{Optimization Theory}
 
+\begin{itemize}
+    \item Objective function/Evaluation function, constrained/unconstrained optimization，Feasible Set, Optimal Solution, Optimal Value, Binding Constraints, Shadow Price, Infeasible Price, Infeasibility, Unboundedness    
+    \item Linear Programming
+    \item Lagrange Multiplier $$L(x,y,\lambda) = f(x,y) + \lambda \varphi(x,y) $$
+    \item Convex Set, Convex Function $f:S\to R$ is convex if and only if $\bigtriangledown^2 f(\mathbf{x})$ is positive semidefinite 
+\end{itemize}
+
+Optimization Methods:
+\begin{itemize}
+    \item Linear Search Method: Direction First, Step Size second	
+    	\begin{itemize}  		
+    		\item Gradient Descent: Batch Processing(Use all samples) vs Stochastic Gradient Descent(Use one sample)
+    		\item Newton's Method: Use Curvature Information 
+   		\end{itemize}
+   	\item Trust Region: Step first, direction second. Find optimal direction of second-order approximation. If the descent size is too small, make step size smaller.
+   	\item Heuristics Method
+   		\begin{itemize}  		
+	    	\item Genetic Algorithm
+	 	   	\item Simulated Annealing 
+	    	\item Partical Swarming/Ant Colony Algorithm
+	    \end{itemize}
+\end{itemize}
+
+Theorems:
+
+\begin{itemize}
+	\item
+\end{itemize}
+
+
+\section{Formal Logic}
+
+Concepts
+\begin{itemize}
+    \item Generative Expert System: Rule+Facts+Deduction Engine 
+    \item Godel's incompleteness theorems
+\end{itemize}
+
+\chapter{Statistics}
+
+\section{Concepts}
+\subsection{Basic}
 \begin{itemize}
     \item parameter(constant for probability model), statistic (model of sample data), data, sample, population
     \item point estimation, interval estimation, Confidence Interval( $P(L \leq \theta \leq U )$, notice: $\theta$ is not random, L, U is random! ( We repeat constructing confidence interval a n times, $\alpha$ percent of the times, it will contain $theta$.
-     \item Hypothesis test, type-I error(wrongly reject), type-II error(wrongly accept)
 \end{itemize}
 
-Estimator and Estimation：
+\subsection{Estimator and Estimation}
 
 \begin{itemize}
     \item Method of Moments: $E(X^k)$ based on LOLN.\\ 
@@ -114,7 +173,16 @@ Estimator and Estimation：
     		\end{enumerate}
     	\end{enumerate}
     \item $\Delta$ -Method: $g(\hat{theta}_{MLE})$ is approximately
-    	  $$ N(g(\theta), (g'(\theta))^2 \frac{1}{nI(\theta)})$$ if asymptotic normality is satisfied.
+    	  $$ N(g(\theta), (g'(\theta))^2 \frac{1}{nI(\theta)})$$ if asymptotic normality is satisfied. \\
+    	  In Multivariate Case:
+    	  $$ \hat{\theta} \sim N(\theta, \Sigma/n), \theta,\hat{\theta} \in R^p $$
+    	  $$g: R^p \rightarrow R^m$$
+    	  $$g(\hat{\theta}) \sim N(g(\theta), G\Sigma G^T/n)$$
+		  $$ G = \begin{pmatrix} 
+  				\frac{\partial{g_1(\theta)}}{\partial{\theta_1}}& \cdots & \frac{\partial{g_1(\theta)}}{\partial{\theta_p}}\\ 
+  				\vdots & \ddots & \vdots \\
+  				\frac{\partial{g_m(\theta)}}{\partial{\theta_1}}& \cdots & \frac{\partial{g_m(\theta)}}{\partial{\theta_p}} 
+			\end{pmatrix} $$
     \item Estimation criteria
    		\begin{itemize}
    		 \item Unbiased $E(\hat{\theta}) = \theta$
@@ -124,8 +192,37 @@ Estimator and Estimation：
    		 \end{itemize}
 \end{itemize}
 
+\subsection{Model Selection}
 
-\subsection{Important Distributions}
+AIC - Akaike Information Criterion
+
+By K-L Distance
+$$D_{KL}(f,\hat{f})) = \int_{-\infty}^{\infty} log(\frac{f_X(x)}{\hat{f(x)}})f_X(x)dx $$
+$$ = const + \frac{1}{2} \int (-2log\hat{f}(x))f(x)dx = const + AIC $$
+$$ A(f,\hat{f}) = -2 logL(\theta) + 2 p (\frac{n}{n-p+1})$$
+
+\subsection{Hypothesis Testing}
+
+\begin{itemize}
+    \item Hypothese, Test Statistic, Rejection Region
+    \item p-value ( chance of rejecting, largest choice of $\alpha$ that we would fail to reject $H_0$)   
+    \item type-I error(wrongly reject), type-II error(wrongly accept)
+\end{itemize}
+
+\section{Theorems}
+
+\begin{itemize}
+    \item Law of Large Number
+    \item Central Limit Theorem
+        \item Bias/Variance decomposition (error = bias + variance + noise)
+        $$MSE(\mu(X) ) = E[(Y-\hat{\mu}(X))^2]  = = E[(Y-f(x) + f(x) -\hat{\mu}(X))^2]$$
+    $$= E[(Y-f(x)]^2 + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + E[(f(x)-\hat{\mu}(X))^2]$$
+     $$= E[(Y-f(x)]^2 + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + (f(x)-\hat{\mu}(X))^2$$
+    $$ =\sigma_x^2 + Bias(\hat{\mu}(X))^2 + Var(\hat{\mu}(X))$$
+ 
+\end{itemize}
+
+\section{Important Distributions}
 
 \begin{enumerate}
 	\item Normal Distribution, $X_1,...X_n \sim N(\mu,\sigma^2)$ then
@@ -159,25 +256,22 @@ Estimator and Estimation：
 		\item $E(X)=k, Var(X)=2k, M_X(t)= (\frac{1}{1-2^t})^{k/2}$
 		\item $X \sim N(0,1) \Rightarrow X^2 \sim \chi^2$, $X_1,...X_n \sim N(0,1) i.i.d \Rightarrow \sum X_i^2 \sim \chi^2$,
 		$$ f_X(x)=\frac{1}{\pi(1+x^2)}$$
-	\end{enumerate}
-	
+	\end{enumerate}	
+\end{enumerate}
+
+More Generalized Distributions
+
+\begin{enumerate}
+	\item Generalized Error Distribution (symmetric)
+	\item Non-standard t-distribution (shift and scaling, heavy tailed, symmetric)
+	\item Theodossious skewed t-distribution
+	\item Theodossious skewed t-distribution plus shift
 \end{enumerate}
 
 
-\subsection{Theorems}
 
-\begin{itemize}
-    \item Law of Large Number
-    \item Central Limit Theorem
-        \item Bias/Variance decomposition (error = bias + variance + noise)
-        $$MSE(\mu(X) ) = E[(Y-\hat{\mu}(X))^2]  = = E[(Y-f(x) + f(x) -\hat{\mu}(X))^2]$$
-    $$= E[(Y-f(x)]^2 + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + E[(f(x)-\hat{\mu}(X))^2]$$
-     $$= E[(Y-f(x)]^2 + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + (f(x)-\hat{\mu}(X))^2$$
-    $$ =\sigma_x^2 + Bias(\hat{\mu}(X))^2 + Var(\hat{\mu}(X))$$
- 
-\end{itemize}
    
-\subsection{Practice/Examples}
+\section{Practice/Examples}
 
 \begin{enumerate}
 
@@ -188,68 +282,11 @@ Estimator and Estimation：
     \item Solve MLE/MOM for beta, exponential ($n/\sum{X_i}$, normal 
     \item * prove Asymptotic Normality of MLE( hint: using Taylor Expansion for $\theta, \hat{\theta}$ )
     \item * Use $t^{th}$ quantile to approximate c.d.f, what's the distribution? ($Y_n=\frac{1}{n} \sum I(X_i <x)$, a Bernoulli distribution with $p=F_x(x)$, $\sqrt{n}[Y_n(x) - F_x(x)] \sim N(0, F(x)(1-F(x))$.
- 
+ 	\item $X_1, .... X_n \sim Binomial(n,p)$, What's the MLE for p and Fisher Information? ( $\hat{p}= \frac{x_i}{n}, I(p) = 1/p(1-p), var(p) = \frac{p(1-p)}{n}$)
+ 	\item $(x_i,y_i) \sim N(\mu_i, \sigma^2)$, find MLE for $\sigma$ ( $\frac{1}{4N} \sum(x_i-y_i)$ )
+ 	\item How can you get N(0,1) random variables from U[0,1]? ( Method1: Inverse Transformation, Method2; Use $Sum Z_i^2 \sim \chi_k^2, k = 2, F^{-1}(u) = -2log(1-u)$, $R^2 \sim \chi^2, Z_1 = Rcos\theta, Z_2 = Rsin\theta, \theta \in [0, 2\pi]$
 \end{enumerate}
- 
- 
-\section{Optimization Theory}
 
-\begin{itemize}
-    \item Objective function/Evaluation function, constrained/unconstrained optimization，Feasible Set, Optimal Solution, Optimal Value, Binding Constraints, Shadow Price, Infeasible Price, Infeasibility, Unboundedness    
-    \item Linear Programming
-    \item Lagrange Multiplier $$L(x,y,\lambda) = f(x,y) + \lambda \varphi(x,y) $$
-    \item Convex Set, Convex Function $f:S\to R$ is convex if and only if $\bigtriangledown^2 f(\mathbf{x})$ is positive semidefinite 
-\end{itemize}
-
-Optimization Methods:
-\begin{itemize}
-    \item Linear Search Method: Direction First, Step Size second	
-    	\begin{itemize}  		
-    		\item Gradient Descent: Batch Processing(Use all samples) vs Stochastic Gradient Descent(Use one sample)
-    		\item Newton's Method: Use Curvature Information 
-   		\end{itemize}
-   	\item Trust Region: Step first, direction second. Find optimal direction of second-order approximation. If the descent size is too small, make step size smaller.
-   	\item Heuristics Method
-   		\begin{itemize}  		
-	    	\item Genetic Algorithm
-	 	   	\item Simulated Annealing 
-	    	\item Partical Swarming/Ant Colony Algorithm
-	    \end{itemize}
-\end{itemize}
-
-Theorems:
-
-\begin{itemize}
-	\item
-\end{itemize}
-
-\section{Information Theory}
-
-Concepts:
-
-\begin{itemize}
-    \item Information $$h(A) = -log_2 p(A)$$ (bit)
-    \item (Information Source) Entropy $$ H(X) = -\sum_{i=1}^n p(a_i)log_2p(a_i) \leq log_2 n$$ Maximize under equal probability
-    \item Conditional Entropy $$H(Y|X)  = -\sum_{i=1}^n p(x_i)H(Y|X=x_i)= -\sum_{i=1}^n p(x_i)\sum_{j=1}^n p(y_j|x_i) log_2p(y_j|x_i) $$ $$ = \sum_{i=1}^n \sum_{j=1}^n p(x_i,y_j) log_2p(y_j|x_i) $$
-    \item Mutual Information/Information Gain $$I(X;Y) = H(Y) - H(Y|X)$$
-    \item Kullback-Leibler Divergence (K-L) Divergence $$D_{KL}(P||Q) = \sum_{i=1}^n p(x_i) log_2\frac{p(x_i)}{q(x_i)} \neq D_{KL}(Q||P)$$
-    	Measures the Distance of two distributions. The optimal encoding of information has the same bits as the entropy. Measures the extra bits if the real distribution is q rather than p. (Using P to approximate Q)
-\end{itemize}
-
-
-Theorems:
-
-\begin{itemize}
-    \item The Maximum Entropy Principle. Without extra assumption, max entropy/equal probability has the minimum prediction risk. 
-\end{itemize}
-
-\section{Formal Logic}
-
-Concepts
-\begin{itemize}
-    \item Generative Expert System: Rule+Facts+Deduction Engine 
-    \item Godel's incompleteness theorems
-\end{itemize}
 
 \chapter{Computational Learning Theory}
 
