@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 AUG 2018 21:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  8 AUG 2018 23:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -96,13 +96,10 @@ LaTeX Font Info:    ... okay on input line 11.
  [1
 
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.toc
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.toc [2
 
 ]
-Underfull \vbox (badness 1418) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3])
 \tf@toc=\write3
@@ -141,13 +138,10 @@ Missing character: There is no ¼ in font cmr10!
 Missing character: There is no Œ in font cmr10!
  [5] [6]
 Chapter 2.
-Missing character: There is no ï in font cmr10!
-Missing character: There is no ¼ in font cmr10!
-Missing character: There is no š in font cmr10!
 [7
 
 ] [8]
-Overfull \hbox (27.31717pt too wide) detected at line 173
+Overfull \hbox (27.31717pt too wide) detected at line 172
 []\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 logf\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; ^^R\OT1/cmr/m/n/10.95 )] \OMS/cmsy/m/n/10.95 ^^T \OML/cmm/m/it/10.95 M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.95 8\OML/cmm/m/it/10.95 x \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/it/10.95 ^^_; ^^R[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 c < ^^R < ^^R[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 c; E[]\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )] \OML/cmm/m/it/10.95 < \OMS/cmsy/m/n/10.95 1
  []
 
@@ -162,52 +156,57 @@ Chapter 4.
 [16
 
 ] [17]
-Chapter 5.
-[18
+Overfull \hbox (20.63362pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10.95 18 \OT1/cmr/m/sl/10.95 CHAPTER 4.  REGRESSION AND OVERVIEW OF RELATED METHODS
+ []
 
-]
-Chapter 6.
+[18]
+Chapter 5.
 [19
 
 ]
-Chapter 7.
+Chapter 6.
 [20
 
-] [21
+]
+Chapter 7.
+[21
+
+] [22
 
 ]
 Chapter 8.
-[22
+[23
 
 ]
 Chapter 9.
-[23
+[24
 
-] [24
+] [25
 
 ]
 Chapter 10.
-[25
-
-]
-Chapter 11.
 [26
 
 ]
-Chapter 12.
+Chapter 11.
 [27
 
 ]
-Chapter 13.
+Chapter 12.
 [28
 
 ]
-Chapter 14.
+Chapter 13.
 [29
 
 ]
-Chapter 15.
+Chapter 14.
 [30
+
+]
+Chapter 15.
+[31
 
 ] (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.aux) ) 
 Here is how much of TeX's memory you used:
@@ -217,12 +216,12 @@ Here is how much of TeX's memory you used:
  4490 multiletter control sequences out of 15000+600000
  12548 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,9n,20p,448b,285s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,9n,20p,448b,282s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.pdf" (34 pages, 228578 bytes).
+Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.pdf" (35 pages, 231601 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
+ 181 PDF objects out of 1000 (max. 8388607)
+ 126 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

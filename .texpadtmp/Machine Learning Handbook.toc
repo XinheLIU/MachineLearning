@@ -8,26 +8,31 @@
 \contentsline {section}{\numberline {1.5}Formal Logic}{6}
 \contentsline {chapter}{\numberline {2}Statistics}{7}
 \contentsline {section}{\numberline {2.1}Concepts}{7}
-\contentsline {section}{\numberline {2.2}Important Distributions}{10}
-\contentsline {section}{\numberline {2.3}Theorems}{12}
+\contentsline {subsection}{\numberline {2.1.1}Basic}{7}
+\contentsline {subsection}{\numberline {2.1.2}Estimator and Estimation}{7}
+\contentsline {subsection}{\numberline {2.1.3}Model Selection}{10}
+\contentsline {subsection}{\numberline {2.1.4}Hypothesis Testing}{10}
+\contentsline {section}{\numberline {2.2}Theorems}{10}
+\contentsline {section}{\numberline {2.3}Important Distributions}{11}
 \contentsline {section}{\numberline {2.4}Practice/Examples}{12}
 \contentsline {chapter}{\numberline {3}Computational Learning Theory}{14}
 \contentsline {part}{II\hspace {1em}Supervised Learning Models}{15}
-\contentsline {chapter}{\numberline {4}Regression}{16}
-\contentsline {section}{\numberline {4.1}Linear Regressions}{16}
-\contentsline {subsection}{\numberline {4.1.1}Assumptions}{16}
-\contentsline {subsection}{\numberline {4.1.2}Inteprataion}{16}
-\contentsline {subsection}{\numberline {4.1.3}Lasso-Least Absolute Shrinkage and Selection Operator}{17}
-\contentsline {chapter}{\numberline {5}Logistic Regression and General Linear Model}{18}
-\contentsline {chapter}{\numberline {6}Naive Bayesian}{19}
-\contentsline {chapter}{\numberline {7}Tree Models and Ensemble Learning}{20}
-\contentsline {part}{III\hspace {1em}Unsupervised Learning Models}{21}
-\contentsline {chapter}{\numberline {8}Clustering}{22}
-\contentsline {chapter}{\numberline {9}Dimension Reduction}{23}
-\contentsline {part}{IV\hspace {1em}Deep Learning and Enhanced Learning Theory}{24}
-\contentsline {chapter}{\numberline {10}Multi-layer Perceptron}{25}
-\contentsline {chapter}{\numberline {11}Multi-layer Perceptron}{26}
-\contentsline {chapter}{\numberline {12}Multi-layer Perceptron}{27}
-\contentsline {chapter}{\numberline {13}Multi-layer Perceptron}{28}
-\contentsline {chapter}{\numberline {14}Multi-layer Perceptron}{29}
-\contentsline {chapter}{\numberline {15}Multi-layer Perceptron}{30}
+\contentsline {chapter}{\numberline {4}Regression and Overview of Related Methods}{16}
+\contentsline {section}{\numberline {4.1}Overview}{16}
+\contentsline {section}{\numberline {4.2}Linear Regressions}{17}
+\contentsline {subsection}{\numberline {4.2.1}Assumptions}{18}
+\contentsline {subsection}{\numberline {4.2.2}Inteprataion}{18}
+\contentsline {subsection}{\numberline {4.2.3}Lasso-Least Absolute Shrinkage and Selection Operator}{18}
+\contentsline {chapter}{\numberline {5}Logistic Regression and General Linear Model}{19}
+\contentsline {chapter}{\numberline {6}Naive Bayesian}{20}
+\contentsline {chapter}{\numberline {7}Tree Models and Ensemble Learning}{21}
+\contentsline {part}{III\hspace {1em}Unsupervised Learning Models}{22}
+\contentsline {chapter}{\numberline {8}Clustering}{23}
+\contentsline {chapter}{\numberline {9}Dimension Reduction}{24}
+\contentsline {part}{IV\hspace {1em}Deep Learning and Enhanced Learning Theory}{25}
+\contentsline {chapter}{\numberline {10}Multi-layer Perceptron}{26}
+\contentsline {chapter}{\numberline {11}Multi-layer Perceptron}{27}
+\contentsline {chapter}{\numberline {12}Multi-layer Perceptron}{28}
+\contentsline {chapter}{\numberline {13}Multi-layer Perceptron}{29}
+\contentsline {chapter}{\numberline {14}Multi-layer Perceptron}{30}
+\contentsline {chapter}{\numberline {15}Multi-layer Perceptron}{31}

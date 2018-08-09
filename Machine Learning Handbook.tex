@@ -292,9 +292,64 @@ More Generalized Distributions
 
 \part{Supervised Learning Models}
 
-\chapter{Regression}
+\chapter{Regression and Overview of Related Methods}
+
+\section{Overview}
+
+All Basic Models begins with \textbf{Linear Regression} Because
+
+\begin{itemize}
+    \item Linear relationship is the simplest relationship other than constant relationship or "null" model (average)
+    \item It's a global model
+    \item Data Invariance: Simple linear model don't do any pre-processing or transformation on the covariants.
+    \item Very Explainable, limited interpretation power.
+\end{itemize}
+ 
+ So, the alternation/improvements also focuses on these aspects
+ 
+ \begin{itemize}
+ 	\item Nonlinear features-Introduction of basis function
+ 	\begin{itemize}
+    	\item Polynomial Regression
+    	\item Spline Models(eg. Cubic Spline, Smoothing Spline)
+	\end{itemize}
+ 	\item Nonlinear parameters: Parameters Self-adjusting.(activation function is an example of basis function as well)
+ 	 \begin{itemize}
+    	\item Neutral-Network
+	\end{itemize}
+ 	\item global nonlinear: global nonlinear on both parameters and features achieved by linkage function, extends regression models to classification.
+ 	 \begin{itemize}
+    	\item Generalized Linear Model
+	\end{itemize}
+    \item Change the global model to a local model
+   	\begin{itemize}
+    	\item Local Regression ( Regression + KNN) 
+    	\item Nonparametric Regression
+    	\item Kernel Function 
+    	\item Distance Based Learning
+	\end{itemize}	
+	\item Data Preprocessing (Transformation) and Dimension Reduction
+   	\begin{itemize}
+    	\item PCA
+    	\item LDA
+    	\item Manifold Learning
+	\end{itemize}
+	\item Improve Generalization Capability from outside (not from inside the model)
+	\begin{itemize}
+    	\item Regularization Methods(eg. Ridge, Lasso)
+    	\item Ensemble Learning(Stacking, Aggregating): Random Forest, Boosting(GBDT), Deep Learning...
+	\end{itemize}
+ \end{itemize}
+
 
 \section{Linear Regressions}
+
+Common Terms
+
+\begin{enumerate}
+    \item Independent Variable=Features
+    \item Dependent Variable=
+\end{enumerate}
 
 
 \subsection{Assumptions}
@@ -321,18 +376,27 @@ $$p(\mathbf{x_1, x_2 ... x_n}| \mathbf{ w} ) = \prod_k \frac{1}{\sqrt{2\pi} \sig
 
 $$ min ||y_k - \mathbf{w^T x}_k ||^2 + \lambda ||\mathbf{w}||_1 $$
 
-\chapter{Logistic Regression and General Linear Model}
+\section{Regularization, Ridge and Lasso}
+
+\chapter{Logistic Regression and Generalized Linear Model}
+
+\chapter{Neutral-Network}
+
+\chapter{Distance and Kth Nearest Neighbors}
 
 \chapter{Naive Bayesian}
 
 \chapter{Tree Models and Ensemble Learning}
+
+Stackting Aggreating: Random Forest, Boosting(GBDT), Deep Learning...
 
 \part{Unsupervised Learning Models}
 
 \chapter{Clustering}
 
 \chapter{Dimension Reduction}
-
+\section{PCA}
+\section{LDA}
 
 
 \part{Deep Learning and Enhanced Learning Theory}
