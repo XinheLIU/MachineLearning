@@ -3,6 +3,9 @@
 \raggedright                            % do not right justify
 \usepackage{amsmath}
 
+\DeclareMathOperator*{\argmax}{arg\,max}  % in your preamble
+\DeclareMathOperator*{\argmin}{arg\,min}  % in your preamble 
+
 \title{\bf Machine Learning Handbook}    % Supply information
 \author{Xinhe Liu}              %   for the title page.
 \date{2018-2-28}                           %   Use current date. 
@@ -51,7 +54,7 @@ Theorems:
 
 \begin{itemize}
     \item Law of Total Probability
-    \item Bayesian Theorem $$P(H|D) = \frac{P(D|H) P(H)}{P(D)}$$ P(H)-prior probability, P(D|H)-likelihood, P(H|D)-posterior probability,
+    \item Bayes' Rule $$P(H|D) = \frac{P(D|H) P(H)}{P(D)}$$ P(H)-prior probability, P(D|H)-likelihood, P(H|D)-posterior probability,
 \end{itemize}
 
 \subsection{Important Distributions, Moment Generating Functions}
@@ -156,7 +159,8 @@ Concepts
     		\end{enumerate}
     		\item Asymptotic Normality 
     		$$ \sqrt{n}(\hat{\theta}_{MLE} - \theta_0) \rightarrow N(0, I^{-1}(\theta_0)) $$
-    		$$ I(\theta_0) = E( -(\frac{\partial}{\partial \theta} [log f(x, \theta ) ])^2)=E(-\frac{\partial^2}{\partial \theta^2} [log f(x, \theta ) ] )$$ called the Fisher Information
+    		$$ I(\theta_0) = E( -(\frac{\partial}{\partial \theta} [log f(x, \theta ) ])^2)=E(-\frac{\partial^2}{\partial \theta^2} [log f(x, \theta ) ] )$$ 
+    		called the Fisher Information
     		$$ \hat{\theta}_{MLE} \approx N(\theta_0, \frac{1}{n I(\theta_0)})$$
     		$$ n I(\theta_0) = E( -\frac{\partial^2}{\partial \theta^2} log L(\theta) )$$
     		So the Variance of MLE( $1/ E( -\frac{\partial^2}{\partial \theta^2} log L(\theta) )$) is the reciprocal of amount of curvature at MLE. \\
@@ -204,13 +208,39 @@ $$ A(f,\hat{f}) = -2 logL(\theta) + 2 p (\frac{n}{n-p+1})$$
 \subsection{Hypothesis Testing}
 
 \begin{itemize}
-    \item Hypothese, Test Statistic, Rejection Region
+    \item Hypothese, Test Statistic(T), Rejection Region
     \item p-value ( chance of rejecting, largest choice of $\alpha$ that we would fail to reject $H_0$)   
     \item type-I error(wrongly reject), type-II error(wrongly accept)
 \end{itemize}
 
-\section{Theorems}
+Hypothesis Testings (Based on the distribution of $\hat{\theta}$)
 
+\begin{itemize}
+    \item Wald Test $$T = \frac{\hat{\theta} - \theta_0}{Se(\hat{\theta})}$$
+    $$ \hat{\theta}_{MLE} \approx N(\theta_0, \frac{1}{n I(\theta_0)})$$
+   $$T = \frac{\hat{\theta} - \theta_0}{\sqrt{\frac{1}{nI(\theta_0)})}}$$
+    \item Likelihood Ratio Test
+    \item Score Test
+\end{itemize}
+
+*Computation-based hypothesis testing approach
+
+\begin{itemize}
+    \item Permutation tests: \\ Test $X_1,..X_n \sim F, Y_1,...Y_n \sim G, if F=G$. Use $T = Mean(X_i )- Mean(Y_i)$, each time scramble X and V labels and should not not change the distributions of vectors $X_1,...X_n, Y_1...,Y_n$
+    \item Bootstrapping: \\ $X_1,...X_n \sim F$ with $T = T(X_1,...,X_n)$, to get the distribution of T, \textbf{sample with replacement.} The belief is $(\hat{\theta} - \theta)$ should behave the same as $(\theta* - \hat{theta})$. The first quantity can be treated like a pivot.  (use $(\theta*_1 - \hat{\theta}_1),...(\theta*_n - \hat{\theta}_n)$ to test. 
+\end{itemize}
+
+Multiple Testing 
+
+\begin{itemize}
+    \item Family-wise Error Rate(FWER) the probability of rejecting at least one of at least one null hypothesis \\ 
+    Under independence, the probability of making mistake when all null are true: (P( any type I mistake) = 1-P(no type I mistake for all) = $1-(1-\alpha)^M=\beta$) \\
+    \item Bonferroni correction, assuming independence $P(\bigcup_{i=1}^n {typeI_mistake}) \leq \sum_{i=1}^n P(typeI_mistake) \leq M\alpha$, control at $\alpha=\frac{\alpha}{M}$ \\
+    $\alpha$ being to small will impact power of the individual tests!
+    \item False Discovery Rate(FDR): bound the fraction of type-I errors. R be the total number of hypotheses rejected. V be the number of rejected hypotheses that were actually null. Let FDR = V/max(R,1), control $E(FDR) \leq \alpha$.
+\end{itemize}
+
+\section{Theorems}
 \begin{itemize}
     \item Law of Large Number
     \item Central Limit Theorem
@@ -219,7 +249,6 @@ $$ A(f,\hat{f}) = -2 logL(\theta) + 2 p (\frac{n}{n-p+1})$$
     $$= E[(Y-f(x)]^2 + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + E[(f(x)-\hat{\mu}(X))^2]$$
      $$= E[(Y-f(x)]^2 + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + (f(x)-\hat{\mu}(X))^2$$
     $$ =\sigma_x^2 + Bias(\hat{\mu}(X))^2 + Var(\hat{\mu}(X))$$
- 
 \end{itemize}
 
 \section{Important Distributions}
@@ -269,8 +298,6 @@ More Generalized Distributions
 \end{enumerate}
 
 
-
-   
 \section{Practice/Examples}
 
 \begin{enumerate}
@@ -285,14 +312,47 @@ More Generalized Distributions
  	\item $X_1, .... X_n \sim Binomial(n,p)$, What's the MLE for p and Fisher Information? ( $\hat{p}= \frac{x_i}{n}, I(p) = 1/p(1-p), var(p) = \frac{p(1-p)}{n}$)
  	\item $(x_i,y_i) \sim N(\mu_i, \sigma^2)$, find MLE for $\sigma$ ( $\frac{1}{4N} \sum(x_i-y_i)$ )
  	\item How can you get N(0,1) random variables from U[0,1]? ( Method1: Inverse Transformation, Method2; Use $Sum Z_i^2 \sim \chi_k^2, k = 2, F^{-1}(u) = -2log(1-u)$, $R^2 \sim \chi^2, Z_1 = Rcos\theta, Z_2 = Rsin\theta, \theta \in [0, 2\pi]$
+ 	\item (Permutation test) how can you test $X_1,...,X_n \sim F$, how can you test if F is symmetric? (Multiply -1 on all two form two sample groups)
+ 	\item Draw a bootstrap sample, what fraction of original data points appear in this sample on average?  
+ 	\\ Define I be the indicator is it is in the sample. $E(\frac{1}{n}\sum I_i= E(I_i) = P(\text{ith point shows up})= 1- (1-\frac{1}{n})^n$
 \end{enumerate}
 
+\chapter{Bayesian Statistical Theory}
 
+Bayes' Rule 
+$$ f_{Y|X}(y|x) = \frac{f_{(X,Y)}(x,y)}{f_X(x)} = \frac{f_{(X,Y)}(x,y)}{\int f(x|y)f(y)dy}$$
+Byesian Inference:\\
+All parameters are random variables,
+$$\pi(\theta|x) =  \frac{f(x|\theta) \pi(\theta)}{\int f(x|\theta)\pi(\theta)d\theta}$$
+$$\pi(\theta|x) \sim  f(x|\theta) \pi(\theta)$$
+$\pi(\theta)$ is the prior distribution, $\pi(\theta|x)$ is the posterior distribution for $\theta$ given x. 
+
+Bayes Estimator
+$$\hat{\theta}_{Bayes} = E(\theta | X) = \int \theta \pi(\theta |X ) d\theta$$
+
+Conjugate Distribution:
+$f(x), \pi$ is called conjugate distributions if model $\pi(\theta|x), \pi(\theta)$ follows the same Distribution
+
+eg. Bernoulli($\theta$) and Beta($\alpha,\beta$),  ( $\pi(\theta|x) \sim$ Beta($\alpha+\sum X_i, \beta + n - \sum X_i$) ($f(x|\theta) = \prod_{i=1}^n f_{X_i}(X_i|\theta)$)
+$$\hat{\theta}_{Bayes} = E(\theta | X) = \frac{ \alpha + \sum X_i}{ \alpha + \beta + n} $$
+$$= \frac{\sum X_i}{n}\frac{n}{\alpha + \beta + n} + \frac{\alpha}{\alpha + \beta}\frac{ \alpha + \beta}{\alpha + \beta + n}$$
+
+The prior mean ( second term ) influences less as n grows.
+
+Poisson($\theta$) and $Gamma(\alpha + \sum X_i, \beta + n )$ 
+
+\section{ Bayesian Decision Theory}
+
+In State $\omega$ we take action $a \in A$, incurr Loss $L(\omega,a)$, how to choose a?
+Risk:
+$$R(a|x) = \sum_{j=1}^k L(\omega_j, a) P(\omega_j |x )$$
+Decision Rule $d \in A$
+$$d^*(x) = \argmin_{a \in A} R(a|x)$$
 \chapter{Computational Learning Theory}
 
 \part{Supervised Learning Models}
 
-\chapter{Regression and Overview of Related Methods}
+\chapter{Regression Overview and Linear Regression}
 
 \section{Overview}
 
@@ -347,18 +407,33 @@ All Basic Models begins with \textbf{Linear Regression} Because
 Common Terms
 
 \begin{enumerate}
-    \item Independent Variable=Features
+    \item Independent Variable=Features=covariates
     \item Dependent Variable=
 \end{enumerate}
 
 
 \subsection{Assumptions}
 Classic Assumptions for Statistics:
-\begin{itemize}
-    \item 
-\end{itemize}
+\begin{enumerate}
+    \item Linear Relationship between covariates and dependent variable
+    \item $E(\varepsilon)=0$
+    \item $Var(\varepsilon) =\sigma^2$: Homoscedasticity
+    \item $\varepsilon$ is independent with covariates 
+    \item x is observed without error
+    \item (optional, Gauss-Markov Theorm) $\varepsilon$ is normal - when it is, OLS and MLE agrees and to be BLUE(Best Linear Unbiased Estimator)
+\end{enumerate}
 
-\subsection{Inteprataion}
+\subsection{Intepretaion}
+
+
+Under Normal Condition, we have
+$$y \sim N(\beta_0 + \beta x_i, \sigma^2), L(\theta) = (\frac{1}{\sqrt{2\pi} \sigma)}^n exp( - \frac{\sum_{i=1}^n (y_i - (\beta_0 +\beta_1x_i))^2}{2\sigma^2})$$ 
+Equivalent to minimize
+$$RSS(\theta) = \sum_{i=1}^n (y_i - (\beta_0 +\beta_1x_i))^2$$
+$$ \partial_{\beta_i} RSS = 0, i =1,2$$, we get
+$$ r_{xy} = \frac{s_{xy}}{s_xs_y}, \beta_1 = r_{xy}\frac{s_y}{s_x} =\frac{s_{xy}}{s_x^2},\beta_0 = \bar{y}-\hat{\beta}\bar{x} $$
+
+In Multi-variate Case:
 
 $$ f(x) = \mathbf{w}^T \mathbf{x} = \sum_{i=1}^n w_i x_i $$
 $$ \mathbf{w*} = (\mathbf{X^T X})^{-1} \mathbf{X^T y} $$
@@ -388,7 +463,7 @@ $$ min ||y_k - \mathbf{w^T x}_k ||^2 + \lambda ||\mathbf{w}||_1 $$
 
 \chapter{Tree Models and Ensemble Learning}
 
-Stackting Aggreating: Random Forest, Boosting(GBDT), Deep Learning...
+Stacking Aggregating: Random Forest, Boosting(GBDT), Deep Learning...
 
 \part{Unsupervised Learning Models}
 
@@ -403,15 +478,7 @@ Stackting Aggreating: Random Forest, Boosting(GBDT), Deep Learning...
 
 \chapter{Multi-layer Perceptron}
 
-\chapter{Multi-layer Perceptron}
 
-\chapter{Multi-layer Perceptron}
-
-\chapter{Multi-layer Perceptron}
-
-\chapter{Multi-layer Perceptron}
-
-\chapter{Multi-layer Perceptron}
 
  
 \end{document}                          % The required last line 

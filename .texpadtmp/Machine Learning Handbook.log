@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  8 AUG 2018 23:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 AUG 2018 22:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -81,25 +81,25 @@ LaTeX Info: Redefining \] on input line 2740.
 ) (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.aux)
 \openout1 = `"Machine Learning Handbook.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
  [1
 
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.toc [2
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 5924) has occurred while \output is active []
 
  [3])
 \tf@toc=\write3
@@ -110,12 +110,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 Chapter 1.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 25.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 28.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 25.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
 Missing character: There is no ï in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 Missing character: There is no Œ in font cmr10!
@@ -125,10 +125,10 @@ Missing character: There is no Œ in font cmr10!
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 44.
+(amsmath)                 on input line 47.
 
 [3]
-Overfull \hbox (15.8969pt too wide) detected at line 73
+Overfull \hbox (15.8969pt too wide) detected at line 76
 \OML/cmm/m/it/10.95 H\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 X\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m/n/10.95 ^^@ [] \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 H\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 X \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m/n/10.95 ^^@ [] \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 ) [] \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 log[]p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 )
  []
 
@@ -141,87 +141,84 @@ Chapter 2.
 [7
 
 ] [8]
-Overfull \hbox (27.31717pt too wide) detected at line 172
+Overfull \hbox (27.31717pt too wide) detected at line 176
 []\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 logf\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; ^^R\OT1/cmr/m/n/10.95 )] \OMS/cmsy/m/n/10.95 ^^T \OML/cmm/m/it/10.95 M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.95 8\OML/cmm/m/it/10.95 x \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/it/10.95 ^^_; ^^R[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 c < ^^R < ^^R[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 c; E[]\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )] \OML/cmm/m/it/10.95 < \OMS/cmsy/m/n/10.95 1
  []
 
-[9] [10] [11] [12] [13]
+[9] [10] [11] [12] [13] [14]
 Chapter 3.
-[14
+[15
 
-] [15
+] [16]
+Chapter 4.
+[17
+
+] [18
 
 ]
-Chapter 4.
-[16
-
-] [17]
-Overfull \hbox (20.63362pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/10.95 18 \OT1/cmr/m/sl/10.95 CHAPTER 4.  REGRESSION AND OVERVIEW OF RELATED METHODS
- []
-
-[18]
 Chapter 5.
 [19
 
 ]
+Overfull \hbox (7.78375pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10.95 20 \OT1/cmr/m/sl/10.95 CHAPTER 5.  REGRESSION OVERVIEW AND LINEAR REGRESSION
+ []
+
+[20] [21]
+Overfull \hbox (7.78375pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10.95 22 \OT1/cmr/m/sl/10.95 CHAPTER 5.  REGRESSION OVERVIEW AND LINEAR REGRESSION
+ []
+
+[22]
 Chapter 6.
-[20
-
-]
-Chapter 7.
-[21
-
-] [22
-
-]
-Chapter 8.
 [23
 
 ]
-Chapter 9.
+Chapter 7.
 [24
 
-] [25
+]
+Chapter 8.
+[25
 
 ]
-Chapter 10.
+Chapter 9.
 [26
 
 ]
-Chapter 11.
+Chapter 10.
 [27
 
-]
-Chapter 12.
-[28
+] [28
 
 ]
-Chapter 13.
+Chapter 11.
 [29
 
 ]
-Chapter 14.
+Chapter 12.
 [30
 
+] [31
+
 ]
-Chapter 15.
-[31
+Chapter 13.
+[32
 
 ] (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.aux) ) 
 Here is how much of TeX's memory you used:
- 902 strings out of 493014
- 10942 string characters out of 6133351
- 70210 words of memory out of 5000000
- 4490 multiletter control sequences out of 15000+600000
+ 906 strings out of 493014
+ 10968 string characters out of 6133351
+ 69210 words of memory out of 5000000
+ 4494 multiletter control sequences out of 15000+600000
  12548 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,9n,20p,448b,282s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,9n,20p,448b,291s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.pdf" (35 pages, 231601 bytes).
+Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.pdf" (36 pages, 243199 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 126 compressed objects within 2 object streams
+ 184 PDF objects out of 1000 (max. 8388607)
+ 128 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
