@@ -286,6 +286,7 @@ Multiple Testing
 		\item $X \sim N(0,1) \Rightarrow X^2 \sim \chi^2$, $X_1,...X_n \sim N(0,1) i.i.d \Rightarrow \sum X_i^2 \sim \chi^2$,
 		$$ f_X(x)=\frac{1}{\pi(1+x^2)}$$
 	\end{enumerate}	
+	\item F-Distribution 
 \end{enumerate}
 
 More Generalized Distributions
@@ -356,6 +357,8 @@ $$d^*(x) = \argmin_{a \in A} R(a|x)$$
 
 \section{Overview}
 
+\subsection{Type of Models}
+
 All Basic Models begins with \textbf{Linear Regression} Because
 
 \begin{itemize}
@@ -401,16 +404,24 @@ All Basic Models begins with \textbf{Linear Regression} Because
 	\end{itemize}
  \end{itemize}
 
+\subsection{The Key Questions}
 
-\section{Linear Regressions}
+ \begin{itemize}
+ 	\item What assumptions are the model making
+ 	\item How will we access the validity of those assumptions
+ 	\item How can we be confident about out-of-sample fitting (overfitting problem)
+ 	\item How do we make predictions and quantify the uncertainty in models?
+ \end{itemize}
+
+\section{Linear Regression}
 
 Common Terms
 
 \begin{enumerate}
-    \item Independent Variable=Features=covariates
-    \item Dependent Variable=
+    \item Independent Variable, Features, Covariates, Predictors
+    \item Dependent Variable, Response, Output (variable)
+    \item Scaling - transform a variable to have mean zero and variance one
 \end{enumerate}
-
 
 \subsection{Assumptions}
 Classic Assumptions for Statistics:
@@ -419,9 +430,32 @@ Classic Assumptions for Statistics:
     \item $E(\varepsilon)=0$
     \item $Var(\varepsilon) =\sigma^2$: Homoscedasticity
     \item $\varepsilon$ is independent with covariates 
-    \item x is observed without error
-    \item (optional, Gauss-Markov Theorm) $\varepsilon$ is normal - when it is, OLS and MLE agrees and to be BLUE(Best Linear Unbiased Estimator)
+    \item x is observed without error (and no perfect multicollinearity in multivariate case)
+    \item (optional, Gauss-Markov Theorem) $\varepsilon$ is normal - when it is, OLS and MLE agrees and to be BLUE(Best Linear Unbiased Estimator)
 \end{enumerate}
+
+Testing the Assumptions of Linear Regression 
+
+\begin{itemize}
+    \item Scatter Plot \\ Linear Relationship and Outliers
+    \item Residual Analysis $\hat{\varepsilon} = y - \hat{y}$ \\ Diagnostic Plots:
+    \begin{enumerate}
+        \item Plot of Residuals vs. Fitted Values
+        \item Normal Probability Plot 
+        \item Plot Residuals versus time (see any trend of fit)
+	\end{enumerate}
+	\item Cook's Distance $$D_j = \frac{\sum_{i=1}^n (\hat{y_i} - \hat{y}_{i(-j)})^2}{(p+1)\hat{\sigma}^2}$$ 
+	Test Against $F_{(p+1),(n-p-1}$ degrees of freedom, over 50th percentile will definitely become a problem
+\end{itemize}
+
+Resolutions of Assumption Violations
+
+\begin{itemize}
+    \item Verify the Linear Relationships again. (non-linear regression, generalized linear models)
+    \item Transformations ( for outliers, heteroskesticities, etc)
+    \item Use different models on different periods/data
+    \item Weighted \textbf{Least Squares regression}, \textbf{Robust Regression} (for outliers, heteroskesticity) 
+\end{itemize}
 
 \subsection{Intepretaion}
 
@@ -438,20 +472,45 @@ In Multi-variate Case:
 $$ f(x) = \mathbf{w}^T \mathbf{x} = \sum_{i=1}^n w_i x_i $$
 $$ \mathbf{w*} = (\mathbf{X^T X})^{-1} \mathbf{X^T y} $$
 
-RSS Approach:
-
-
-MLE Approach
-
 Assuming noise is normal, maximize 
 
 $$p(\mathbf{x_1, x_2 ... x_n}| \mathbf{ w} ) = \prod_k \frac{1}{\sqrt{2\pi} \sigma} exp[ -\frac{1}{2\sigma^2} (y_k - \mathbf{w_t x_k} )^2 ]$$ 
 
-\subsection{Lasso-Least Absolute Shrinkage and Selection Operator}
+Another matrix representation
+
+$$f(\beta) = min (Y-X\beta)^T(Y-X\beta), f'(\beta) = 2X^T(Y-X\hat{\beta}) = 0$$ 
+
+to solve $\hat{\beta}$
 
 $$ min ||y_k - \mathbf{w^T x}_k ||^2 + \lambda ||\mathbf{w}||_1 $$
 
+Model Selection and Overfitting Resolve
+
+By AIC or BIC. 
+
+
+Variance Error In Prediction
+
+$$V(\hat{y^*} - y^*) = \sigma^2 + \sigma^2[\frac{1}{n} + \frac{x^*-\bar{x})^2}{(n-1)s_x^2}]$$
+$$ = V(E(y^*) - y^*) + V(\hat{y^*} - E(y^*)) + 2 cov(\hat{y^*} - y^*, \hat{y^*} - y^*)$$
+
+The cross term is zero, the first term is variance with $\varepsilon^*$, second term is variance in $\beta$. 
+
+The confidence interval is $\hat{y^*} \pm t_{\alpha/2, n-2} SE(\hat{y^*})$. 
+
+\section{Multiple Linear Regression}
+
+\subsection{Lasso-Least Absolute Shrinkage and Selection Operator}
+
 \section{Regularization, Ridge and Lasso}
+
+
+\section{Practice/Examples}
+
+\begin{enumerate}
+    \item What is Anscombe's Quartet 
+\end{enumerate}
+
 
 \chapter{Logistic Regression and Generalized Linear Model}
 
@@ -462,6 +521,8 @@ $$ min ||y_k - \mathbf{w^T x}_k ||^2 + \lambda ||\mathbf{w}||_1 $$
 \chapter{Naive Bayesian}
 
 \chapter{Tree Models and Ensemble Learning}
+
+\chapter{Classification Overview and Support Vector Machine}
 
 Stacking Aggregating: Random Forest, Boosting(GBDT), Deep Learning...
 
@@ -475,6 +536,14 @@ Stacking Aggregating: Random Forest, Boosting(GBDT), Deep Learning...
 
 
 \part{Deep Learning and Enhanced Learning Theory}
+
+
+
+Markov Chain
+Hidden Markov Chain
+Markov Blanket
+Bayesian Network
+EM Algorithm
 
 \chapter{Multi-layer Perceptron}
 
