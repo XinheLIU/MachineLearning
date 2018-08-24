@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  19 AUG 2018 00:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  23 AUG 2018 21:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -157,28 +157,20 @@ Chapter 5.
 [19
 
 ]
-Overfull \hbox (7.78375pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/10.95 20 \OT1/cmr/m/sl/10.95 CHAPTER 5.  REGRESSION OVERVIEW AND LINEAR REGRESSION
- []
-
-[20] [21]
-Overfull \hbox (7.78375pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/10.95 22 \OT1/cmr/m/sl/10.95 CHAPTER 5.  REGRESSION OVERVIEW AND LINEAR REGRESSION
- []
-
-[22]
-Underfull \vbox (badness 2393) has occurred while \output is active []
-
- [23]
-Overfull \hbox (7.78375pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/10.95 24 \OT1/cmr/m/sl/10.95 CHAPTER 5.  REGRESSION OVERVIEW AND LINEAR REGRESSION
- []
-
-[24]
 Chapter 6.
-[25
+[20
 
-]
+] [21]
+Overfull \hbox (7.78375pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10.95 22 \OT1/cmr/m/sl/10.95 CHAPTER 6.  REGRESSION OVERVIEW AND LINEAR REGRESSION
+ []
+
+[22] [23]
+Overfull \hbox (7.78375pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/10.95 24 \OT1/cmr/m/sl/10.95 CHAPTER 6.  REGRESSION OVERVIEW AND LINEAR REGRESSION
+ []
+
+[24] [25]
 Chapter 7.
 [26
 
@@ -198,23 +190,29 @@ Chapter 10.
 Chapter 11.
 [30
 
-] [31
-
 ]
 Chapter 12.
-[32
+[31
+
+] [32
 
 ]
 Chapter 13.
 [33
 
-] [34
-
-] [35]
+]
 Chapter 14.
+[34
+
+] [35
+
+]
+Chapter 15.
 [36
 
-] (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.aux) ) 
+] [37
+
+] [38] (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.aux) ) 
 Here is how much of TeX's memory you used:
  906 strings out of 493014
  10968 string characters out of 6133351
@@ -224,10 +222,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  27i,9n,20p,448b,291s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.pdf" (40 pages, 248689 bytes).
+Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.pdf" (42 pages, 253395 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
+ 205 PDF objects out of 1000 (max. 8388607)
+ 143 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

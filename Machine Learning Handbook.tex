@@ -353,6 +353,30 @@ $$d^*(x) = \argmin_{a \in A} R(a|x)$$
 
 \part{Supervised Learning Models}
 
+\chapter{Basic Data Science and Data Wrangling Knowledge}
+
+Basic Transformations
+
+\begin{itemize}
+    \item Box-Cox power Transformation -useful when response is strictly postitive
+    $$y = \left\{
+             \begin{array}{lr}
+             \frac{y^\lambda -1}{\lambda}, \text{ if }\lambda \neq 0 &  \\
+             log(y), \text{ if }\lambda = 0 &  
+             \end{array}
+      \right.$$
+      $\lambda$ could be selected via MLE
+    \item Yeo_Johnson Transformation
+     $$y = \left\{
+             \begin{array}{lr}
+             \frac{(y+1)^\lambda -1}{\lambda}, \text{ if }\lambda \neq 0, y \geq 0 &  \\
+             log(y+1), \text{ if }\lambda = 0 \text{ if }\lambda = 0, y \geq 0 &  \\
+              \frac{(-y+1)^{2-\lambda} -1}{\lambda}, \text{ if }\lambda \neq 2, y < 0 &  \\
+				log(-y+1), \text{ if }\lambda = 0 \text{ if }\lambda =2 0, y < 0 & 
+			  
+             \end{array}
+      \right.$$
+\end{itemize}
 \chapter{Regression Overview and Linear Regression}
 
 \section{Overview}
@@ -448,7 +472,7 @@ Testing the Assumptions of Linear Regression
 	Test Against $F_{(p+1),(n-p-1}$ degrees of freedom, over 50th percentile will definitely become a problem
 \end{itemize}
 
-Resolutions of Assumption Violations
+\subsection{Resolutions of Assumption Violations}
 
 \begin{itemize}
     \item Verify the Linear Relationships again. (non-linear regression, generalized linear models)
@@ -457,7 +481,7 @@ Resolutions of Assumption Violations
     \item Weighted \textbf{Least Squares regression}, \textbf{Robust Regression} (for outliers, heteroskesticity) 
 \end{itemize}
 
-\subsection{Intepretaion}
+\subsection{Interpretaion}
 
 
 Under Normal Condition, we have
@@ -484,9 +508,7 @@ to solve $\hat{\beta}$
 
 $$ min ||y_k - \mathbf{w^T x}_k ||^2 + \lambda ||\mathbf{w}||_1 $$
 
-Model Selection and Overfitting Resolve
 
-By AIC or BIC. 
 
 
 Variance Error In Prediction
@@ -497,6 +519,30 @@ $$ = V(E(y^*) - y^*) + V(\hat{y^*} - E(y^*)) + 2 cov(\hat{y^*} - y^*, \hat{y^*} 
 The cross term is zero, the first term is variance with $\varepsilon^*$, second term is variance in $\beta$. 
 
 The confidence interval is $\hat{y^*} \pm t_{\alpha/2, n-2} SE(\hat{y^*})$. 
+
+$R^2$, the coefficient of determination: The proportion of the sum of squared response which is accounted by the model relative to the model with no covariance. (take mean of response)
+
+$$R^2 = 1- \frac{\sum(y_i-\hat{y_i})^2}{\sum(y_i-\bar{y})}$$
+
+Note that $0 \leq R^2 \leq 1$ It only tells predictive power if the model is a good fit.
+
+Hat Matrix: The relationship of predicted value and response
+
+$$Y \ H\hat{Y}$$
+$$H = X(X^TX)^{-1}X^T$$
+
+The Diagonal Entires $h_{ii}$ are the Leverages. 
+\subsection{Model Selection and Overfitting Resolve}
+
+\begin{itemize}
+    \item Exhaustive Search by AIC or BIC (more stable than LOOCV)
+    \item Stepwise Regression/Stepwise Variable Selection (At each step one covariate is added or dropped)
+    \item Cross-Validation 
+    \\ Leave-one-Out cross Validation of Linear Regression: Prediction Error Sum of Squares 
+    $$PRESS = \frac{\sum(y_i-\hat{y}_{-i})^2}{n}$$
+    $$y_i-\hat{y}_{-i} = \frac{\hat{\varepsilon}_i}{1-h_{ii}}$$ h is the leverage (hat matrix)
+\end{itemize}
+
 
 \section{Multiple Linear Regression}
 
@@ -513,6 +559,16 @@ The confidence interval is $\hat{y^*} \pm t_{\alpha/2, n-2} SE(\hat{y^*})$.
 
 
 \chapter{Logistic Regression and Generalized Linear Model}
+
+
+Intuition About Logit and Logistic Functions:
+
+We want to predict some values so that
+
+$$ \sigma(z) = \frac{1}{1+e^z}$$
+
+Loss Function
+$$J(z) = -ylogy + (1-y)log(1-y)$$
 
 \chapter{Neutral-Network}
 
@@ -537,15 +593,18 @@ Stacking Aggregating: Random Forest, Boosting(GBDT), Deep Learning...
 
 \part{Deep Learning and Enhanced Learning Theory}
 
+\chapter{Deep Learning, Neural Network and Multi-layer Perceptron}
+
+Deep Learning sees most results in supervised Learning.
 
 
+
+\part{Bayesian Learning and Probabilistic Graphical Model }
 Markov Chain
 Hidden Markov Chain
 Markov Blanket
 Bayesian Network
 EM Algorithm
-
-\chapter{Multi-layer Perceptron}
 
 
 
