@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  23 AUG 2018 21:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 AUG 2018 12:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -78,68 +78,262 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 \mathdisplay@stack=\toks18
 LaTeX Info: Redefining \[ on input line 2739.
 LaTeX Info: Redefining \] on input line 2740.
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2015/03/04 v2.20.2
+\thm@style=\toks19
+\thm@bodyfont=\toks20
+\thm@headfont=\toks21
+\thm@notefont=\toks22
+\thm@headpunct=\toks23
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks24
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks25
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count100
+\calc@Bcount=\count101
+\calc@Adimen=\dimen112
+\calc@Bdimen=\dimen113
+\calc@Askip=\skip49
+\calc@Bskip=\skip50
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count102
+\calc@Cskip=\skip51
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count103
+\l_MT_multwidth_dim=\dimen114
+\origjot=\skip52
+\l_MT_shortvdotswithinadjustabove_dim=\dimen115
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen116
+\l_MT_above_intertext_sep=\dimen117
+\l_MT_below_intertext_sep=\dimen118
+\l_MT_above_shortintertext_sep=\dimen119
+\l_MT_below_shortintertext_sep=\dimen120
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/commath/commath.sty (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)) (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/mathpazo.sty
+Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
+\symupright=\mathgroup6
 ) (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.aux)
 \openout1 = `"Machine Learning Handbook.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
- [1
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Try loading font information for OT1+pplj on input line 21.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1pplj.fd
+File: ot1pplj.fd 2004/09/06 font definitions for OT1/pplj.
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 96.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+ (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count104
+ (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count105
+\scratchdimen=\dimen121
+\scratchbox=\box28
+\nofMPsegments=\count106
+\nofMParguments=\count107
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count108
+\MPscratchDim=\dimen122
+\MPnumerator=\count109
+\makeMPintoPDFobject=\count110
+\everyMPtoPDFconversion=\toks27
+))) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+ (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+)) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+ (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+ (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+\Gin@req@height=\dimen123
+\Gin@req@width=\dimen124
+)
+LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 23.
+LaTeX Font Info:    Try loading font information for OT1+pplx on input line 23.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1pplx.fd
+File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
+)
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 23.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omlzplm.fd
+File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 23.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omszplm.fd
+File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 23.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omxzplm.fd
+File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
+)
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 23.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 23.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 23.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 23.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 23.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 23.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 23.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1zplm.fd
+File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
+) [1
 
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.toc [2
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 24.
+ (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.toc
+LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <12> not available
+(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 2.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 11.40997pt on input line 3.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 8.33606pt on input line 3.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 3.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 11.40997pt on input line 3.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 8.33606pt on input line 3.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 3.
+ [2
 
-] [3])
+]
+Underfull \vbox (badness 2970) has occurred while \output is active []
+
+LaTeX Font Info:    Font shape `OT1/pplj/m/sl' in size <10.95> not available
+(Font)              Font shape `OT1/pplj/m/it' tried instead on input line 37.
+ [3] [4])
 \tf@toc=\write3
 \openout3 = `"Machine Learning Handbook.toc"'.
 
- [4] [1
+ [5] [6
 
+]
+LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <20.74> not available
+(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 27.
+ [1
 
 ]
 Chapter 1.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 28.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
-Missing character: There is no ï in font cmr10!
-Missing character: There is no ¼ in font cmr10!
-Missing character: There is no Œ in font cmr10!
- [2
+LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/pplj/b/n' tried instead on input line 30.
+LaTeX Font Info:    Try loading font information for OMS+pplj on input line 35.
+LaTeX Font Info:    No file OMSpplj.fd. on input line 35.
+
+LaTeX Font Warning: Font shape `OMS/pplj/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbullet' on input line 35.
+
+Missing character: There is no ï in font pplr9o!
+Missing character: There is no ¼ in font pplr9o!
+Missing character: There is no Œ in font pplr9o!
+[2
 
 ]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 47.
+(amsmath)                 on input line 69.
 
 [3]
-Overfull \hbox (15.8969pt too wide) detected at line 76
-\OML/cmm/m/it/10.95 H\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 X\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m/n/10.95 ^^@ [] \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 H\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 X \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m/n/10.95 ^^@ [] \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 ) [] \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 log[]p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x[]\OT1/cmr/m/n/10.95 )
+Overfull \hbox (10.16872pt too wide) detected at line 89
+\OML/zplm/m/it/10.95 H\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 Y\OMS/zplm/m/n/10.95 j\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ) = \OMS/zplm/m/n/10.95 ^^@ [] \OML/zplm/m/it/10.95 p\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x[]\OT1/zplm/m/n/10.95 )\OML/zplm/m/it/10.95 H\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 Y\OMS/zplm/m/n/10.95 j\OML/zplm/m/it/10.95 X \OT1/zplm/m/n/10.95 = \OML/zplm/m/it/10.95 x[]\OT1/zplm/m/n/10.95 ) = \OMS/zplm/m/n/10.95 ^^@ [] \OML/zplm/m/it/10.95 p\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x[]\OT1/zplm/m/n/10.95 ) [] \OML/zplm/m/it/10.95 p\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 y[]\OMS/zplm/m/n/10.95 j\OML/zplm/m/it/10.95 x[]\OT1/zplm/m/n/10.95 )\OML/zplm/m/it/10.95 log[]p\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 y[]\OMS/zplm/m/n/10.95 j\OML/zplm/m/it/10.95 x[]\OT1/zplm/m/n/10.95 )
  []
 
 [4]
-Missing character: There is no ï in font cmr10!
-Missing character: There is no ¼ in font cmr10!
-Missing character: There is no Œ in font cmr10!
+Missing character: There is no ï in font pplr9o!
+Missing character: There is no ¼ in font pplr9o!
+Missing character: There is no Œ in font pplr9o!
  [5] [6]
 Chapter 2.
 [7
 
 ] [8]
-Overfull \hbox (27.31717pt too wide) detected at line 176
-[]\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 logf\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; ^^R\OT1/cmr/m/n/10.95 )] \OMS/cmsy/m/n/10.95 ^^T \OML/cmm/m/it/10.95 M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.95 8\OML/cmm/m/it/10.95 x \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/it/10.95 ^^_; ^^R[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 c < ^^R < ^^R[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 c; E[]\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 )] \OML/cmm/m/it/10.95 < \OMS/cmsy/m/n/10.95 1
+Overfull \hbox (52.88864pt too wide) detected at line 184
+[]\OT1/zplm/m/n/10.95 [\OML/zplm/m/it/10.95 logf\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 ^^R\OT1/zplm/m/n/10.95 )] \OMS/zplm/m/n/10.95 ^^T \OML/zplm/m/it/10.95 M\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 )\OT1/pplx/m/n/10.95 , \OMS/zplm/m/n/10.95 8\OML/zplm/m/it/10.95 x \OMS/zplm/m/n/10.95 2 \OML/zplm/m/it/10.95 ^^_\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 ^^R[] \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 c < ^^R < ^^R[] \OT1/zplm/m/n/10.95 + \OML/zplm/m/it/10.95 c\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 E[]\OT1/zplm/m/n/10.95 [\OML/zplm/m/it/10.95 M\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 )] \OML/zplm/m/it/10.95 < \OMS/zplm/m/n/10.95 1
  []
 
 [9] [10] [11] [12] [13] [14]
@@ -160,72 +354,79 @@ Chapter 5.
 Chapter 6.
 [20
 
-] [21]
-Overfull \hbox (7.78375pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/10.95 22 \OT1/cmr/m/sl/10.95 CHAPTER 6.  REGRESSION OVERVIEW AND LINEAR REGRESSION
- []
-
-[22] [23]
-Overfull \hbox (7.78375pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/10.95 24 \OT1/cmr/m/sl/10.95 CHAPTER 6.  REGRESSION OVERVIEW AND LINEAR REGRESSION
- []
-
-[24] [25]
+] [21] [22] [23] [24] [25]
 Chapter 7.
 [26
 
-]
+] [27]
+Overfull \hbox (31.1261pt too wide) has occurred while \output is active
+\OT1/pplj/m/n/10.95 28 \OT1/pplj/m/it/10.95 CHAPTER 7.  LOGISTIC REGRESSION AND GENERALIZED LINEAR MODEL
+ []
+
+[28]
 Chapter 8.
-[27
-
-]
-Chapter 9.
-[28
-
-]
-Chapter 10.
 [29
 
 ]
-Chapter 11.
+Chapter 9.
 [30
 
 ]
-Chapter 12.
+Chapter 10.
 [31
 
-] [32
+]
+Chapter 11.
+[32
+
+]
+Chapter 12.
+[33
+
+] [34
 
 ]
 Chapter 13.
-[33
+[35
 
 ]
 Chapter 14.
-[34
-
-] [35
-
-]
-Chapter 15.
 [36
 
 ] [37
 
-] [38] (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.aux) ) 
+]
+Chapter 15.
+
+Underfull \vbox (badness 1342) has occurred while \output is active []
+
+ [38
+
+] [39]
+Overfull \hbox (96.20184pt too wide) has occurred while \output is active
+\OT1/pplj/m/n/10.95 40 \OT1/pplj/m/it/10.95 CHAPTER 15.  DEEP LEARNING, NEURAL NETWORK AND MULTI-LAYER PERCEPTRON
+ []
+
+[40] [41
+
+] [42] (/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 906 strings out of 493014
- 10968 string characters out of 6133351
- 69210 words of memory out of 5000000
- 4494 multiletter control sequences out of 15000+600000
- 12548 words of font info for 44 fonts, out of 8000000 for 9000
+ 3369 strings out of 493014
+ 47297 string characters out of 6133351
+ 112758 words of memory out of 5000000
+ 6797 multiletter control sequences out of 15000+600000
+ 50298 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,9n,20p,448b,291s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.pdf" (42 pages, 253395 bytes).
+ 51i,9n,27p,464b,344s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/.texpadtmp/Machine Learning Handbook.pdf" (48 pages, 180716 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
- 143 compressed objects within 2 object streams
+ 209 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
