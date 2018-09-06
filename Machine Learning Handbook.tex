@@ -114,6 +114,7 @@ Optimization Methods:
     	\begin{itemize}  		
     		\item Gradient Descent: Batch Processing(Use all samples) vs Stochastic Gradient Descent(Use one sample)
     		\item Newton's Method: Use Curvature Information 
+    		$$ \mathbold{\beta}^{t+1} = \mathbold{\beta}^t - (\frac{\partial^2 Loss(\mathbold{\beta})}{\partial \mathbold{\beta} \partial\mathbold{\beta}^T})^{-1} \frac{ \partial Loss(\mathbold{\beta})}{\partial \mathbold{\beta}} $$
    		\end{itemize}
    	\item Trust Region: Step first, direction second. Find optimal direction of second-order approximation. If the descent size is too small, make step size smaller.
    	\item Heuristics Method
@@ -386,7 +387,7 @@ Basic Transformations
 				log(-y+1), \text{ if }\lambda = 0 \text{ if }\lambda =2 0, y < 0 & 
 			  
              \end{array}
-      \right.$$
+      \right.$$ Optimal Transformation can be found with the MLE Method
 \end{itemize}
 \chapter{Regression Overview and Linear Regression}
 
@@ -481,6 +482,9 @@ Testing the Assumptions of Linear Regression
 	\end{enumerate}
 	\item Cook's Distance $$D_j = \frac{\sum_{i=1}^n (\hat{y_i} - \hat{y}_{i(-j)})^2}{(p+1)\hat{\sigma}^2}$$ 
 	Test Against $F_{(p+1),(n-p-1}$ degrees of freedom, over 50th percentile will definitely become a problem
+	\item Detect Multicollinearity (two or more predictors are strongly related to one) - Use \textbf{Variance Inflation Factor}
+		$$VIF_k = \frac{1}{1-R_k^2}$$
+		fit feature k against other predictors. Note VIF does not give any information of specific predictors 
 \end{itemize}
 
 \subsection{Resolutions of Assumption Violations}
@@ -489,10 +493,26 @@ Testing the Assumptions of Linear Regression
     \item Verify the Linear Relationships again. (non-linear regression, generalized linear models)
     \item Transformations ( for outliers, heteroskesticities, etc)
     \item Use different models on different periods/data
-    \item Weighted \textbf{Least Squares regression}, \textbf{Robust Regression} (for outliers, heteroskesticity) 
+    \item Weighted \textbf{Least Squares regression},  (for outliers, heteroskesticity) 
+    \item \textbf{Robust Regression} and Huber Loss Function $$\sum_{i=1}^n \rho(\frac{y_i-x_i^T\beta}{\sigma})$$
+		Huber Loss Function
+		 $$\rho(x) = \left\{
+             \begin{array}{lr}
+             x^2 \text{  ,if } |x|<k &  \\
+             k(2(|x|-k), \text{ otherwise } &  
+             \end{array}
+      \right.$$
+       (default k=1.345) (when k=0, it is an L1-regression, $K\to \infty$, the regression goes back to a linear regression model. It is effective in down-weighting the extreme examples.
 \end{itemize}
 
-\subsection{Interpretaion}
+Special Situations
+
+\begin{itemize}
+    \item Inputs are discrete variable - Factor Inputs (discrete features): a factor of k levels adds k-1 terms into the regression function.(k-1 different $beta$s)
+\end{itemize}
+
+
+\subsection{Interpretation}
 
 
 Under Normal Condition, we have
@@ -505,6 +525,8 @@ $$ r_{xy} = \frac{s_{xy}}{s_xs_y}, \beta_1 = r_{xy}\frac{s_y}{s_x} =\frac{s_{xy}
 In Multi-variate Case:
 
 $$ f(x) = \mathbf{w}^T \mathbf{x} = \sum_{i=1}^n w_i x_i $$
+$$\mathbf{w*} = \argmin_{\mathbf{\hat{w}}}(\mathbf{y})-\mathbf{X \hat{w}} )^T(\mathbf{y})-\mathbf{X \hat{w}} )$$
+$$\frac{\partial{E}}{\partial{\mathbf{\hat{w}}}} = 2 \mathbf{X}^T(\mathbf{X \hat{w}} - \mathbf{y})$$
 $$ \mathbf{w*} = (\mathbf{X^T X})^{-1} \mathbf{X^T y} $$
 
 Assuming noise is normal, maximize 
@@ -537,13 +559,16 @@ $$R^2 = 1- \frac{\sum(y_i-\hat{y_i})^2}{\sum(y_i-\bar{y})}$$
 
 Note that $0 \leq R^2 \leq 1$ It only tells predictive power if the model is a good fit.
 
+Adjusted $R^2$: $R^2$ + penalty P
+
 Hat Matrix: The relationship of predicted value and response
 
-$$Y \ H\hat{Y}$$
+$$Y = H\hat{Y}$$
 $$H = X(X^TX)^{-1}X^T$$
 
 The Diagonal Entires $h_{ii}$ are the Leverages. 
-\subsection{Model Selection and Overfitting Resolve}
+
+\subsection{Model Selection}
 
 \begin{itemize}
     \item Exhaustive Search by AIC or BIC (more stable than LOOCV)
@@ -554,12 +579,65 @@ The Diagonal Entires $h_{ii}$ are the Leverages.
     $$y_i-\hat{y}_{-i} = \frac{\hat{\varepsilon}_i}{1-h_{ii}}$$ h is the leverage (hat matrix)
 \end{itemize}
 
+\subsection{ Regularization, Ridge, Lasso }
 
-\section{Multiple Linear Regression}
+\textbf{Ridge}
 
-\subsection{Lasso-Least Absolute Shrinkage and Selection Operator}
+$$Rss + \lambda \sum_{i=1}^p \beta^2$$
 
-\section{Regularization, Ridge and Lasso}
+$\lambda$ is the regularization parameter. The result of Ridge is a \textbf{Shrinkage} of $\hat{\beta}$ towards zero.
+
+Note
+\begin{enumerate}
+	\item No penalty for $\beta+0$ or b.
+	\item The predictors should usually be standardized prior to fitting
+	\item Choose $\lambda$ by cross-validation
+\end{enumerate}
+
+\textbf{Lasso(Least Absolute Shrinkage and Selection Operator)}
+
+(Tibshirani)
+
+$$Rss + \lambda \sum_{i=1}^p |\beta|$$
+
+Can be extended to 
+$$-log likelihood + \lambda \sum_{i=1}^p |\beta|$$
+
+\textbf{Group Lasso}
+
+group predictors together to be either included or excluded. 
+
+\textbf{Elastic Net}
+
+$$Rss + \lambda \sum_{i=1}^p (\alpha|\beta_j| + (1-\alpha) \beta_j^2)$$
+
+, $ 0\leq \alpha \leq 1$
+
+\section{Nonlinear Regression Models}
+
+\begin{itemize}
+	\item Nonparametric Regression: Complexity controlled by the smoothing parameter (bandwidth). model complexity interpreted in \textbf{Degrees of Freedom/Effective degrees of freedom/equivalent degrees of freedom} \\Residual Degrees of freedom is n minus model degrees of freedom.
+	\item Local polynomial Regression: only fit a \textbf{neighborhood} of a target point. parameter $\alpha$ to control the span-traditionally, 0.5. When weighting the data in the neighborhood,
+      Fit by weighted sum of squares
+	  $$\sum_{i=1}^n w_i (y_i  - (\beta_0 + \beta_1 x_i))^2$$
+	    $$w_i = = \left\{
+             \begin{array}{lr}
+             (1-|\frac{x_i-x_0}{\text{max dist}}|^3)^3 \text{ ,if $x_i$ is in the neighborhood} &  \\
+             0, \text{ otherwise } &  
+             \end{array}
+      \right.$$
+	  \item Splines
+	  \begin{itemize}
+	  	\item Penalized (Smoothing) Splines: find twice differentiable x to minimize 
+		$$\sum_{i=1}^n (y_i - f(x_i))^2 + \lambda \int [ f^{(2)}(x)]^2 dx $$
+		$\lambda$ penalty for wiggy function. search of x can be a combination of \textbf{basis functions} ( n + 4 basis functions, n is the knots)
+	  	\item Cubic Splines
+	  \end{itemize}
+\end{itemize}	  
+
+\section{Generalized Additive Models}
+
+Additive Model : no interactions/cross terms
 
 
 \section{Practice/Examples}
@@ -570,7 +648,6 @@ The Diagonal Entires $h_{ii}$ are the Leverages.
 
 
 \chapter{Logistic Regression and Generalized Linear Model}
-
 
 \section{Logistic Regression}
 
@@ -583,23 +660,25 @@ $$ \sigma(z) = \frac{1}{1+e^{-z}} = \frac{1}{1+e^{-w^Tx}}$$
 Loss Function
 $$J(z) = -ylogy + (1-y)log(1-y)$$
 
-Intuition
-
-\begin{itemize}
-    \item $$ ln\frac{y}{1-y} = w^Tx (+b)$$ 
-     $$ p(y=1|x) = \frac{e^{w^Tx}}{1+e^{w^Tx}}$$
-     $$p(y=0|x) = \frac{1}{1+e^{w^Tx}}$$
-    \item Exponential Family
-    \item Maximum Entropy (See Loss function) of the exponential family 
-\end{itemize}
-
 Training of the Model
 
 MLE of w based on a Bernoulli Distribution
-$$L(w|x) = \prod_{i=1}^N[p(y=1|x,w)]^{y_i}[1-p(y=1|x,w)]^{1-y_i}$$
+$$L(\mathbf{w}|\mathbf{x}) = \prod_{i=1}^N[p(y=1|\mathbf{x,w})]^{y_i}[1-p(y=1|\mathbf{x,w})]^{1-y_i}$$
 Take Log to get the Loss Function 
-$$log L(w|x) = \sum_{i]1}^N -y_ilogy_i+ (1-y_i)log(1-y_i)$$
-$$log L(w|x) = \sum_{i]1}^N y_iw^Tx - log(1+e^{w^Tx})$$
+$$log L(\mathbf{w}|\mathbf{x}) = \sum_{i=1}^N -y_i logy_i+ (1-y_i)log(1-y_i)$$
+$$l(\mathbf{w}|\mathbf{x}) = log L(\mathbf{w}|\mathbf{x}) = \sum_{i=1}^N (y_i\mathbf{w}^T\mathbf{x}_i - log(1+e^{\mathbf{w}^T\mathbf{x}_i}))$$
+
+Intuition
+
+\begin{itemize}
+    \item The log odds (logit function) $$ ln\frac{y}{1-y} = \mathbf{w}^T\mathbf{x} +b$$ 
+     $$ p(y=1|x) = \frac{e^{\mathbf{w}^T\mathbf{x}}}{1+e^{\mathbf{w}^T\mathbf{x}}}$$
+     $$p(y=0|x) = \frac{1}{1+e^{\mathbf{w}^T\mathbf{x}}}$$
+    \item Exponential Family
+    \item Maximum Entropy (See Loss function) of the exponential family 
+    $$2 \sum_{i]1}^N -y_i log\frac{y_i}{\hat{p_i}}+ (1-y_i)log(\frac{1-y_i}{1-\hat{p_i}})$$
+\end{itemize}
+
 
 Another Intuition about minimizing the loss function is to minimize the \textbf{K-L Divergence} with Maximum-Entropy Model 
 
@@ -635,7 +714,40 @@ Stacking Aggregating: Random Forest, Boosting(GBDT), Deep Learning...
 \chapter{Clustering}
 
 \chapter{Dimension Reduction}
-\section{PCA}
+\section{Principal Component Analysis(PCA)}
+
+$$\mathbf{x}_i = (x_{i1},x_{i2},…x_{ip})^T$$
+
+find u to maximize variance  $v_i = \sum_{j=1}^p u_j x_{ij}$
+
+subject to $$\sum_{j=1}^p u_j^2 = 1$$
+
+u are like the new axes 
+
+$$v_i = \sum_{j=1}^p u_j x_{ij}$$
+
+same as finding the eigenvalue $\hat{Sigma}$
+
+X is samples stacking in columns,
+ $$\mathbf{X}’ = \mathbf{X} - \mathbf{1}\mathbold{\mu}^T$$ be X shifted to mean zero
+
+Then $\mathbf{v} = \mathbf{X}’ \mathbf{u}$ is a transformation (new position in axis)
+
+$$\mathbf{v}^T 1 = (\mathbf{X}’\mathbf{u})^T \mathbf{1} = \mathbf{u}^T \mathbf{X}’^T 1 =  \mathbf{u}^T  \mathbf{0} = 0$$
+
+the mean of v entries is zero 
+
+The variance of entries of v : 
+
+$$\frac{1}{n}\mathbf{v^tv} =  \frac{1}{n} \mathbf{u}^T\mathbf{X}’^T\mathbf{X} \mathbf{u}$$
+equivalent to maximizing 
+
+$$\frac{ \mathbf{u}^T\mathbf{X}’^T\mathbf{X} \mathbf{u}}{ \mathbf{u}^T \mathbf{u}}$$  
+
+$$\mathbf{X}’^T\mathbf{X}$$ is the covariance matrix, this is equivalent to find the first eigenvector of covariance matrix
+if we scale X to have unit standard deviation, the problem is finding eigenvalues for correlation matrix 
+
+
 \section{LDA}
 
 
@@ -656,7 +768,7 @@ Stacking Aggregating: Random Forest, Boosting(GBDT), Deep Learning...
 
 \subsubsection{Radial Basis Function Network}
 
-In the hidden layer, use activation function as activation fdunction 
+In the hidden layer, use activation function as activation function 
 
 Radial Basis Function
 
@@ -691,6 +803,8 @@ Hidden Markov Chain
 Markov Blanket
 Bayesian Network
 EM Algorithm
+
+
 
 
 
