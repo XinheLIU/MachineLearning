@@ -14,42 +14,54 @@
 \contentsline {section}{\numberline {2.2}Theorems}{12}
 \contentsline {section}{\numberline {2.3}Important Distributions}{12}
 \contentsline {section}{\numberline {2.4}Practice/Examples}{14}
-\contentsline {chapter}{\numberline {3}Bayesian Statistical Theory}{15}
-\contentsline {section}{\numberline {3.1} Bayesian Decision Theory}{16}
-\contentsline {chapter}{\numberline {4}Computational Learning Theory}{17}
-\contentsline {part}{II\hspace {1em}Supervised Learning Models}{18}
-\contentsline {chapter}{\numberline {5}Basic Data Science and Data Wrangling Knowledge}{19}
-\contentsline {chapter}{\numberline {6}Regression Overview and Linear Regression}{20}
-\contentsline {section}{\numberline {6.1}Overview}{20}
-\contentsline {subsection}{\numberline {6.1.1}Type of Models}{20}
-\contentsline {subsection}{\numberline {6.1.2}The Key Questions}{21}
-\contentsline {section}{\numberline {6.2}Linear Regression}{22}
-\contentsline {subsection}{\numberline {6.2.1}Assumptions}{22}
-\contentsline {subsection}{\numberline {6.2.2}Resolutions of Assumption Violations}{23}
-\contentsline {subsection}{\numberline {6.2.3}Interpretation}{24}
-\contentsline {subsection}{\numberline {6.2.4}Model Selection}{26}
-\contentsline {subsection}{\numberline {6.2.5} Regularization, Ridge, Lasso }{26}
-\contentsline {section}{\numberline {6.3}Nonlinear Regression Models}{27}
-\contentsline {section}{\numberline {6.4}Generalized Additive Models}{28}
-\contentsline {section}{\numberline {6.5}Practice/Examples}{28}
-\contentsline {chapter}{\numberline {7}Logistic Regression and Generalized Linear Model}{29}
-\contentsline {section}{\numberline {7.1}Logistic Regression}{29}
-\contentsline {subsection}{\numberline {7.1.1}Logistic Regression}{29}
-\contentsline {subsection}{\numberline {7.1.2}Extension: Softmax}{31}
-\contentsline {chapter}{\numberline {8}Neutral-Network}{32}
-\contentsline {chapter}{\numberline {9}Distance and Kth Nearest Neighbors}{33}
-\contentsline {chapter}{\numberline {10}Naive Bayesian}{34}
-\contentsline {chapter}{\numberline {11}Tree Models and Ensemble Learning}{35}
-\contentsline {chapter}{\numberline {12}Classification Overview and Support Vector Machine}{36}
-\contentsline {part}{III\hspace {1em}Unsupervised Learning Models}{37}
-\contentsline {chapter}{\numberline {13}Clustering}{38}
-\contentsline {chapter}{\numberline {14}Dimension Reduction}{39}
-\contentsline {section}{\numberline {14.1}Principal Component Analysis(PCA)}{39}
-\contentsline {section}{\numberline {14.2}LDA}{40}
-\contentsline {part}{IV\hspace {1em}Deep Learning and Enhanced Learning Theory}{41}
-\contentsline {chapter}{\numberline {15}Deep Learning, Neural Network and Multi-layer Perceptron}{42}
-\contentsline {section}{\numberline {15.1}Neural Networks}{42}
-\contentsline {subsection}{\numberline {15.1.1}History Class}{42}
-\contentsline {subsection}{\numberline {15.1.2}Neural Networks}{43}
-\contentsline {subsubsection}{Radial Basis Function Network}{43}
-\contentsline {part}{V\hspace {1em}Bayesian Learning and Probabilistic Graphical Model }{45}
+\contentsline {chapter}{\numberline {3}Computational Learning Theory}{15}
+\contentsline {part}{II\hspace {1em}Supervised Learning Models}{16}
+\contentsline {chapter}{\numberline {4}Data Science Basic}{17}
+\contentsline {section}{\numberline {4.1}Data Wrangling}{17}
+\contentsline {section}{\numberline {4.2}Model Valuation}{17}
+\contentsline {section}{\numberline {4.3}Supervised Learning-Regression and Classification}{18}
+\contentsline {chapter}{\numberline {5}Linear Regression and Regression Overview}{20}
+\contentsline {section}{\numberline {5.1}Overview}{20}
+\contentsline {subsection}{\numberline {5.1.1}Type of Models}{20}
+\contentsline {subsection}{\numberline {5.1.2}The Key Questions}{21}
+\contentsline {section}{\numberline {5.2}Linear Regression}{22}
+\contentsline {subsection}{\numberline {5.2.1}Assumptions}{22}
+\contentsline {subsection}{\numberline {5.2.2}Resolutions of Assumption Violations}{23}
+\contentsline {subsection}{\numberline {5.2.3}Interpretation}{24}
+\contentsline {subsection}{\numberline {5.2.4}Model Selection}{26}
+\contentsline {subsection}{\numberline {5.2.5}Regularization, Ridge, Lasso}{26}
+\contentsline {section}{\numberline {5.3}Nonlinear Regression Models}{27}
+\contentsline {section}{\numberline {5.4}Generalized Additive Models}{28}
+\contentsline {section}{\numberline {5.5}Practice/Examples}{28}
+\contentsline {chapter}{\numberline {6}Logistic Regression and Generalized Linear Model}{29}
+\contentsline {section}{\numberline {6.1}Logistic Regression}{29}
+\contentsline {subsection}{\numberline {6.1.1}Logistic Regression}{29}
+\contentsline {subsection}{\numberline {6.1.2}Extension: Softmax}{31}
+\contentsline {chapter}{\numberline {7}Neutral-Network}{32}
+\contentsline {chapter}{\numberline {8}Distance and Kth Nearest Neighbors}{33}
+\contentsline {chapter}{\numberline {9}Tree Models and Ensemble Learning}{34}
+\contentsline {chapter}{\numberline {10}Support Vector Machine}{35}
+\contentsline {section}{\numberline {10.1}Model and Assumptions}{35}
+\contentsline {section}{\numberline {10.2}Kernel Function}{37}
+\contentsline {section}{\numberline {10.3}Soft Margin}{38}
+\contentsline {part}{III\hspace {1em}Probabilistic Graphical Models}{39}
+\contentsline {chapter}{\numberline {11}Bayesian Statistical Theory and Naive Bayesian}{40}
+\contentsline {section}{\numberline {11.1} Bayesian Decision Theory}{41}
+\contentsline {section}{\numberline {11.2}Naive Bayesian}{41}
+\contentsline {subsection}{\numberline {11.2.1}Model and Assumption}{41}
+\contentsline {subsection}{\numberline {11.2.2}Semi-naive Bayesian Classifier}{43}
+\contentsline {part}{IV\hspace {1em}Unsupervised Learning Models}{44}
+\contentsline {chapter}{\numberline {12}Clustering}{45}
+\contentsline {chapter}{\numberline {13}Dimension Reduction}{46}
+\contentsline {section}{\numberline {13.1}Principal Component Analysis(PCA)}{46}
+\contentsline {section}{\numberline {13.2}LDA}{47}
+\contentsline {part}{V\hspace {1em}Deep Learning and Enhanced Learning Theory}{48}
+\contentsline {chapter}{\numberline {14}Deep Learning, Neural Network and Multi-layer Perceptron}{49}
+\contentsline {section}{\numberline {14.1}Neural Networks}{49}
+\contentsline {subsection}{\numberline {14.1.1}History Class}{49}
+\contentsline {subsection}{\numberline {14.1.2}Neural Networks}{50}
+\contentsline {subsubsection}{Radial Basis Function Network}{50}
+\contentsline {section}{\numberline {14.2}Deep Learning}{51}
+\contentsline {subsection}{\numberline {14.2.1}Optimization in Deep Learning}{52}
+\contentsline {subsection}{\numberline {14.2.2}Hyperparameter Tuning Methods}{53}
+\contentsline {part}{VI\hspace {1em}Bayesian Learning and Probabilistic Graphical Model }{54}

@@ -109,10 +109,12 @@ Theorems:
 \end{itemize}
 
 Optimization Methods:
+
 \begin{itemize}
     \item Linear Search Method: Direction First, Step Size second	
     	\begin{itemize}  		
     		\item Gradient Descent: Batch Processing(Use all samples) vs Stochastic Gradient Descent(Use one sample)
+    		$$ \theta = \theta - \alpha \frac{\partial J }{ \partial \theta }$$
     		\item Newton's Method: Use Curvature Information 
     		$$ \mathbold{\beta}^{t+1} = \mathbold{\beta}^t - (\frac{\partial^2 Loss(\mathbold{\beta})}{\partial \mathbold{\beta} \partial\mathbold{\beta}^T})^{-1} \frac{ \partial Loss(\mathbold{\beta})}{\partial \mathbold{\beta}} $$
    		\end{itemize}
@@ -124,6 +126,13 @@ Optimization Methods:
 	    	\item Partical Swarming/Ant Colony Algorithm
 	    \end{itemize}
 \end{itemize}
+
+Quadratic programming (QP)
+
+\begin{itemize}
+    \item Sequential Minimal Optimization(SMO) 
+\end{itemize}
+
 
 Theorems:
 
@@ -330,42 +339,13 @@ More Generalized Distributions
  	\\ Define I be the indicator is it is in the sample. $E(\frac{1}{n}\sum I_i= E(I_i) = P(\text{ith point shows up})= 1- (1-\frac{1}{n})^n$
 \end{enumerate}
 
-\chapter{Bayesian Statistical Theory}
-
-Bayes' Rule 
-$$ f_{Y|X}(y|x) = \frac{f_{(X,Y)}(x,y)}{f_X(x)} = \frac{f_{(X,Y)}(x,y)}{\int f(x|y)f(y)dy}$$
-Byesian Inference:\\
-All parameters are random variables,
-$$\pi(\theta|x) =  \frac{f(x|\theta) \pi(\theta)}{\int f(x|\theta)\pi(\theta)d\theta}$$
-$$\pi(\theta|x) \sim  f(x|\theta) \pi(\theta)$$
-$\pi(\theta)$ is the prior distribution, $\pi(\theta|x)$ is the posterior distribution for $\theta$ given x. 
-
-Bayes Estimator
-$$\hat{\theta}_{Bayes} = E(\theta | X) = \int \theta \pi(\theta |X ) d\theta$$
-
-Conjugate Distribution:
-$f(x), \pi$ is called conjugate distributions if model $\pi(\theta|x), \pi(\theta)$ follows the same Distribution
-
-eg. Bernoulli($\theta$) and Beta($\alpha,\beta$),  ( $\pi(\theta|x) \sim$ Beta($\alpha+\sum X_i, \beta + n - \sum X_i$) ($f(x|\theta) = \prod_{i=1}^n f_{X_i}(X_i|\theta)$)
-$$\hat{\theta}_{Bayes} = E(\theta | X) = \frac{ \alpha + \sum X_i}{ \alpha + \beta + n} $$
-$$= \frac{\sum X_i}{n}\frac{n}{\alpha + \beta + n} + \frac{\alpha}{\alpha + \beta}\frac{ \alpha + \beta}{\alpha + \beta + n}$$
-
-The prior mean ( second term ) influences less as n grows.
-
-Poisson($\theta$) and $Gamma(\alpha + \sum X_i, \beta + n )$ 
-
-\section{ Bayesian Decision Theory}
-
-In State $\omega$ we take action $a \in A$, incurr Loss $L(\omega,a)$, how to choose a?
-Risk:
-$$R(a|x) = \sum_{j=1}^k L(\omega_j, a) P(\omega_j |x )$$
-Decision Rule $d \in A$
-$$d^*(x) = \argmin_{a \in A} R(a|x)$$
 \chapter{Computational Learning Theory}
 
 \part{Supervised Learning Models}
 
-\chapter{Basic Data Science and Data Wrangling Knowledge}
+\chapter{Data Science Basic}
+
+\section{Data Wrangling}
 
 Basic Transformations
 
@@ -389,7 +369,58 @@ Basic Transformations
              \end{array}
       \right.$$ Optimal Transformation can be found with the MLE Method
 \end{itemize}
-\chapter{Regression Overview and Linear Regression}
+
+
+\section{Model Valuation}
+
+Concepts
+
+\begin{itemize}
+    \item Hold-out: Separate to training/test(dev) set.
+    \item Sampling Methods: Important for holding out. eg. Stratified Sampling
+    \item Cross-Validation: Leave-One-Out and k-fold
+    \item Bootstrapping: with m sampling with replacement:
+    $$ \lim_{m \to \infty} (1-\frac{1}{m}) = \frac{1}{e} \approx 0.368$$ Use $D \setminus D'$ as testing set
+    \item Hypothesis Test for Cross Validation
+     \begin{itemize}
+     \item Binomial test generalized error rate for one CV
+    $$P(\hat{\epsilon}, \epsilon) = {m\choose \hat{\epsilon} m} \epsilon^{\hat{\epsilon} m}(1-\epsilon)^{m-\hat{\epsilon}m}$$ 
+     \item t test for multiple CVs
+    $$\mu = \frac{1}{k} \sum \hat{\epsilon_i}, \sigma = \frac{1}{k-1}\sum (\hat{\epsilon_i} - \mu )^2$$ 
+    \item Paired t-test for two Classifiers A and B (Permutation test or normal t test on $|\frac{\sqrt{k}\mu}{\sigma}|$
+    \item McNemar Test ($\chi^2$ test)
+    \item Friedman Test and Nemenyi Post-Test ( On MUltiple Learners)
+    \end{itemize}
+\end{itemize}
+
+\section{Supervised Learning-Regression and Classification}
+
+\begin{itemize}
+    \item Confusion Matrix
+    \begin{itemize}
+    	\item Accuracy = $\int_{x\in D} \mathbb{I}(f(x)\neq y) p(x)dx$
+    	\item Precision = TP/(TP+FP)
+    	\item Recall = True Positive Rate = TP/(TP+FN)
+    	\item False Positive Rate = FP/(FP+TN)
+    	\item P-R Curve
+    	\item $F-\beta$ Measure
+    	$$\frac{1}{F_{\beta}} = \frac{1}{1+\beta^2}(\frac{1}{P}+\frac{\beta^2}{R})$$
+    	$${F_{\beta}} = \frac{(1+\beta^2) \times P \times R}{(\beta^2 \times P) + R}$$
+    	\item Specificity = 1- FPR
+    	\item ROC (Receiver Operating Characteristic) Curve
+    	$$AUC = \int_{-\infty}^{+\infty}  TPR(t)(FPR(t))'dt$$
+    	$$ = \int_{-\infty}^{+\infty} \int_{t}^{+\infty} f_1(x)dxf_0(t)dt$$
+    	$$ = \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} \mathbb{1}_{x>T} f_1(x) f_0(t)dxdt$$
+    	$$ = \mathbb{P}(S_1 > S_0) = 1-Loss_{rank}$$ f are densities for 0,1 class data
+    	\item Cost-Sensitive Loss: With unequal loss for FP and FN
+    	\item Cost Curve : Used to measure Cost-sensitive error rate: Use P(+)cost as horizontal and normalized cost as vertical. 
+    	
+    \end{itemize}
+\end{itemize}
+
+
+
+\chapter{Linear Regression and Regression Overview}
 
 \section{Overview}
 
@@ -579,7 +610,7 @@ The Diagonal Entires $h_{ii}$ are the Leverages.
     $$y_i-\hat{y}_{-i} = \frac{\hat{\varepsilon}_i}{1-h_{ii}}$$ h is the leverage (hat matrix)
 \end{itemize}
 
-\subsection{ Regularization, Ridge, Lasso }
+\subsection{Regularization, Ridge, Lasso}
 
 \textbf{Ridge}
 
@@ -679,6 +710,13 @@ Intuition
     $$2 \sum_{i]1}^N -y_i log\frac{y_i}{\hat{p_i}}+ (1-y_i)log(\frac{1-y_i}{1-\hat{p_i}})$$
 \end{itemize}
 
+Regularization techniques:
+
+\begin{itemize}
+    \item With L-1 or L-2 norm (Frobenius Norm)
+    $$J(z) = \frac{1}{m} \sum_{i=1}^m L(y_i,\hat{y}_i) + \frac{\lambda}{2m}\norm{\mathbf{w}}^2_F$$
+\end{itemize}
+
 
 Another Intuition about minimizing the loss function is to minimize the \textbf{K-L Divergence} with Maximum-Entropy Model 
 
@@ -701,13 +739,196 @@ $$P(Y=k|x) = \frac{e^{w^Tx}}{\sum_{i=1}{K}e^{w^Tx}}$$
 
 \chapter{Distance and Kth Nearest Neighbors}
 
-\chapter{Naive Bayesian}
 
 \chapter{Tree Models and Ensemble Learning}
 
-\chapter{Classification Overview and Support Vector Machine}
+\chapter{Support Vector Machine}
 
-Stacking Aggregating: Random Forest, Boosting(GBDT), Deep Learning...
+\section{Model and Assumptions}
+
+Find an hyperplane can separate all the samples:
+
+$$\left\{
+         \begin{array}{lr}
+             \mathbf{w}^T\mathbf{x} + b \geq +1,  y = +1 &  \\
+             \mathbf{w}^T\mathbf{x} + b \leq -1,  y = -1  
+             \\			  
+             \end{array}
+   \right.$$ 
+
+The vectors make "=" are the support vectors.
+
+The margin is
+
+$$\gamma = \frac{2}{\norm{\mathbf{w}}} $$ ($\frac{\mathbf{w}^T\mathbf{x} + b}{\norm{\mathbf{w}}}$ is the point distance to plane)
+
+So the problem is
+$$ \argmax_{\mathbf{w},b} \frac{2}{\norm{\mathbf{w}}}$$
+$$s.t. (\mathbf{w}^T\mathbf{x}_i + b)y_i \geq 1$$
+
+Equivalent to
+
+$$ \argmin_{\mathbf{w},b} \frac{1}{2}\norm{\mathbf{w}}^2$$
+$$s.t. (\mathbf{w}^T\mathbf{x}_i + b)y_i \geq 1$$
+
+Lagrange Multiplier
+
+$$L = \frac{1}{2}\norm{\mathbf{w}}^2 - \sum_{i=1}^m\alpha_i(1 - (\mathbf{w}^T\mathbf{x}_i + b)y_i)$$
+
+With first-order condition for $\mathbf{w}$ and b we can have
+
+$$\mathbf{w} = \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i, b = \sum_{i=1}^m \alpha_i y_i$$
+
+Then we get the dual problem
+
+$$\argmax_{\boldsymbol{\alpha}}  \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T\mathbf{x}_j$$
+$$s.t \sum_{i=1}^m \alpha_i y_i = 0$$
+$$ \alpha_i \geq 0$$
+
+When Satisfy K.K.T (Karush-Kuhn-Tucker) condition 
+
+$$\left\{
+         \begin{array}{lr}
+             \alpha_i \geq +1,  y = +1 &  \\
+              y_i(\mathbf{w}^T\mathbf{x}_i + b) - 1 \geq 0 \\
+              \alpha_i( y_i(\mathbf{w}^T\mathbf{x}_i + b) - 1 ) \geq 0 
+             \end{array}
+   \right.$$ 
+
+
+See Optimization, could be solved using SMO(Sequential Minimal Optimization)
+
+\section{Kernel Function}
+
+For Linear Un-separable problems, we can project to higher-dimensions
+
+$$ \argmax_{\mathbf{w},b} \frac{2}{\norm{\mathbf{w}}}$$
+$$s.t. (\mathbf{w}^T\phi(\mathbf{x}_i)+ b)y_i \geq 1$$
+
+$$\argmax_{\boldsymbol{\alpha}}  \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \phi(\mathbf{x}_i)^T\phi(\mathbf{x}_j)$$
+$$s.t \sum_{i=1}^m \alpha_i y_i = 0$$
+$$ \alpha_i \geq 0$$
+
+Kernel
+
+$$\kappa(\mathbf{x}_i, \mathbf{x}_j ) = \phi(\mathbf{x}_i)^T\phi(\mathbf{x}_j)$$
+
+We can find the solution by
+
+$$f(x) = (\mathbf{w}^T\phi(\mathbf{x}_i)+ b) =\sum_{i=1}^m \alpha_i y_i 
+\kappa(\mathbf{x}, \mathbf{x}_i ) + b$$
+
+Theorem:
+
+When a symmetric function has semi-positive definite kernel matrix
+
+$$\begin{pmatrix} 
+  				\kappa(\mathbf{x}_1, \mathbf{x}_1 )& \cdots & \kappa(\mathbf{x}_1, \mathbf{x}_m )\\ 
+  				\vdots & \ddots & \vdots \\
+  				\kappa(\mathbf{x}_m, \mathbf{x}_1 )& \cdots & \kappa(\mathbf{x}_m, \mathbf{x}_m )  
+\end{pmatrix} $$
+
+ it can be a kernel function. Common Kernels are
+ 
+ \begin{itemize}
+	\item Linear Kernel $$\kappa(\mathbf{x}_1, \mathbf{y} ) = \mathbf{x}^T\mathbf{y}$$
+	\item Polynomial Kernel $$\kappa(\mathbf{x}_1, \mathbf{y} ) = (\mathbf{x}^T\mathbf{y} + c)^d$$
+	\item Gaussian Kernel $$\kappa(\mathbf{x}_1, \mathbf{y} ) = exp(-\frac{\norm{\mathbf{x}-\mathbf{y}}^2}{2\sigma^2})$$
+	\item Laplace Kernel $$\kappa(\mathbf{x}_1, \mathbf{y} ) = exp(-\frac{\norm{\mathbf{x}-\mathbf{y}}}{\sigma})$$
+	\item sigmoid Kernel $$\kappa(\mathbf{x}_1, \mathbf{y} ) = tanh(\beta \mathbf{x}^T\mathbf{y} + \theta)$$
+\end{itemize}
+ 
+
+\section{Soft Margin, Slack Variable and Regularization}
+
+
+
+
+\part{Probabilistic Graphical Models}
+
+\chapter{Bayesian Statistical Theory and Naive Bayesian}
+
+Bayes' Rule 
+$$ f_{Y|X}(y|x) = \frac{f_{(X,Y)}(x,y)}{f_X(x)} = \frac{f_{(X,Y)}(x,y)}{\int f(x|y)f(y)dy}$$
+Byesian Inference:\\
+All parameters are random variables,
+$$\pi(\theta|x) =  \frac{f(x|\theta) \pi(\theta)}{\int f(x|\theta)\pi(\theta)d\theta}$$
+$$\pi(\theta|x) \sim  f(x|\theta) \pi(\theta)$$
+$\pi(\theta)$ is the prior distribution, $\pi(\theta|x)$ is the posterior distribution for $\theta$ given x. 
+
+Bayes Estimator
+$$\hat{\theta}_{Bayes} = E(\theta | X) = \int \theta \pi(\theta |X ) d\theta$$
+
+\textbf{Conjugate Distribution}:
+$f(x), \pi$ is called conjugate distributions if model $\pi(\theta|x), \pi(\theta)$ follows the same Distribution
+
+eg. Bernoulli($\theta$) and Beta($\alpha,\beta$),  ( $\pi(\theta|x) \sim$ Beta($\alpha+\sum X_i, \beta + n - \sum X_i$) ($f(x|\theta) = \prod_{i=1}^n f_{X_i}(X_i|\theta)$)
+$$\hat{\theta}_{Bayes} = E(\theta | X) = \frac{ \alpha + \sum X_i}{ \alpha + \beta + n} $$
+$$= \frac{\sum X_i}{n}\frac{n}{\alpha + \beta + n} + \frac{\alpha}{\alpha + \beta}\frac{ \alpha + \beta}{\alpha + \beta + n}$$
+
+The prior mean ( second term ) influences less as n grows.
+
+Poisson($\theta$) and $Gamma(\alpha + \sum X_i, \beta + n )$ 
+
+\section{ Bayesian Decision Theory}
+
+In State $\omega$ we take action $a \in A$, incurr Loss $L(\omega,a)$, how to choose a to minimize
+Risk:
+$$R(a|x) = \sum_{j=1}^k L(\omega_j, a) P(\omega_j |\mathbf{x} )$$
+Decision Rule $d \in A$
+$$d^*(x) = \argmin_{a \in A} R(a|\mathbf{x})$$
+$d^*(x)$ here is a Bayes optimal classifier here. and $R(d^*(x)|\mathbf{x})$ is the Bayes Risk.
+
+\section{Naive Bayesian}
+
+\subsection{Model and Assumption}
+When we have a 0-1 loss
+
+$$L = = \left\{
+             \begin{array}{lr}
+             0 \text{ , if i=j} &  \\
+             1, \text{ otherwise } &  
+             \end{array}
+      \right.$$
+
+the risk become
+
+$$R(a|x) = 1- P(\omega_j |\mathbf{x} )$$
+$$d^*(x) = \argmax_{a \in A} P(a|\mathbf{x})$$
+
+If we build model around $P(a|\mathbf{x})$ directly, this is a \textbf{Discriminative Model}. If We try to model the joint distribution $P(\mathbf{x},a)$, this is a \textbf{Generative Model}. Same as we get the Bayesian estimator, we try to find
+
+$$P(a|\mathbf{x}) = \frac{P(a)P(\mathbf{x}|c)}{P(\mathbf{x})}$$
+
+Naive Bayes made the important \textbf{assumption of attribute conditional independence} to write
+
+$$\frac{P(a)P(\mathbf{x}|c)}{P(\mathbf{x})}= \frac{P(a)}{P(\mathbf{x})}\prod_{i=1}^n P(x_i|a)$$
+
+We just need to count dataset to get
+
+$$\hat{P}(x_i|a) = \frac{|D_{a,x_i}|}{|D|}$$
+$$\hat{P}(a) = \frac{|D_{a}|}{|D|}$$
+
+For continuous data, we can use probability density function to get the estimates. 
+
+In most cases, the smoothing \textbf{Laplacian Correction} is needed:
+$$\hat{P}(x_i|a) = \frac{|D_{a,x_i}+1|}{|D|+n}$$
+$$\hat{P}(a) = \frac{|D_{a}|+1}{|D|+n}$$
+
+It can be proven, When we using the conjugate distribution of multinomial distribution to be the prior distribution and correct the parameter for Dirichlet Distribution to be $N_i+\alpha$ is equivalent for the Laplace Correction.
+
+$$Dir(\mathbf{\alpha}) = \frac{\Gamma(\sum\alpha_i)}{\prod_{i=1}^K \gamma(\alpha_i)} \prod_{i=1}^K x_i^{\alpha_i-1}, \sum_{i=1}^K x_i =1$$
+
+\subsection{Semi-naive Bayesian Classifier}
+
+Assume certain dependencies between attributes. The most common case is "One-Dependent Estimator". Such 
+
+\begin{itemize}
+	\item Super-Parent ODE
+	\item Tree Augmented Naive Bayes: Use the Maximum Weighted Spanning Tree. Weighted by mutual information (conditional entropy), Build a complete graph on attributes. 
+	\item Average One-Dependent Estimator: Ensemble on the SPODE Models 	
+\end{itemize}
+
 
 \part{Unsupervised Learning Models}
 
@@ -796,6 +1017,69 @@ Compare with Neural Network: both can achieve universal approximation, while RBF
 Deep Learning sees most results in supervised Learning.
 
 Feedforward neural network 
+
+\section{Deep Learning}
+
+Characteristics of Deep-Learning
+
+\begin{itemize}
+    \item Advantage of Deep-learning is significant mostly with large data set.
+    \item traditional bias-variance trade-off can largely be overcome by adding more data (reducing variance) and training a larger network(reducing bias) cycle when data is sufficient.
+    \item Optimization becomes more crucial in the training process. Dataset normalization, gradient checking are needed. Initialization carefully to avoid 
+    \begin{itemize}
+    	\item Gradient Vanishing/Exploding	
+    \end{itemize}
+\end{itemize}
+
+Common Regularization Techniques
+
+\begin{itemize}
+    \item L-1 or L-2 regularization ( notice: also affects backward propagation-cause 
+\textbf{weight decay}. ) Reduces variance.
+	$$J(z) = \frac{1}{m} \sum_{i=1}^m L(y_i,\hat{y}_i) + \sum_{l=1}^L\frac{\lambda}{2m}\norm{\mathbf{w}^{[l]}}^2_F$$
+   \item Dropout: randomly shutting down (with certain probability) nodes during every training. Still predicting with the whole network. Reduces over-reliance on a certain node.
+  \item Data augmentation: adding transformed data to expand training set.
+ \item Early stoping: early stopping during the optimization of parameters to avoid overfit.
+\end{itemize}
+
+\subsection{Optimization in Deep Learning}
+
+Optimization Algos used in ML?Deep Learning Includes
+
+\begin{itemize}
+	\item Mini-batch gradient descent: Use one batch (subset) of sample to compute the gradient each time. ( one “epoch”) ( one batch size =1, it is Stochastic gradient descent)
+	\item Momentum Method: Smooth the gradient series with EWMA (Exponentially weighted averages 
+	$$ V_{dw} = \beta_1V_{dw} + (1-\beta_1) dw, V_{dw} /= (1-\beta_1^t)$$
+ 	$$ V_{db} = \beta_1V_{db} + (1-\beta_1) dw,V_{db} /= (1-\beta_1^t)$$
+ 	\item Root-Mean Square Prop (RMSProp)
+ 	$$ S_{dw} = \beta S_{dw} + (1-\beta) dw^2 $$
+ 	$$ S_{db} = \beta S_{db} + (1-\beta) dw^2 $$
+	$$ w:= w- \alpha \frac{dw}{\sqrt{sdw}}, b:= b- \alpha \frac{db}{\sqrt{sdb}}$$
+	\item Adam(Adaptive Moment Estimation) Algorithm L Combine RMSProp and Momentum
+	$$ V_{dw} = \beta_1V_{dw} + (1-\beta_1) dw, V_{dw} /= (1-\beta_1^t)$$
+ 	$$ V_{db} = \beta_1V_{db} + (1-\beta_1) dw,V_{db} /= (1-\beta_1^t)$$
+ 	$$ S_{dw} = \beta_2S_{dw} + (1-\beta_2) dw^2 $$
+ 	$$ S_{db} = \beta_2S_{db} + (1-\beta_2) dw^2 $$
+	$$w:= w- \alpha \frac{v_{dw}}{\sqrt{sdw}+\epsilon}, b:= b- \alpha \frac{v_{db}}{\sqrt{sdb}+\epsilon}$$
+	$$w:= w- \alpha \frac{dw}{\sqrt{sdb}+\epsilon}, b:= b- \alpha \frac{db}{\sqrt{sdb}+\epsilon}$$
+	\item Learning Rate Decay
+		$$ \alpha = \frac{1}{1+\text{decay rate} \times \text{epoch num}}$$	
+\end{itemize}
+
+\subsection{Hyperparameter Tuning Methods}
+
+\begin{itemize}
+	\item Grid method 
+	\item Batch Normalization 
+	$$z_{norm} = \frac{z^{(i)}-\mu}{\sqrt{\sigma^2 + \epsilon}}$$
+	$$\tilde{z} = \gamma z_{norm}  + \beta$$
+	Can speed up learning and add some noise to avoid overfitting. (Similar to dropout).
+	In test time, usually use the EWMA across mini-batches on the mean and variance series to normalize the use trained $\beta, \gamma$ to transform. 
+\end{itemize}
+
+Performance Evaluation
+
+
 
 \part{Bayesian Learning and Probabilistic Graphical Model }
 Markov Chain
