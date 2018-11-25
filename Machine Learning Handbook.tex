@@ -99,7 +99,9 @@ Theorems:
     \item The Maximum Entropy Principle. Without extra assumption, max entropy/equal probability has the minimum prediction risk. 
 \end{itemize}
  
-\section{Optimization Theory}
+\section{Optimization}
+
+\subsection{Optimization Theory}
 
 \begin{itemize}
     \item Objective function/Evaluation function, constrained/unconstrained optimization，Feasible Set, Optimal Solution, Optimal Value, Binding Constraints, Shadow Price, Infeasible Price, Infeasibility, Unboundedness    
@@ -108,7 +110,7 @@ Theorems:
     \item Convex Set, Convex Function $f:S\to R$ is convex if and only if $\bigtriangledown^2 f(\mathbf{x})$ is positive semidefinite 
 \end{itemize}
 
-Optimization Methods:
+\subsection{Optimization Methods}
 
 \begin{itemize}
     \item Linear Search Method: Direction First, Step Size second	
@@ -133,8 +135,22 @@ Quadratic programming (QP)
     \item Sequential Minimal Optimization(SMO) 
 \end{itemize}
 
+\subsection{Optimization Algorithms in Machine Learning}
 
-Theorems:
+		Loss Function
+			Entropy
+			K-L Distance
+		Regularization Methods
+		EM Algorithm
+		Gradient Descent
+			Stochastic Gradient Descent
+			Batch Gradient Descent
+			Momentum
+			AdaGrad
+			Adam
+		Backward Propagation
+		Gradient Checkling
+
 
 \section{Formal Logic}
 
@@ -341,9 +357,60 @@ More Generalized Distributions
 
 \chapter{Computational Learning Theory}
 
-\part{Supervised Learning Models}
+\chapter{Model Evaluation and Model Selection}
 
-\chapter{Data Science Basic}
+\begin{itemize}
+    \item Hold-out: Separate to training/test(dev) set.
+    \item Sampling Methods: Important for holding out. eg. Stratified Sampling
+    \item Cross-Validation: Leave-One-Out and k-fold
+    \item Bootstrapping: with m sampling with replacement:
+    $$ \lim_{m \to \infty} (1-\frac{1}{m}) = \frac{1}{e} \approx 0.368$$ Use $D \setminus D'$ as testing set
+    \item Hypothesis Test for Cross Validation
+     \begin{itemize}
+     \item Binomial test generalized error rate for one CV
+    $$P(\hat{\epsilon}, \epsilon) = {m\choose \hat{\epsilon} m} \epsilon^{\hat{\epsilon} m}(1-\epsilon)^{m-\hat{\epsilon}m}$$ 
+     \item t test for multiple CVs
+    $$\mu = \frac{1}{k} \sum \hat{\epsilon_i}, \sigma = \frac{1}{k-1}\sum (\hat{\epsilon_i} - \mu )^2$$ 
+    \item Paired t-test for two Classifiers A and B (Permutation test or normal t test on $|\frac{\sqrt{k}\mu}{\sigma}|$
+    \item McNemar Test ($\chi^2$ test)
+    \item Friedman Test and Nemenyi Post-Test ( On MUltiple Learners)
+    \end{itemize}
+\end{itemize}
+
+
+\section{Performance Metrics}
+
+Supervised Learning-Regression and Classification
+\begin{itemize}
+    \item Confusion Matrix
+    \begin{itemize}
+    	\item Accuracy = $\int_{x\in D} \mathbb{I}(f(x)\neq y) p(x)dx$
+    	\item Precision = TP/(TP+FP)
+    	\item Recall = True Positive Rate = TP/(TP+FN)
+    	\item False Positive Rate = FP/(FP+TN)
+    	\item P-R Curve
+    	\item $F-\beta$ Measure
+    	$$\frac{1}{F_{\beta}} = \frac{1}{1+\beta^2}(\frac{1}{P}+\frac{\beta^2}{R})$$
+    	$${F_{\beta}} = \frac{(1+\beta^2) \times P \times R}{(\beta^2 \times P) + R}$$
+    	\item Specificity = 1- FPR
+    	\item ROC (Receiver Operating Characteristic) Curve
+    	$$AUC = \int_{-\infty}^{+\infty}  TPR(t)(FPR(t))'dt$$
+    	$$ = \int_{-\infty}^{+\infty} \int_{t}^{+\infty} f_1(x)dxf_0(t)dt$$
+    	$$ = \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} \mathbb{1}_{x>T} f_1(x) f_0(t)dxdt$$
+    	$$ = \mathbb{P}(S_1 > S_0) = 1-Loss_{rank}$$ f are densities for 0,1 class data
+    	\item Cost-Sensitive Loss: With unequal loss for FP and FN
+    	\item Cost Curve : Used to measure Cost-sensitive error rate: Use P(+)cost as horizontal and normalized cost as vertical. 
+    	
+    \end{itemize}
+\end{itemize}
+
+Model Evaluation
+	Performance Metrics
+	A/B Test
+	Bias, variance, Overfitting and Underfitting
+	Hyperparameters Selection
+
+\chapter{Feature Engineering}
 
 \section{Data Wrangling}
 
@@ -370,57 +437,17 @@ Basic Transformations
       \right.$$ Optimal Transformation can be found with the MLE Method
 \end{itemize}
 
+Feature Engineering
+	Discretization and Normalization
+	Feature Combination
+	Feature Selection
+	Word Embedding
 
-\section{Model Valuation}
+\chapter{Sampling}
 
-Concepts
+\part{Supervised Learning}
 
-\begin{itemize}
-    \item Hold-out: Separate to training/test(dev) set.
-    \item Sampling Methods: Important for holding out. eg. Stratified Sampling
-    \item Cross-Validation: Leave-One-Out and k-fold
-    \item Bootstrapping: with m sampling with replacement:
-    $$ \lim_{m \to \infty} (1-\frac{1}{m}) = \frac{1}{e} \approx 0.368$$ Use $D \setminus D'$ as testing set
-    \item Hypothesis Test for Cross Validation
-     \begin{itemize}
-     \item Binomial test generalized error rate for one CV
-    $$P(\hat{\epsilon}, \epsilon) = {m\choose \hat{\epsilon} m} \epsilon^{\hat{\epsilon} m}(1-\epsilon)^{m-\hat{\epsilon}m}$$ 
-     \item t test for multiple CVs
-    $$\mu = \frac{1}{k} \sum \hat{\epsilon_i}, \sigma = \frac{1}{k-1}\sum (\hat{\epsilon_i} - \mu )^2$$ 
-    \item Paired t-test for two Classifiers A and B (Permutation test or normal t test on $|\frac{\sqrt{k}\mu}{\sigma}|$
-    \item McNemar Test ($\chi^2$ test)
-    \item Friedman Test and Nemenyi Post-Test ( On MUltiple Learners)
-    \end{itemize}
-\end{itemize}
-
-\section{Supervised Learning-Regression and Classification}
-
-\begin{itemize}
-    \item Confusion Matrix
-    \begin{itemize}
-    	\item Accuracy = $\int_{x\in D} \mathbb{I}(f(x)\neq y) p(x)dx$
-    	\item Precision = TP/(TP+FP)
-    	\item Recall = True Positive Rate = TP/(TP+FN)
-    	\item False Positive Rate = FP/(FP+TN)
-    	\item P-R Curve
-    	\item $F-\beta$ Measure
-    	$$\frac{1}{F_{\beta}} = \frac{1}{1+\beta^2}(\frac{1}{P}+\frac{\beta^2}{R})$$
-    	$${F_{\beta}} = \frac{(1+\beta^2) \times P \times R}{(\beta^2 \times P) + R}$$
-    	\item Specificity = 1- FPR
-    	\item ROC (Receiver Operating Characteristic) Curve
-    	$$AUC = \int_{-\infty}^{+\infty}  TPR(t)(FPR(t))'dt$$
-    	$$ = \int_{-\infty}^{+\infty} \int_{t}^{+\infty} f_1(x)dxf_0(t)dt$$
-    	$$ = \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty} \mathbb{1}_{x>T} f_1(x) f_0(t)dxdt$$
-    	$$ = \mathbb{P}(S_1 > S_0) = 1-Loss_{rank}$$ f are densities for 0,1 class data
-    	\item Cost-Sensitive Loss: With unequal loss for FP and FN
-    	\item Cost Curve : Used to measure Cost-sensitive error rate: Use P(+)cost as horizontal and normalized cost as vertical. 
-    	
-    \end{itemize}
-\end{itemize}
-
-
-
-\chapter{Linear Regression and Regression Overview}
+\chapter{Regression}
 
 \section{Overview}
 
@@ -670,17 +697,7 @@ $$Rss + \lambda \sum_{i=1}^p (\alpha|\beta_j| + (1-\alpha) \beta_j^2)$$
 
 Additive Model : no interactions/cross terms
 
-
-\section{Practice/Examples}
-
-\begin{enumerate}
-    \item What is Anscombe's Quartet 
-\end{enumerate}
-
-
-\chapter{Logistic Regression and Generalized Linear Model}
-
-\section{Logistic Regression}
+\section{Generalized Linear Model}
 
 \subsection{Logistic Regression}
 
@@ -735,16 +752,18 @@ Another Intuition about minimizing the loss function is to minimize the \textbf{
 
 $$P(Y=k|x) = \frac{e^{w^Tx}}{\sum_{i=1}{K}e^{w^Tx}}$$
 
-\chapter{Neutral-Network}
+\section{Practice/Examples}
 
-\chapter{Distance and Kth Nearest Neighbors}
+\begin{enumerate}
+    \item What is Anscombe's Quartet 
+\end{enumerate}
+
+\chapter{Classic Statistical Learning Models}
 
 
-\chapter{Tree Models and Ensemble Learning}
+\section{Support Vector Machine}
 
-\chapter{Support Vector Machine}
-
-\section{Model and Assumptions}
+\subsection{Model and Assumptions}
 
 Find an hyperplane can separate all the samples:
 
@@ -798,7 +817,7 @@ $$\left\{
 
 See Optimization, could be solved using SMO(Sequential Minimal Optimization)
 
-\section{Kernel Function}
+\subsection{Kernel Function}
 
 For Linear Un-separable problems, we can project to higher-dimensions
 
@@ -839,14 +858,19 @@ $$\begin{pmatrix}
 \end{itemize}
  
 
-\section{Soft Margin, Slack Variable and Regularization}
+\subsection{Soft Margin, Slack Variable and Regularization}
 
+\chapter{Tree Models and Ensemble Learning}
 
+\subsection{Bagging and Random Forest}
+\subsection{Boosting and GBDT}
+
+\chapter{Dimension Deduction}
 
 
 \part{Probabilistic Graphical Models}
 
-\chapter{Bayesian Statistical Theory and Naive Bayesian}
+\chapter{Naive Bayes}
 
 Bayes' Rule 
 $$ f_{Y|X}(y|x) = \frac{f_{(X,Y)}(x,y)}{f_X(x)} = \frac{f_{(X,Y)}(x,y)}{\int f(x|y)f(y)dy}$$
@@ -879,9 +903,9 @@ Decision Rule $d \in A$
 $$d^*(x) = \argmin_{a \in A} R(a|\mathbf{x})$$
 $d^*(x)$ here is a Bayes optimal classifier here. and $R(d^*(x)|\mathbf{x})$ is the Bayes Risk.
 
-\section{Naive Bayesian}
 
-\subsection{Model and Assumption}
+
+\section{Model and Assumption}
 When we have a 0-1 loss
 
 $$L = = \left\{
@@ -929,10 +953,20 @@ Assume certain dependencies between attributes. The most common case is "One-Dep
 	\item Average One-Dependent Estimator: Ensemble on the SPODE Models 	
 \end{itemize}
 
+\chapter{Max Entropy Model}
+\chapter{Hidden Markov Model}
+\chapter{Conditional Probabilistic Field}
 
-\part{Unsupervised Learning Models}
+\part{Unsupervised Learning}
 
 \chapter{Clustering}
+				Hierarchical Clustering
+				K-means
+\chapter{Gaussian Mixture Model}
+
+\chapter{Topic Model}
+Latent Dirichlet Analysis(LDA)
+
 
 \chapter{Dimension Reduction}
 \section{Principal Component Analysis(PCA)}
@@ -972,9 +1006,36 @@ if we scale X to have unit standard deviation, the problem is finding eigenvalue
 \section{LDA}
 
 
-\part{Deep Learning and Enhanced Learning Theory}
+\part{Deep Learning}
 
-\chapter{Deep Learning, Neural Network and Multi-layer Perceptron}
+\chapter{Feedforward Neural Network}
+\section{Multi-layer Perceptron}
+\section{Convolutional Neural Network(CNN)}
+\section{Deep Residual Network(ResNet)}
+\section{self organizing feature map(SOMNet)}
+\section{Restricted Boltzman Machine(RBM)}
+
+\section{Model Optimization/Regularization}
+		Batch Normalization
+		Dropout
+		Activation
+			sigmoid
+			softmax
+			tanh
+			ReLu
+
+
+\chapter{Recurrent Neural Network(RNN)}
+		{RNN}
+		LSTM, GRU
+		Attention Model
+		Seq2Seq
+
+\chapter{Generative Adversarial Networks(GAN)}
+	
+\chapter{Reinforcement Learning}
+
+\chapter{Legacy}
 
 \section{Neural Networks}
 
@@ -1081,14 +1142,14 @@ Performance Evaluation
 
 
 
-\part{Bayesian Learning and Probabilistic Graphical Model }
-Markov Chain
-Hidden Markov Chain
-Markov Blanket
-Bayesian Network
-EM Algorithm
 
+\section{Key Questions and Status Quo}
 
+\begin{itemize}
+	\item Scarce Data, Learning on Small Example (eg. Transfer Learning)
+	\item Meta-Learning
+	\item Knowledge from Hand-made features and Neural Network Combined Together 
+\end{itemize}
 
 
 
