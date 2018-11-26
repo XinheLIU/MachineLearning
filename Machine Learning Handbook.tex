@@ -150,7 +150,41 @@ Quadratic programming (QP)
 			Adam
 		Backward Propagation
 		Gradient Checkling
+		
+\subsection{Optimization in Deep Learning}
 
+Optimization Algos used in Deep Learning Includes
+
+\begin{itemize}
+	\item Mini-batch gradient descent: Use one batch (subset) of sample to compute the gradient each time. ( one “epoch”) ( one batch size =1, it is Stochastic gradient descent)
+	\item Momentum Method: Smooth the gradient series with EWMA (Exponentially weighted averages 
+	$$ V_{dw} = \beta_1V_{dw} + (1-\beta_1) dw, V_{dw} /= (1-\beta_1^t)$$
+ 	$$ V_{db} = \beta_1V_{db} + (1-\beta_1) dw,V_{db} /= (1-\beta_1^t)$$
+ 	\item Root-Mean Square Prop (RMSProp)
+ 	$$ S_{dw} = \beta S_{dw} + (1-\beta) dw^2 $$
+ 	$$ S_{db} = \beta S_{db} + (1-\beta) dw^2 $$
+	$$ w:= w- \alpha \frac{dw}{\sqrt{sdw}}, b:= b- \alpha \frac{db}{\sqrt{sdb}}$$
+	\item Adam(Adaptive Moment Estimation) Algorithm L Combine RMSProp and Momentum
+	$$ V_{dw} = \beta_1V_{dw} + (1-\beta_1) dw, V_{dw} /= (1-\beta_1^t)$$
+ 	$$ V_{db} = \beta_1V_{db} + (1-\beta_1) dw,V_{db} /= (1-\beta_1^t)$$
+ 	$$ S_{dw} = \beta_2S_{dw} + (1-\beta_2) dw^2 $$
+ 	$$ S_{db} = \beta_2S_{db} + (1-\beta_2) dw^2 $$
+	$$w:= w- \alpha \frac{v_{dw}}{\sqrt{sdw}+\epsilon}, b:= b- \alpha \frac{v_{db}}{\sqrt{sdb}+\epsilon}$$
+	$$w:= w- \alpha \frac{dw}{\sqrt{sdb}+\epsilon}, b:= b- \alpha \frac{db}{\sqrt{sdb}+\epsilon}$$
+	\item Learning Rate Decay
+		$$ \alpha = \frac{1}{1+\text{decay rate} \times \text{epoch num}}$$	
+\end{itemize}
+
+\subsection{Hyperparameter Tuning Methods}
+
+\begin{itemize}
+	\item Grid method 
+	\item Batch Normalization 
+	$$z_{norm} = \frac{z^{(i)}-\mu}{\sqrt{\sigma^2 + \epsilon}}$$
+	$$\tilde{z} = \gamma z_{norm}  + \beta$$
+	Can speed up learning and add some noise to avoid overfitting. (Similar to dropout).
+	In test time, usually use the EWMA across mini-batches on the mean and variance series to normalize the use trained $\beta, \gamma$ to transform. 
+\end{itemize}
 
 \section{Formal Logic}
 
@@ -1008,50 +1042,52 @@ if we scale X to have unit standard deviation, the problem is finding eigenvalue
 
 \part{Deep Learning}
 
+\chapter{Deep Learning Model Optimization and Regularization}
+
+Characteristics of Deep-Learning
+
+\begin{itemize}
+    \item Advantage of Deep-learning is significant mostly with large data set.
+    \item traditional bias-variance trade-off can largely be overcome by adding more data (reducing variance) and training a larger network(reducing bias) cycle when data is sufficient.
+    \item Optimization becomes more crucial in the training process. Dataset normalization, gradient checking are needed. Initialization carefully to avoid 
+    \begin{itemize}
+    	\item Gradient Vanishing/Exploding	
+    \end{itemize}
+\end{itemize}
+
+\section{Common Regularization Techniques}
+
+\begin{itemize}
+    \item L-1 or L-2 regularization ( notice: also affects backward propagation-cause 
+\textbf{weight decay}. ) Reduces variance.
+	$$J(z) = \frac{1}{m} \sum_{i=1}^m L(y_i,\hat{y}_i) + \sum_{l=1}^L\frac{\lambda}{2m}\norm{\mathbf{w}^{[l]}}^2_F$$
+   \item Dropout: randomly shutting down (with certain probability) nodes during every training. Still predicting with the whole network. Reduces over-reliance on a certain node.
+  \item Data augmentation: adding transformed data to expand training set.
+ \item Early stoping: early stopping during the optimization of parameters to avoid overfit.
+\end{itemize}
+
+\section{Key Questions and Status Quo}
+
+\begin{itemize}
+	\item Scarce Data, Learning on Small Example (eg. Transfer Learning)
+	\item Meta-Learning
+	\item Knowledge from Hand-made features and Neural Network Combined Together 
+\end{itemize}
+
+
 \chapter{Feedforward Neural Network}
 \section{Multi-layer Perceptron}
-\section{Convolutional Neural Network(CNN)}
-\section{Deep Residual Network(ResNet)}
-\section{self organizing feature map(SOMNet)}
-\section{Restricted Boltzman Machine(RBM)}
-
-\section{Model Optimization/Regularization}
-		Batch Normalization
-		Dropout
-		Activation
-			sigmoid
-			softmax
-			tanh
-			ReLu
-
-
-\chapter{Recurrent Neural Network(RNN)}
-		{RNN}
-		LSTM, GRU
-		Attention Model
-		Seq2Seq
-
-\chapter{Generative Adversarial Networks(GAN)}
-	
-\chapter{Reinforcement Learning}
-
-\chapter{Legacy}
-
-\section{Neural Networks}
-
-\subsection{History Class}
 
 \begin{itemize}
     \item MP Neuron $$y = \phi(\sum_{i=1}^N w_ix_i)$$ $$w_i(t+1) = w_i(t) + \eta [d_j-y_j(t)]x_{j,i}$$ can only solve linear-separable problems
     \item Multilayer Perceptron: Including one hidden layer. The first Feedforward Neural Network. Errors passes by Back Propagation. Its it proven that a single-hidden layer multilayer perceptron can approximate any continuous functions at arbitrary error level.(universal approximation)
 \end{itemize}
 
-\subsection{Neural Networks}
+\section{Neural Networks}
 
-\subsubsection{Radial Basis Function Network}
+\section{Radial Basis Function Network}
 
 In the hidden layer, use activation function as activation function 
-
 Radial Basis Function
 
 $$ \rho(\mathbf{x,w_i},\sigma) = exp(\frac{ -{\norm{ \mathbf{x} - \mathbf{w_i} }}^2}{2\sigma^2})$$
@@ -1079,79 +1115,273 @@ Deep Learning sees most results in supervised Learning.
 
 Feedforward neural network 
 
-\section{Deep Learning}
 
-Characteristics of Deep-Learning
+
+\section{Convolutional Neural Network(CNN)}
+
+Basic Idea is to use Convolution to engineer (extract and filter out) the features. (the "Edge Detection Problem")
+
+\subsection{Convolution and Pooling}
+
+The "Convolution" in DL is really Cross-Correlation. (See "Convolution" on wikipedia)
+\begin{itemize}
+\item Convolute the Image Data with a Filter(Kernel) (eg. Sobel Filter, Scharr Filter)
+$$(n.n) * (f, f) \rightarrow (n-f+1, n-f+1)$$
+\item Padding: add zeros entries so the output size same as input size
+$(n+2p-f+1, n+2p-f+1)$ as result
+\begin{itemize}
+	\item Valid Padding: No Padding out
+	\item Same Padding: Output the Same Size
+	\item FULL Padding: Maximum Padding does not result in a convolution on just padded elements(eg. for a filter of size k, k-1)
+\end{itemize}
+\item Stride:steps to take
+$(\lfloor \frac{n+2p−f}{s}⌋+1 \rfloor, \lfloor \frac{n+2p−f}{s}\rfloor + 1)$ rounding down (dont do when it is out)
+\item Convolution over Volume: Traditionally, use a filter with same number of channels (each 3-dimensional filter result an matrix output)
+\item Convolution of tensor - still all number multiply then sum together
+could use m filters to result an m channel output
+\item 1-layer Convolution Network: Input $\rightarrow$ n filters $\rightarrow$ ReLu on each output (bias parameter added here) $\rightarrow$ Stack the output together result an n channel output 
+\item Why convolution works
+	\begin{itemize}
+	\item Parameter Sharing: One feature detector is useful for one part of image probably be useful for all parts
+	\item Sparsity of Connections: In each layer, each output value depends only on a small number of inputs
+	\end{itemize}
+\end{itemize}
+
+Pooling:
+\begin{itemize}
+	\item Max Pooling - Take max of sub-areas' outputs, result a matrix
+	\item Average Pooling - Take the average of sub-areas, Used less often
+	\item No padding
+\end{itemize}
+
+
+
+\subsection{Convolutional Neural Network(CNN)}
+
+Basic Architecture
+
+Image of Different Channels (RGB)  $\rightarrow$  Conv Layer  $\rightarrow$  Pooling (multiple layers of both)  $\rightarrow$  Fully connect layer (flatten all data)  $\rightarrow$  Sotfmax  $\rightarrow$ Prediction. Use Back propagation to train (Mini-batch gradient descent)
 
 \begin{itemize}
-    \item Advantage of Deep-learning is significant mostly with large data set.
-    \item traditional bias-variance trade-off can largely be overcome by adding more data (reducing variance) and training a larger network(reducing bias) cycle when data is sufficient.
-    \item Optimization becomes more crucial in the training process. Dataset normalization, gradient checking are needed. Initialization carefully to avoid 
-    \begin{itemize}
-    	\item Gradient Vanishing/Exploding	
+\item LeNet-5
+\begin{itemize}
+	\item avg pool
+	\item shrink each step
+	\item no padding
+	\item conv-pool, conv-pool pattern
+	\item activation:sigmoid, ReLu
+\end{itemize}
+\item AlexNet
+\begin{itemize}
+	\item much bigger network
+	\item ReLU
+	\item Multiple GPU Training
+	\item Local Response Normalization (normalize over all channels)
+\end{itemize}
+\item VGG
+\begin{itemize}
+	\item VGG-16
+	\item VGG-19: even bigger
+\end{itemize}
+\end{itemize}
+
+
+\subsection{Deep Residual Network(ResNet)}
+
+\begin{itemize}
+\item Train significant Deeper Networks
+\item Build by Residual Blocks
+\begin{itemize}
+	\item identity block
+	\item convolution block
+\end{itemize}
+\item \textbf{Skip Connections/ Short Cut}
+$$ a^{[l+2]}= g(z^{[l+2]}) + a^{[l]})$$
+\item helps gradient propagation
+\item less likely to learn identity functions
+\end{itemize}
+
+\subsection{Inception Net}
+
+Network in Network and 1x1 Convolution
+
+\begin{itemize}
+	\item Adds no linearity to the neural Network
+	\item Shrink the number of Channels
+\end{itemize}
+
+Inception Net
+
+\begin{itemize}
+	\item Uses 1x1 convolution
+	\item Create a "bottleneck layer"
+	\item Reduce the number of computations significantly
+	\item Different (may be one or two layers of) Pooling/Convolutions in one layer, Channel Concatenation
+	\item Identity Blocks connected together
+\end{itemize}
+
+\subsection{Computer Vision and YOLO Algorithm}
+
+\subsubsection{Object Detection}
+
+\begin{itemize}
+\item Can have different objects (several objects)(little different than classification with detection)
+\item Output a vector: $[p_c, b_x,b_y,b_h,b_w, c_1,c_2...c_n]$ for both location(center + bounding box) and class
+	\subitem use square loss function
+\item IOU - Intersection under union
+	\subitem Intersection of two bounding boxes/union of boxes ( predicted and actual) 
+	\subitem thredhold usually 0.5
+\end{itemize}
+
+\subsubsection{Landmark Detection}
+
+Output x y coordinates for important points in the image
+
+\subsubsection{Convolutional Implementation of Sliding Windows + YOLO - You Only Look Once Algo( Bounding Box Detection)}
+
+\begin{itemize}
+\item Use convolution to replace （two) fully connected layers( two layers ) in the network
+	\subitem pic $\rightarrow$ Deep CNN  $\rightarrow$ encoding of dimension(m, grid, grid, $n_{anchor boxes}$, $n_{features}$)
+	\subitem $n_{features}$ is dimension of $[p_c, b_x,b_y,b_h,b_w, c_1,c_2...c_n]$
+\item Assign center of the object to the grid
+\item \textbf{Non-max suppression}: detect the object \textbf{only once}
+	\subitem Use the $p_c$ probability, only keep the one with highest $p_c$ intersected rectangles
+	\subitem discard any box below a $p_c$ thredhold
+	\subitem once for each output class
+\item Anchor Boxes
+	\subitem different shape boxes to deal with overlapping objects
+	\subitem output becomes $[p_c, b_x,b_y,b_h,b_w, c_1,c_2...c_n]$ for two anchor boxes
+	\subitem each object assigned to the center grid cell and anchor box IOU
+\end{itemize}
+
+\subsubsection{Region Proposal}
+\begin{itemize}
+	\item Segmentation Algorithm to find blob and only run on bounding box on these
+	\item R-CNN and Fast R-CNN algorithm, Faster Algorithm
+\end{itemize}
+
+\subsubsection{Face Recognition}
+
+\begin{itemize}
+	\item Verification: confirm identity
+	\item recognition: database of K persons, output id if any of the K persons
+	\item One-shot Learning: learn using just one example
+	\item Learn a similarity function: $d(p1,p2) \leq t$， the same person
+	\item \textbf{Siamese network}: use neural network as encoding. $|f(x(i)) - f(x(j))|$ is small
+	\subitem Triplet Loss: encoding of the anchor-positive smaller than anchor-positive.
+	$$L(A,P,N) = max(( |f(A) - f(P)|^2 - |f(A) - f(N) |)^2 + \alpha, 0 )$$
+	choose triplet that is hard rather than randomly to improve computational efficiency
+	\subitem $y_hat = \sigma( \sum w_i|f(xi)k - f(xj)k| +b )$. usually use pre-computed network to make prediction
+\end{itemize}
+
+\subsubsection{Neural Style Transfer}
+
+\begin{itemize}
+	\item $$J(G) = \alpha J_{content}(c,G) + \beta J_{style}(S,G)$$
+	\item Content cost: use pre-trained Conv Net (eg. VGG Net)
+	 $$J(C,G) = 1/2|a[l](c) - a[l](G)|^2$$(L2-norm as cost)
+	\item Style Cost: correlation should be the measure of closeness in style. Use \textbf{Style matrix} - i,j,k is on dimension H,W,C
+	    $$G_{kk}^l = \sum_i\sum_j a_{ijk}^{[l]} a_{ijk}^{[l]}$$ the gram matrix
+	    $$J(S,G) = |G[l](S) - G[l](G)|_F^2$$ normalized 
+\end{itemize}
+\subsection{Convolution in 2D and 1D Data}
+
+Filter/Knernel will be 1D and 2D to convolute on the data
+
+\section{self organizing feature map(SOMNet)}
+\section{Restricted Boltzman Machine(RBM)}
+
+\section{Model Optimization/Regularization}
+		Batch Normalization
+		Dropout
+		Activation
+			sigmoid
+			softmax
+			tanh
+			ReLu
+
+
+\chapter{Sequence Model}
+
+Sequence models deal with sequence data ( speech, music, DNA, Sentiment Classification, etc). In sequence data, Inputs, outputs can be different in size and Input might not share features across sequence (eg. text)
+
+\section{Recurrent Neural Network(RNN)}
+
+\begin{itemize}
+	\item Use the output from t-n(eg. t- 1) as an input for t prediction 
+	\item the output at each time step is passed by a random sampling with predicted probability
+	\item forward propagation
+	\begin{itemize}
+		\item w parameters shared across t
+		\item $a^{<t>} = g(w_{ax} x_t + w_{aa} a^{<t-1>})$ 
+		\item $y^{<t>} = g(w_{ya} a^{<t>} + b_y)$
+	\end{itemize}
+	\item Vectorization
+	\begin{itemize}
+    	\item $[w_{aa}| w_{ax}] = w_a$ 
+    	\item $[a_{t-1}, x_t]$ stacked vertically
     \end{itemize}
+	\item Backward propagation
+	\begin{itemize}
+  		\item $L^{<t>} (\hat{y_t},y_t) = - y^t log \hat{y_t} - (1-y_t) log(1-\hat{y}_t)$
+  		\item $L(\hat{y},y) = \sum L(t) L^{<t>}$ across t
+  		\item weights propagates back from t to ....0
+  	\end{itemize}
+	\item Different Architecture Types
+	\begin{itemize}
+  		\item Standard RNN(many-to-many RNN)
+    	\item encoder + decoder(x RNN connects to y RNN in sequence
+  		\item many-to-one RNN（only one out put at t)
+  		\item One-to-One (only one time piece)
+  		\item One-to-Many (only one input at time 0)
+  	\end{itemize}
+	\item Vanishing Gradient 
+	\begin{itemize}
+  		\item basic RNN has many local influences (influence not far)
+  		\item Exploding: solved by \textbf{gradient clipping} - rescale gradient when gradient hits some thredhold
+  		\item Vanishing is harder to solve
+  	\end{itemize}
 \end{itemize}
 
-Common Regularization Techniques
+\section{Gated Recurrent Unit (GRU）and Long Short Term Memory (LSTM) Model}
 
-\begin{itemize}
-    \item L-1 or L-2 regularization ( notice: also affects backward propagation-cause 
-\textbf{weight decay}. ) Reduces variance.
-	$$J(z) = \frac{1}{m} \sum_{i=1}^m L(y_i,\hat{y}_i) + \sum_{l=1}^L\frac{\lambda}{2m}\norm{\mathbf{w}^{[l]}}^2_F$$
-   \item Dropout: randomly shutting down (with certain probability) nodes during every training. Still predicting with the whole network. Reduces over-reliance on a certain node.
-  \item Data augmentation: adding transformed data to expand training set.
- \item Early stoping: early stopping during the optimization of parameters to avoid overfit.
-\end{itemize}
+GRU and LSTM can solve the problem of gradient vanishing and creates long-distance dependencies by "peephole connection". Stacking LTSM or GRU units together creates LTSM/GRU network.
 
-\subsection{Optimization in Deep Learning}
+\includegraphics[width=15cm]{GRU-LSTM.png}
 
-Optimization Algos used in ML?Deep Learning Includes
+Gradient Recurrent Unit:
 
-\begin{itemize}
-	\item Mini-batch gradient descent: Use one batch (subset) of sample to compute the gradient each time. ( one “epoch”) ( one batch size =1, it is Stochastic gradient descent)
-	\item Momentum Method: Smooth the gradient series with EWMA (Exponentially weighted averages 
-	$$ V_{dw} = \beta_1V_{dw} + (1-\beta_1) dw, V_{dw} /= (1-\beta_1^t)$$
- 	$$ V_{db} = \beta_1V_{db} + (1-\beta_1) dw,V_{db} /= (1-\beta_1^t)$$
- 	\item Root-Mean Square Prop (RMSProp)
- 	$$ S_{dw} = \beta S_{dw} + (1-\beta) dw^2 $$
- 	$$ S_{db} = \beta S_{db} + (1-\beta) dw^2 $$
-	$$ w:= w- \alpha \frac{dw}{\sqrt{sdw}}, b:= b- \alpha \frac{db}{\sqrt{sdb}}$$
-	\item Adam(Adaptive Moment Estimation) Algorithm L Combine RMSProp and Momentum
-	$$ V_{dw} = \beta_1V_{dw} + (1-\beta_1) dw, V_{dw} /= (1-\beta_1^t)$$
- 	$$ V_{db} = \beta_1V_{db} + (1-\beta_1) dw,V_{db} /= (1-\beta_1^t)$$
- 	$$ S_{dw} = \beta_2S_{dw} + (1-\beta_2) dw^2 $$
- 	$$ S_{db} = \beta_2S_{db} + (1-\beta_2) dw^2 $$
-	$$w:= w- \alpha \frac{v_{dw}}{\sqrt{sdw}+\epsilon}, b:= b- \alpha \frac{v_{db}}{\sqrt{sdb}+\epsilon}$$
-	$$w:= w- \alpha \frac{dw}{\sqrt{sdb}+\epsilon}, b:= b- \alpha \frac{db}{\sqrt{sdb}+\epsilon}$$
-	\item Learning Rate Decay
-		$$ \alpha = \frac{1}{1+\text{decay rate} \times \text{epoch num}}$$	
-\end{itemize}
+$$\tilde{c}^{<t>} = tanh( W_c [ \Gamma_r * c^{<t-1>},x^{<t>}] + b_c)$$
+$$ \Gamma_u = \sigma(W_u[c^{<t-1>},x^{<t>}] + b_u)$$
+$$ \Gamma_r = \sigma(W_r[c^{<t-1>},x^{<t>}] + b_r)$$
+$$c^{<t>} = \Gamma_u * \tilde{c}^{<t>} + (1 - \Gamma_u) * c^{<t-1>}$$
+$$a^{<t>} = c^{<t>}$$
 
-\subsection{Hyperparameter Tuning Methods}
+Long Short Term Memory:
 
-\begin{itemize}
-	\item Grid method 
-	\item Batch Normalization 
-	$$z_{norm} = \frac{z^{(i)}-\mu}{\sqrt{\sigma^2 + \epsilon}}$$
-	$$\tilde{z} = \gamma z_{norm}  + \beta$$
-	Can speed up learning and add some noise to avoid overfitting. (Similar to dropout).
-	In test time, usually use the EWMA across mini-batches on the mean and variance series to normalize the use trained $\beta, \gamma$ to transform. 
-\end{itemize}
+$$\tilde{c}^{<t>} = tanh( W_c [ c^{<t-1>},x^{<t>}] + b_c)$$
+$$ \Gamma_u = \sigma(W_u[c^{<t-1>},x^{<t>}] + b_u)$$
+$$ \Gamma_f = \sigma(W_f[c^{<t-1>},x^{<t>}] + b_r)$$
+$$\Gamma_o = \sigma(W_o[c^{<t-1>},x^{<t>}] + b_o)$$
+$$c^{<t>} = \Gamma_u * \tilde{c}^{<t>} + \Gamma_f * c^{<t-1>}$$
+$$a^{<t>} = \Gamma_o c^{<t>}$$
 
-Performance Evaluation
+\section{Bidirectional RNN and Deep RNN}
 
+Bidirectional RNN - Two activations connected in two different directions
 
+\includegraphics[width=15cm]{Bidirectional.png}
 
+Deep RNN - Stacking RNN Layers together. Three layers are already pretty deep.
 
-\section{Key Questions and Status Quo}
+\includegraphics[width=15cm]{DeepRNN.png}
 
-\begin{itemize}
-	\item Scarce Data, Learning on Small Example (eg. Transfer Learning)
-	\item Meta-Learning
-	\item Knowledge from Hand-made features and Neural Network Combined Together 
-\end{itemize}
+\section{Language Model}
 
+Language model uses data from a \textbf{Corpus}. Models probabilities of words appear(generative model). The input is a language sequence, prediction is the (conditional) probability of next word appearing. The prediction is a Sampling (according to predicted probability until we hit EOS)
 
-
+\chapter{Generative Adversarial Networks(GAN)}
+	
+\chapter{Reinforcement Learning}
  
 \end{document}                          % The required last line 
