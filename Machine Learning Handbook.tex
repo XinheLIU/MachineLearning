@@ -472,10 +472,41 @@ Basic Transformations
 \end{itemize}
 
 Feature Engineering
-	Discretization and Normalization
-	Feature Combination
-	Feature Selection
-	Word Embedding
+\section{Discretization and Normalization}
+\section{Feature Combination}
+\section{Feature Selection}
+
+\section{Word Embedding}
+
+Feature representation used in Natural Language Processing (NLP)
+
+\begin{itemize}
+    \item One-hot representation(o): 1 entry for the position in dictionary, 0 all other entires
+    \item Word embedding (E) is a matrix representation with columns words, row features.  $E \cdot o_j = e_j$
+    \item t-SNE algorithm (a non-linear dimension reduction technique) to visualize word embeddings
+    \item Indeed a transfer learning technique
+    	\subitem Learn word embeddings from large text corpus
+    	\subitem Transfer embeddings to new task with smaller training set 
+    	\subitem (optional) continue to finetune the embedding on new training set
+	\item Property : 
+		$$e_{man} - e_{woman}  \approx e_{king} - e_{w}$$
+		$$\hat{w} = \argmax_{w} (e_{man}  - e_{king} +e_{woman}) $$
+	\item Learning the word embedding: train the previous N words(or, words in the same sentence) embedding E with a neural network (activation + Softmax) ( $w^{[1]}, b^{[1]}, w^{[2]}, b^{[2]}$) 
+	\item Language model: input the context (words before, after) to learn a word 
+	\item \textbf{Word2Vec} algorithm: a skip-gram algorithm. Train a word embedding: one word with fixed distance( eg. 10 words away) as context to predict a target. 
+		$$ o_c \rightarrow E \rightarrow e_c \rightarrow softmax \rightarrow \hat{y}$$
+		$$p(t|c) = \frac{e^{\theta_t e_c}}{\sum e^{\theta_j e_c}}$$
+		$$L(\hat{y},y )= - sum y_i log \hat{y_i}$$
+		y is one-hot representation (0,…0,1,0…)
+	\item training word2vec: Need to improve efficiency by Hierarchical softmax classifier. Or use \textbf{negative sampling} - for each context-target pair, generate k negative examples on purpose. Turn to N (N is the number of such pairs) binary classification problems 
+		$$p(y = 1 | c, t ) = \sigma( \theta_t^T e_c)$$
+		(Turnning multiclass classification to binary classification)\\ 
+		usually use $p(w_i) = \frac{f(w_i)}{\sum f (w_i)}$ as sample probability 
+	\item GloVe algorithm (global vectors of word representation):
+		$$\sum_i \sum_j f(x_{ij} (\theta_i ^ T e_j + b_i + b_j^’ - log X_{ij})^2$$ note, $f（0）= 0$, f is the weighting scheme. $\theta_i, e_j$ are symmetric
+	\item Debias word-embeddings: find the “bias-direction” (eg. gender bias would be the direction from “man” to “woman”, “father” to “mother” - the natural biased words) and “non-bias direction” : the midpoint and orthogonal direction to these word. Then neutralize other words should not be biased to that axis. 
+\end{itemize}
+
 
 \chapter{Sampling}
 
@@ -1378,7 +1409,17 @@ Deep RNN - Stacking RNN Layers together. Three layers are already pretty deep.
 
 \section{Language Model}
 
-Language model uses data from a \textbf{Corpus}. Models probabilities of words appear(generative model). The input is a language sequence, prediction is the (conditional) probability of next word appearing. The prediction is a Sampling (according to predicted probability until we hit EOS)
+Language model uses data from a \textbf{Corpus}. it models probabilities of words appear(generative model).
+
+The input is a language sequence, prediction is the (conditional) probability of next word appearing. The prediction is a Sampling (according to predicted probability until we hit EOS).
+
+Application examples like；
+
+Sentiment Classification:
+
+$$\text{word embedding} \rightarrow Average \rightarrow softmax \rightarrow \hat{y}$$
+
+Or a \textit{many to one} RNN with sentiment as the (only) output at the last step.
 
 \chapter{Generative Adversarial Networks(GAN)}
 	
