@@ -24,7 +24,10 @@
 \contentsline {section}{\numberline {4.1}Performance Metrics}{19}
 \contentsline {chapter}{\numberline {5}Feature Engineering}{21}
 \contentsline {section}{\numberline {5.1}Data Wrangling}{21}
-\contentsline {section}{\numberline {5.2}Word Embedding}{22}
+\contentsline {section}{\numberline {5.2}Discretization and Normalization}{22}
+\contentsline {section}{\numberline {5.3}Feature Combination}{22}
+\contentsline {section}{\numberline {5.4}Feature Selection}{22}
+\contentsline {section}{\numberline {5.5}Word Embedding}{22}
 \contentsline {chapter}{\numberline {6}Sampling}{24}
 \contentsline {part}{II\hspace {1em}Supervised Learning}{25}
 \contentsline {chapter}{\numberline {7}Regression}{26}
@@ -96,5 +99,7 @@
 \contentsline {section}{\numberline {21.2}Gated Recurrent Unit (GRU）and Long Short Term Memory (LSTM) Model}{69}
 \contentsline {section}{\numberline {21.3}Bidirectional RNN and Deep RNN}{70}
 \contentsline {section}{\numberline {21.4}Language Model}{72}
-\contentsline {chapter}{\numberline {22}Generative Adversarial Networks(GAN)}{73}
-\contentsline {chapter}{\numberline {23}Reinforcement Learning}{74}
+\contentsline {subsection}{\numberline {21.4.1}Sequence-to-Sequence model}{72}
+\contentsline {subsection}{\numberline {21.4.2}Attention Model}{73}
+\contentsline {chapter}{\numberline {22}Generative Adversarial Networks(GAN)}{75}
+\contentsline {chapter}{\numberline {23}Reinforcement Learning}{76}

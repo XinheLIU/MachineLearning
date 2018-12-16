@@ -175,6 +175,9 @@ Optimization Algos used in Deep Learning Includes
 		$$ \alpha = \frac{1}{1+\text{decay rate} \times \text{epoch num}}$$	
 \end{itemize}
 
+
+Beam Search: with hyper-parameter Beam-width(B): keep the top B answers in each training step ( a heuristic method that generalized Greedy)
+
 \subsection{Hyperparameter Tuning Methods}
 
 \begin{itemize}
@@ -1420,6 +1423,39 @@ Sentiment Classification:
 $$\text{word embedding} \rightarrow Average \rightarrow softmax \rightarrow \hat{y}$$
 
 Or a \textit{many to one} RNN with sentiment as the (only) output at the last step.
+
+
+\subsection{Sequence-to-Sequence model}
+
+In applications like machine translation, a encoder-decode model is used.
+
+
+\includegraphics[width=15cm]{SequenceToSequence.png}
+
+\textbf{Beam Search} for training. 
+
+usually refine to
+$$\argmax_y  \frac{1}{T_y^{\alpha}} \sum_{t=1}^{T_y} log P(y^{<t>} | x, y^{<1>},...,y^{<t-1>})$$
+
+to avoid a preference for long sentence (length normalization)
+
+Error Analysis:
+
+By comparing $P(y^* |x)$ and $P(\hat{y}|x)$ we can attribute the error to beam search or RNN(if searched probability lower than correct probability-Beam Search’s fault)
+
+Translation problem measure - Bleu Score (See paper  textit{method for automatic evaluation of machine translation})
+
+$$p_n = \frac{\sum_{ngram \in \hat{y}} count_{clip} (ngram)}{\sum_{ngram \in \hat{y}}count(ngram)}$$
+
+\subsection{Attention Model}
+
+To Solve the problem sequence-to-sequence model faces in long sentences (information become less useful when too far). We add double hidden state and parameters to represent the attention paid to models.
+
+\includegraphics[width=15cm]{AttentionModel.png}
+
+Attentions are trained by a small-neural network 
+$$a_{<t,t’>} = \frac{exp(e_{<t,t’>} }{\sum_{t’=1}^{T_x} exp(e_{<t,t’>}) }$$
+$$f(a_{<t’>}, s^{<t-1>}  ) = e_{<t,t’>}$$
 
 \chapter{Generative Adversarial Networks(GAN)}
 	
