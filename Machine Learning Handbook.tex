@@ -642,16 +642,17 @@ Special Situations
 
 
 Under Normal Condition, we have
-$$y \sim N(\beta_0 + \beta x_i, \sigma^2), L(\theta) = (\frac{1}{\sqrt{2\pi} \sigma)}^n exp( - \frac{\sum_{i=1}^n (y_i - (\beta_0 +\beta_1x_i))^2}{2\sigma^2})$$ 
+$$y \sim N(\beta_0 + \beta x_i, \sigma^2)$$
+$$ L(\theta) = (\frac{1}{\sqrt{2\pi} \sigma})^n exp( - \frac{\sum_{i=1}^n (y_i - (\beta_0 +\beta_1x_i))^2}{2\sigma^2})$$ 
 Equivalent to minimize
 $$RSS(\theta) = \sum_{i=1}^n (y_i - (\beta_0 +\beta_1x_i))^2$$
-$$ \partial_{\beta_i} RSS = 0, i =1,2$$, we get
+$$ \partial_{\beta_i} RSS = 0, i =0,1$$, we get
 $$ r_{xy} = \frac{s_{xy}}{s_xs_y}, \beta_1 = r_{xy}\frac{s_y}{s_x} =\frac{s_{xy}}{s_x^2},\beta_0 = \bar{y}-\hat{\beta}\bar{x} $$
 
 In Multi-variate Case:
 
 $$ f(x) = \mathbf{w}^T \mathbf{x} = \sum_{i=1}^n w_i x_i $$
-$$\mathbf{w*} = \argmin_{\mathbf{\hat{w}}}(\mathbf{y})-\mathbf{X \hat{w}} )^T(\mathbf{y})-\mathbf{X \hat{w}} )$$
+$$\mathbf{w*} = \argmin_{\mathbf{\hat{w}}}(\mathbf{y}-\mathbf{X \hat{w}} )^T(\mathbf{y}-\mathbf{X \hat{w}} )$$
 $$\frac{\partial{E}}{\partial{\mathbf{\hat{w}}}} = 2 \mathbf{X}^T(\mathbf{X \hat{w}} - \mathbf{y})$$
 $$ \mathbf{w*} = (\mathbf{X^T X})^{-1} \mathbf{X^T y} $$
 
