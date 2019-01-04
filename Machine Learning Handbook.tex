@@ -451,6 +451,14 @@ Model Evaluation
 
 \section{Data Wrangling}
 
+Some examples normalization won't help
+
+\begin{itemize}
+	\item Information Gain
+\end{itemize}
+
+\subsection{Transformation}
+
 Basic Transformations
 
 \begin{itemize}
@@ -476,12 +484,56 @@ Basic Transformations
 
 Feature Engineering
 \section{Discretization and Normalization}
+
+\subsection{Normalization}
+
+$$ X_{norm} = \frac{X -  X_{min}}{X_{max} - X_{min}}$$
+$$ X = z-score = X_{norm} = \frac{X - \mu}{\sigma}$$
+
+We Need Normalization because
+\begin{itemize}
+	\item Data Interpretation
+	\item Optimization - speed up gradient descent to run on more "round" shapes	
+\end{itemize}
+
+\subsection{Discrete(Categorical) Features}
+
+\begin{itemize}
+	\item ordinal encoding: deal with ordinal (can be compared). eg. Linear Regression
+	\item one-hot encoding: code 1 in 1 positions and 0 in others. eg. words. Need to consider
+		\subitem storage or large sparse matrix
+		\subitem Dimension reduction and feature selection. eg. "Curse of Dimension" in K-means. Logistic regression
+	\item Binary encoding: Give IDs to categories and use the binary codes. (eg. Blood type)
+	\item Helmert Contrast, Sum Contrast, Polynomial Contrast, Backward Difference Contract
+\end{itemize}
+
 \section{Feature Combination}
+
+Use the combination as a higher level feature. This could cause dimension increases. eg. for m categories in feature x, n categories in feature y. we have $m \times n$ w:
+$$Y = sigmoid(\sum_i \sum_j w_{ij} <x_i,x_j>$$
+
+one way to implement is to have k (k << m, n) dimension representation of x, y.
+
+We can use learning algorithms to find how to combine features. eg. Use a Tree model:
+
+
 \section{Feature Selection}
 
-\section{Word Embedding}
+\section{Text Features}
+
+\subsection{Text Representation}
 
 Feature representation used in Natural Language Processing (NLP)
+\begin{itemize}
+	\item bag-of-words model: ignore sequence, view articles as a bag of words. (a long vector). weight in the vector can reflect in the importance (to the topic of the article)
+	\item TF-IDF: Term Frequency-Inverse Document Frequency = TF(t,d) $\times$ IDF(t,d). TF(t,d) is the word t frequency in document d. 
+		$$IDF = log \frac{\text{number of articles}}{\text{articles with word t} + 1}$$
+		as a measure of importance
+	\item N-gram: use n words appearing together as a feature rather than each word
+	\item word-Stemming: convert word to word stems to normalize
+	\item Topic Model: Find theme and theme distributions on documents.
+\end{itemize}
+\subsection{Word Embedding}
 
 \begin{itemize}
     \item One-hot representation(o): 1 entry for the position in dictionary, 0 all other entires
@@ -496,18 +548,26 @@ Feature representation used in Natural Language Processing (NLP)
 		$$\hat{w} = \argmax_{w} (e_{man}  - e_{king} +e_{woman}) $$
 	\item Learning the word embedding: train the previous N words(or, words in the same sentence) embedding E with a neural network (activation + Softmax) ( $w^{[1]}, b^{[1]}, w^{[2]}, b^{[2]}$) 
 	\item Language model: input the context (words before, after) to learn a word 
-	\item \textbf{Word2Vec} algorithm: a skip-gram algorithm. Train a word embedding: one word with fixed distance( eg. 10 words away) as context to predict a target. 
+	\item Debias word-embeddings: find the “bias-direction” (eg. gender bias would be the direction from “man” to “woman”, “father” to “mother” - the natural biased words) and “non-bias direction” : the midpoint and orthogonal direction to these word. Then neutralize other words should not be biased to that axis. 
+\end{itemize}
+
+word2Vec and GloVe
+
+\begin{itemize}
+	\item Two different architectures. CBOW (Continues Bag of Words) - use context to predict current word and Skip-gram - use current word to predict context
+	\includegraphics[width=15cm]{CBOW-SkipGram.png}
+	 it is a generative model to find the weights in the softmax to maximize the likelihood of all words. The embeddings (word vec) is in the hidden layer.
+	\item \textbf{Word2Vec} algorithm: for example, skip-gram algorithm. Train a word embedding: one word with fixed distance( eg. 10 words away) as context to predict a target. 
 		$$ o_c \rightarrow E \rightarrow e_c \rightarrow softmax \rightarrow \hat{y}$$
 		$$p(t|c) = \frac{e^{\theta_t e_c}}{\sum e^{\theta_j e_c}}$$
-		$$L(\hat{y},y )= - sum y_i log \hat{y_i}$$
+		$$L(\hat{y},y )= - \sum y_i log \hat{y_i}$$
 		y is one-hot representation (0,…0,1,0…)
-	\item training word2vec: Need to improve efficiency by Hierarchical softmax classifier. Or use \textbf{negative sampling} - for each context-target pair, generate k negative examples on purpose. Turn to N (N is the number of such pairs) binary classification problems 
+	\item training word2vec: Could be very slow, because need to loop over all words each time. Need to improve efficiency by \textbf{Hierarchical softmax classifier.} Or use \textbf{negative sampling} - for each context-target pair, generate k negative examples on purpose. Turn to N (N is the number of such pairs) binary classification problems 
 		$$p(y = 1 | c, t ) = \sigma( \theta_t^T e_c)$$
 		(Turnning multiclass classification to binary classification)\\ 
 		usually use $p(w_i) = \frac{f(w_i)}{\sum f (w_i)}$ as sample probability 
 	\item GloVe algorithm (global vectors of word representation):
 		$$\sum_i \sum_j f(x_{ij} (\theta_i ^ T e_j + b_i + b_j^’ - log X_{ij})^2$$ note, $f（0）= 0$, f is the weighting scheme. $\theta_i, e_j$ are symmetric
-	\item Debias word-embeddings: find the “bias-direction” (eg. gender bias would be the direction from “man” to “woman”, “father” to “mother” - the natural biased words) and “non-bias direction” : the midpoint and orthogonal direction to these word. Then neutralize other words should not be biased to that axis. 
 \end{itemize}
 
 
@@ -1097,7 +1157,13 @@ Characteristics of Deep-Learning
 \textbf{weight decay}. ) Reduces variance.
 	$$J(z) = \frac{1}{m} \sum_{i=1}^m L(y_i,\hat{y}_i) + \sum_{l=1}^L\frac{\lambda}{2m}\norm{\mathbf{w}^{[l]}}^2_F$$
    \item Dropout: randomly shutting down (with certain probability) nodes during every training. Still predicting with the whole network. Reduces over-reliance on a certain node.
-  \item Data augmentation: adding transformed data to expand training set.
+  \item Data augmentation: adding transformed data to expand training set. 
+  		\subitem: Adjust color (use PCA to analyze RGB values, add noises on each direction)
+  		\subitem: Random rotate, crop, shift, change size, symmetric transform
+  		\subitem: Add noise (Gaussian Noise, Salt-and-Pepper Noise)
+  		\subitem: Change resolution, sharpness, contrast
+  		\subitem: Use Generative Model to generate new samples(GAN)
+  		\subitem: Extract features first, then use up-sampling/SMOTE
  \item Early stoping: early stopping during the optimization of parameters to avoid overfit.
 \end{itemize}
 
