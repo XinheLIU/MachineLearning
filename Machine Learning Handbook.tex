@@ -42,6 +42,21 @@ Concepts:
     \item vector space, linear space(with summation, scalar production), inner product space( inner product space) 
 \end{itemize}
 
+Matrix Derivative:
+
+\begin{itemize}
+	\item $\frac{\partial y}{\partial x}$, $\frac{\partial \mathbf{y}}{\partial x}$, $\frac{\partial \mathbf{Y}}{\partial x}$ just list normal derivatives by column 
+	$$a = \mathbf{XW}, \frac{\partial A}{\partial W} = \mathbf{X}^T$$
+	\item $\frac{\partial y}{\mathbf{x}},\frac{\partial y}{\mathbf{X}}$ list the result according to denominator
+	\item Jacobian $(x_1, ... , x_n) \rightarrow (h_1,...h_m)$
+	$$\frac{\partial \mathbf{h}}{\partial \mathbf{x}} = 
+	\begin{pmatrix} 
+  				\frac{\partial h_1 }{\partial x} & \cdots & \frac{\partial h_1 }{\partial x_n}\\ 
+  				\vdots & \ddots & \vdots \\
+  				\frac{\partial{h_m}}{\partial x_1 } & \cdots & \frac{\partial h_m }{\partial x_n} 
+			\end{pmatrix} $$
+	\item For matrix to matrix, vector to matrix, more than one dimension tensors as result (result must include all results and can be used with Chain Rule)
+\end{itemize}
 
 \section{Probability}
 
