@@ -1,15 +1,17 @@
 \contentsline {part}{I\hspace {1em}High-level Views}{1}
 \contentsline {chapter}{\numberline {1}Math Review}{2}
-\contentsline {section}{\numberline {1.1}Linear Algebra}{2}
-\contentsline {section}{\numberline {1.2}Probability}{3}
-\contentsline {section}{\numberline {1.3}Information Theory}{4}
-\contentsline {section}{\numberline {1.4}Optimization}{6}
-\contentsline {subsection}{\numberline {1.4.1}Optimization Theory}{6}
-\contentsline {subsection}{\numberline {1.4.2}Optimization Methods}{6}
-\contentsline {subsection}{\numberline {1.4.3}Optimization Algorithms in Machine Learning}{7}
-\contentsline {subsection}{\numberline {1.4.4}Optimization in Deep Learning}{7}
-\contentsline {subsection}{\numberline {1.4.5}Hyperparameter Tuning Methods}{8}
-\contentsline {section}{\numberline {1.5}Formal Logic}{9}
+\contentsline {section}{\numberline {1.1}Calculus}{2}
+\contentsline {subsection}{\numberline {1.1.1}Derivatives and Integration}{2}
+\contentsline {section}{\numberline {1.2}Linear Algebra}{2}
+\contentsline {section}{\numberline {1.3}Probability}{3}
+\contentsline {section}{\numberline {1.4}Information Theory}{5}
+\contentsline {section}{\numberline {1.5}Optimization}{6}
+\contentsline {subsection}{\numberline {1.5.1}Optimization Theory}{6}
+\contentsline {subsection}{\numberline {1.5.2}Optimization Methods}{6}
+\contentsline {subsection}{\numberline {1.5.3}Optimization Algorithms in Machine Learning}{7}
+\contentsline {subsection}{\numberline {1.5.4}Optimization in Deep Learning}{7}
+\contentsline {subsection}{\numberline {1.5.5}Hyperparameter Tuning Methods}{8}
+\contentsline {section}{\numberline {1.6}Formal Logic}{9}
 \contentsline {chapter}{\numberline {2}Statistics}{10}
 \contentsline {section}{\numberline {2.1}Concepts}{10}
 \contentsline {subsection}{\numberline {2.1.1}Basic}{10}
