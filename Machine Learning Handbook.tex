@@ -130,9 +130,12 @@ Concepts:
     \item Classic Probability Model: Frequentist 
     \item Bayesian Probability Theory 
     \item Random variable, continuous RV, discrete RV, probability mass function, probability density function, cumulative density function
+    \item Independence, Correlation
+    \item Permutation, Combination, Binomial Theorem, Inclusion-Exclusion Principles
     \item expectation, moments, variance, covariance, correlation coefficient
     	\subitem Consine similarity (correlation in Euclidean space)
     	  $$cos\theta = \frac{\mathbf{A}^T\mathbf{B}}{\norm{\mathbf{A}}\norm{\mathbf{B}}}	$$
+    \item Moment Generating Functions 
 \end{itemize}
 
 
@@ -147,15 +150,22 @@ Important Distributions:
 
 \begin{enumerate}
 	\item Bernoulli distribution
-	\item Binomial distribution(n,p)$$P(X=k) = {N\choose k} p^k (1-p)^{(n-k)}$$
-	\item Poisson distribution $$P(X=k) = \lambda^k \frac{e^{-\lambda}}{k!}$$
+	\item Uniform Distributiondiscrete)
+	\item Binomial distribution(n,p)$$P(X=k) = {N\choose k} p^k (1-p)^{(n-k)}$$ $$E(X) =np, Var(X) =np(1-p)$$
+	\item Geometric Distribution $$P(x) = (1-p)^{x-1}p$$
+	$$E(X) = \frac{1}{p}, Var(X) =\frac{1-]}{p^2}$$
+	\item Poisson distribution $$P(X=k) = \lambda^k \frac{e^{-\lambda}}{k!}$$ $$E(X) = \lambda, Var(X) = \lambda$$
+	\item Negative Binomial Distribution
 	\item Normal Distribution, See next chapter
 	\item Bernoulli Distribution 
-	\item Uniform Distribution,
-	\item Exponential distribution $$e^{-\frac{x}{\theta}}\theta$$ $$P(x>s+t|X>s) = P(x>t)$$, 
-	\item Poisson Distribution
-	\item normal distribution
-	\item t-distribution	
+	\item Uniform Distribution(continuous)
+	\item Exponential distribution $$e^{-\frac{x}{\theta}}\theta$$ $$P(x>s+t|X>s) = P(x>t)$$, $$E(x) = \frac{1}{\lambda}, Var(X) = \frac{1}{\lambda^2}$$
+	\item Normal distribution
+	\item t-distribution
+	\item Beta Distribution (the conjugate prior probability distribution for the Bernoulli, binomial, negative binomial and geometric distributions.)
+	\item Gamma Distribution 
+		\subitem (The exponential distribution, Erlang distribution, and chi-squared distribution are special cases of the gamma distribution. ) 
+		\subitem (the gamma distribution is the conjugate prior to many likelihood distributions: the Poisson, exponential, normal (with known mean), Pareto, gamma with known shape σ, inverse gamma with known shape parameter)
 \end{enumerate} 
 
 Moment Generating Functions:
@@ -189,6 +199,7 @@ Theorems:
     \item Linear Programming
     \item Lagrange Multiplier $$L(x,y,\lambda) = f(x,y) + \lambda \varphi(x,y) $$
     \item Convex Set, Convex Function $f:S\to R$ is convex if and only if $\bigtriangledown^2 f(\mathbf{x})$ is positive semidefinite 
+    \item Duality - the equivalent problem of the primal problem.
 \end{itemize}
 
 \subsection{Optimization Methods}

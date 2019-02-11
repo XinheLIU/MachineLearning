@@ -6,109 +6,109 @@
 \contentsline {section}{\numberline {1.2}Linear Algebra}{3}
 \contentsline {section}{\numberline {1.3}Important Inequalities}{5}
 \contentsline {section}{\numberline {1.4}Probability}{5}
-\contentsline {section}{\numberline {1.5}Information Theory}{7}
-\contentsline {section}{\numberline {1.6}Optimization}{8}
-\contentsline {subsection}{\numberline {1.6.1}Optimization Theory}{8}
+\contentsline {section}{\numberline {1.5}Information Theory}{8}
+\contentsline {section}{\numberline {1.6}Optimization}{9}
+\contentsline {subsection}{\numberline {1.6.1}Optimization Theory}{9}
 \contentsline {subsection}{\numberline {1.6.2}Optimization Methods}{9}
-\contentsline {subsection}{\numberline {1.6.3}Optimization Algorithms in Machine Learning}{9}
+\contentsline {subsection}{\numberline {1.6.3}Optimization Algorithms in Machine Learning}{10}
 \contentsline {subsection}{\numberline {1.6.4}Optimization in Deep Learning}{10}
 \contentsline {subsection}{\numberline {1.6.5}Hyperparameter Tuning Methods}{11}
-\contentsline {section}{\numberline {1.7}Formal Logic}{11}
-\contentsline {chapter}{\numberline {2}Statistics}{12}
-\contentsline {section}{\numberline {2.1}Concepts}{12}
-\contentsline {subsection}{\numberline {2.1.1}Basic}{12}
-\contentsline {subsection}{\numberline {2.1.2}Estimator and Estimation}{12}
-\contentsline {subsection}{\numberline {2.1.3}Model Selection}{15}
-\contentsline {subsection}{\numberline {2.1.4}Hypothesis Testing}{15}
-\contentsline {section}{\numberline {2.2}Theorems}{17}
-\contentsline {section}{\numberline {2.3}Important Distributions}{17}
-\contentsline {section}{\numberline {2.4}Practice/Examples}{19}
-\contentsline {chapter}{\numberline {3}Computational Learning Theory}{20}
-\contentsline {chapter}{\numberline {4}Model Evaluation and Model Selection}{21}
-\contentsline {section}{\numberline {4.1}Performance Metrics}{22}
-\contentsline {chapter}{\numberline {5}Feature Engineering}{24}
-\contentsline {section}{\numberline {5.1}Data Wrangling}{24}
-\contentsline {subsection}{\numberline {5.1.1}Transformation}{24}
-\contentsline {section}{\numberline {5.2}Discretization and Normalization}{25}
-\contentsline {subsection}{\numberline {5.2.1}Normalization}{25}
-\contentsline {subsection}{\numberline {5.2.2}Discrete(Categorical) Features}{25}
-\contentsline {section}{\numberline {5.3}Feature Combination}{26}
-\contentsline {section}{\numberline {5.4}Feature Selection}{26}
-\contentsline {section}{\numberline {5.5}Text Features}{26}
-\contentsline {subsection}{\numberline {5.5.1}Text Representation}{26}
-\contentsline {subsection}{\numberline {5.5.2}Word Embedding}{27}
-\contentsline {chapter}{\numberline {6}Sampling}{30}
-\contentsline {part}{II\hspace {1em}Supervised Learning}{31}
-\contentsline {chapter}{\numberline {7}Regression}{32}
-\contentsline {section}{\numberline {7.1}Overview}{32}
-\contentsline {subsection}{\numberline {7.1.1}Type of Models}{32}
-\contentsline {subsection}{\numberline {7.1.2}The Key Questions}{33}
-\contentsline {section}{\numberline {7.2}Linear Regression}{34}
-\contentsline {subsection}{\numberline {7.2.1}Assumptions}{34}
-\contentsline {subsection}{\numberline {7.2.2}Resolutions of Assumption Violations}{35}
-\contentsline {subsection}{\numberline {7.2.3}Interpretation}{36}
-\contentsline {subsection}{\numberline {7.2.4}Model Selection}{38}
-\contentsline {subsection}{\numberline {7.2.5}Regularization, Ridge, Lasso}{38}
-\contentsline {section}{\numberline {7.3}Nonlinear Regression Models}{39}
-\contentsline {section}{\numberline {7.4}Generalized Additive Models}{40}
-\contentsline {section}{\numberline {7.5}Generalized Linear Model}{40}
-\contentsline {subsection}{\numberline {7.5.1}Logistic Regression}{40}
-\contentsline {subsection}{\numberline {7.5.2}Extension: Softmax}{42}
-\contentsline {section}{\numberline {7.6}Practice/Examples}{42}
-\contentsline {chapter}{\numberline {8}Classic Statistical Learning Models}{43}
-\contentsline {section}{\numberline {8.1}Support Vector Machine}{43}
-\contentsline {subsection}{\numberline {8.1.1}Model and Assumptions}{43}
-\contentsline {subsection}{\numberline {8.1.2}Kernel Function}{45}
-\contentsline {subsection}{\numberline {8.1.3}Soft Margin, Slack Variable and Regularization}{46}
-\contentsline {chapter}{\numberline {9}Tree Models and Ensemble Learning}{47}
-\contentsline {subsection}{\numberline {9.0.1}Bagging and Random Forest}{47}
-\contentsline {subsection}{\numberline {9.0.2}Boosting and GBDT}{47}
-\contentsline {chapter}{\numberline {10}Dimension Deduction}{48}
-\contentsline {part}{III\hspace {1em}Probabilistic Graphical Models}{49}
-\contentsline {chapter}{\numberline {11}Naive Bayes}{50}
-\contentsline {section}{\numberline {11.1} Bayesian Decision Theory}{51}
-\contentsline {section}{\numberline {11.2}Model and Assumption}{51}
-\contentsline {subsection}{\numberline {11.2.1}Semi-naive Bayesian Classifier}{53}
-\contentsline {chapter}{\numberline {12}Max Entropy Model}{54}
-\contentsline {chapter}{\numberline {13}Hidden Markov Model}{55}
-\contentsline {chapter}{\numberline {14}Conditional Probabilistic Field}{56}
-\contentsline {part}{IV\hspace {1em}Unsupervised Learning}{57}
-\contentsline {chapter}{\numberline {15}Clustering}{58}
-\contentsline {chapter}{\numberline {16}Gaussian Mixture Model}{59}
-\contentsline {chapter}{\numberline {17}Topic Model}{60}
-\contentsline {chapter}{\numberline {18}Dimension Reduction}{61}
-\contentsline {section}{\numberline {18.1}Principal Component Analysis(PCA)}{61}
-\contentsline {section}{\numberline {18.2}LDA}{62}
-\contentsline {part}{V\hspace {1em}Deep Learning}{63}
-\contentsline {chapter}{\numberline {19}Deep Learning Model Optimization and Regularization}{64}
-\contentsline {section}{\numberline {19.1}Common Regularization Techniques}{65}
-\contentsline {section}{\numberline {19.2}Key Questions and Status Quo}{65}
-\contentsline {chapter}{\numberline {20}Feedforward Neural Network}{66}
-\contentsline {section}{\numberline {20.1}Multi-layer Perceptron}{66}
-\contentsline {section}{\numberline {20.2}Neural Networks}{66}
-\contentsline {section}{\numberline {20.3}Radial Basis Function Network}{66}
-\contentsline {section}{\numberline {20.4}Convolutional Neural Network(CNN)}{68}
-\contentsline {subsection}{\numberline {20.4.1}Convolution and Pooling}{68}
-\contentsline {subsection}{\numberline {20.4.2}Convolutional Neural Network(CNN)}{69}
-\contentsline {subsection}{\numberline {20.4.3}Deep Residual Network(ResNet)}{70}
-\contentsline {subsection}{\numberline {20.4.4}Inception Net}{70}
-\contentsline {subsection}{\numberline {20.4.5}Computer Vision and YOLO Algorithm}{71}
-\contentsline {subsubsection}{Object Detection}{71}
-\contentsline {subsubsection}{Landmark Detection}{71}
-\contentsline {subsubsection}{Convolutional Implementation of Sliding Windows + YOLO - You Only Look Once Algo( Bounding Box Detection)}{71}
-\contentsline {subsubsection}{Region Proposal}{72}
-\contentsline {subsubsection}{Face Recognition}{72}
-\contentsline {subsubsection}{Neural Style Transfer}{72}
-\contentsline {subsection}{\numberline {20.4.6}Convolution in 2D and 1D Data}{73}
-\contentsline {section}{\numberline {20.5}self organizing feature map(SOMNet)}{73}
-\contentsline {section}{\numberline {20.6}Restricted Boltzman Machine(RBM)}{73}
-\contentsline {section}{\numberline {20.7}Model Optimization/Regularization}{73}
-\contentsline {chapter}{\numberline {21}Sequence Model}{74}
-\contentsline {section}{\numberline {21.1}Recurrent Neural Network(RNN)}{74}
-\contentsline {section}{\numberline {21.2}Gated Recurrent Unit (GRU）and Long Short Term Memory (LSTM) Model}{75}
-\contentsline {section}{\numberline {21.3}Bidirectional RNN and Deep RNN}{76}
-\contentsline {section}{\numberline {21.4}Language Model}{78}
-\contentsline {subsection}{\numberline {21.4.1}Sequence-to-Sequence model}{78}
-\contentsline {subsection}{\numberline {21.4.2}Attention Model}{79}
-\contentsline {chapter}{\numberline {22}Generative Adversarial Networks(GAN)}{81}
-\contentsline {chapter}{\numberline {23}Reinforcement Learning}{82}
+\contentsline {section}{\numberline {1.7}Formal Logic}{12}
+\contentsline {chapter}{\numberline {2}Statistics}{13}
+\contentsline {section}{\numberline {2.1}Concepts}{13}
+\contentsline {subsection}{\numberline {2.1.1}Basic}{13}
+\contentsline {subsection}{\numberline {2.1.2}Estimator and Estimation}{13}
+\contentsline {subsection}{\numberline {2.1.3}Model Selection}{16}
+\contentsline {subsection}{\numberline {2.1.4}Hypothesis Testing}{16}
+\contentsline {section}{\numberline {2.2}Theorems}{18}
+\contentsline {section}{\numberline {2.3}Important Distributions}{18}
+\contentsline {section}{\numberline {2.4}Practice/Examples}{20}
+\contentsline {chapter}{\numberline {3}Computational Learning Theory}{21}
+\contentsline {chapter}{\numberline {4}Model Evaluation and Model Selection}{22}
+\contentsline {section}{\numberline {4.1}Performance Metrics}{23}
+\contentsline {chapter}{\numberline {5}Feature Engineering}{25}
+\contentsline {section}{\numberline {5.1}Data Wrangling}{25}
+\contentsline {subsection}{\numberline {5.1.1}Transformation}{25}
+\contentsline {section}{\numberline {5.2}Discretization and Normalization}{26}
+\contentsline {subsection}{\numberline {5.2.1}Normalization}{26}
+\contentsline {subsection}{\numberline {5.2.2}Discrete(Categorical) Features}{26}
+\contentsline {section}{\numberline {5.3}Feature Combination}{27}
+\contentsline {section}{\numberline {5.4}Feature Selection}{27}
+\contentsline {section}{\numberline {5.5}Text Features}{27}
+\contentsline {subsection}{\numberline {5.5.1}Text Representation}{27}
+\contentsline {subsection}{\numberline {5.5.2}Word Embedding}{28}
+\contentsline {chapter}{\numberline {6}Sampling}{31}
+\contentsline {part}{II\hspace {1em}Supervised Learning}{32}
+\contentsline {chapter}{\numberline {7}Regression}{33}
+\contentsline {section}{\numberline {7.1}Overview}{33}
+\contentsline {subsection}{\numberline {7.1.1}Type of Models}{33}
+\contentsline {subsection}{\numberline {7.1.2}The Key Questions}{34}
+\contentsline {section}{\numberline {7.2}Linear Regression}{35}
+\contentsline {subsection}{\numberline {7.2.1}Assumptions}{35}
+\contentsline {subsection}{\numberline {7.2.2}Resolutions of Assumption Violations}{36}
+\contentsline {subsection}{\numberline {7.2.3}Interpretation}{37}
+\contentsline {subsection}{\numberline {7.2.4}Model Selection}{39}
+\contentsline {subsection}{\numberline {7.2.5}Regularization, Ridge, Lasso}{39}
+\contentsline {section}{\numberline {7.3}Nonlinear Regression Models}{40}
+\contentsline {section}{\numberline {7.4}Generalized Additive Models}{41}
+\contentsline {section}{\numberline {7.5}Generalized Linear Model}{41}
+\contentsline {subsection}{\numberline {7.5.1}Logistic Regression}{41}
+\contentsline {subsection}{\numberline {7.5.2}Extension: Softmax}{43}
+\contentsline {section}{\numberline {7.6}Practice/Examples}{43}
+\contentsline {chapter}{\numberline {8}Classic Statistical Learning Models}{44}
+\contentsline {section}{\numberline {8.1}Support Vector Machine}{44}
+\contentsline {subsection}{\numberline {8.1.1}Model and Assumptions}{44}
+\contentsline {subsection}{\numberline {8.1.2}Kernel Function}{46}
+\contentsline {subsection}{\numberline {8.1.3}Soft Margin, Slack Variable and Regularization}{47}
+\contentsline {chapter}{\numberline {9}Tree Models and Ensemble Learning}{48}
+\contentsline {subsection}{\numberline {9.0.1}Bagging and Random Forest}{48}
+\contentsline {subsection}{\numberline {9.0.2}Boosting and GBDT}{48}
+\contentsline {chapter}{\numberline {10}Dimension Deduction}{49}
+\contentsline {part}{III\hspace {1em}Probabilistic Graphical Models}{50}
+\contentsline {chapter}{\numberline {11}Naive Bayes}{51}
+\contentsline {section}{\numberline {11.1} Bayesian Decision Theory}{52}
+\contentsline {section}{\numberline {11.2}Model and Assumption}{52}
+\contentsline {subsection}{\numberline {11.2.1}Semi-naive Bayesian Classifier}{54}
+\contentsline {chapter}{\numberline {12}Max Entropy Model}{55}
+\contentsline {chapter}{\numberline {13}Hidden Markov Model}{56}
+\contentsline {chapter}{\numberline {14}Conditional Probabilistic Field}{57}
+\contentsline {part}{IV\hspace {1em}Unsupervised Learning}{58}
+\contentsline {chapter}{\numberline {15}Clustering}{59}
+\contentsline {chapter}{\numberline {16}Gaussian Mixture Model}{60}
+\contentsline {chapter}{\numberline {17}Topic Model}{61}
+\contentsline {chapter}{\numberline {18}Dimension Reduction}{62}
+\contentsline {section}{\numberline {18.1}Principal Component Analysis(PCA)}{62}
+\contentsline {section}{\numberline {18.2}LDA}{63}
+\contentsline {part}{V\hspace {1em}Deep Learning}{64}
+\contentsline {chapter}{\numberline {19}Deep Learning Model Optimization and Regularization}{65}
+\contentsline {section}{\numberline {19.1}Common Regularization Techniques}{66}
+\contentsline {section}{\numberline {19.2}Key Questions and Status Quo}{66}
+\contentsline {chapter}{\numberline {20}Feedforward Neural Network}{67}
+\contentsline {section}{\numberline {20.1}Multi-layer Perceptron}{67}
+\contentsline {section}{\numberline {20.2}Neural Networks}{67}
+\contentsline {section}{\numberline {20.3}Radial Basis Function Network}{67}
+\contentsline {section}{\numberline {20.4}Convolutional Neural Network(CNN)}{69}
+\contentsline {subsection}{\numberline {20.4.1}Convolution and Pooling}{69}
+\contentsline {subsection}{\numberline {20.4.2}Convolutional Neural Network(CNN)}{70}
+\contentsline {subsection}{\numberline {20.4.3}Deep Residual Network(ResNet)}{71}
+\contentsline {subsection}{\numberline {20.4.4}Inception Net}{71}
+\contentsline {subsection}{\numberline {20.4.5}Computer Vision and YOLO Algorithm}{72}
+\contentsline {subsubsection}{Object Detection}{72}
+\contentsline {subsubsection}{Landmark Detection}{72}
+\contentsline {subsubsection}{Convolutional Implementation of Sliding Windows + YOLO - You Only Look Once Algo( Bounding Box Detection)}{72}
+\contentsline {subsubsection}{Region Proposal}{73}
+\contentsline {subsubsection}{Face Recognition}{73}
+\contentsline {subsubsection}{Neural Style Transfer}{73}
+\contentsline {subsection}{\numberline {20.4.6}Convolution in 2D and 1D Data}{74}
+\contentsline {section}{\numberline {20.5}self organizing feature map(SOMNet)}{74}
+\contentsline {section}{\numberline {20.6}Restricted Boltzman Machine(RBM)}{74}
+\contentsline {section}{\numberline {20.7}Model Optimization/Regularization}{74}
+\contentsline {chapter}{\numberline {21}Sequence Model}{75}
+\contentsline {section}{\numberline {21.1}Recurrent Neural Network(RNN)}{75}
+\contentsline {section}{\numberline {21.2}Gated Recurrent Unit (GRU）and Long Short Term Memory (LSTM) Model}{76}
+\contentsline {section}{\numberline {21.3}Bidirectional RNN and Deep RNN}{77}
+\contentsline {section}{\numberline {21.4}Language Model}{79}
+\contentsline {subsection}{\numberline {21.4.1}Sequence-to-Sequence model}{79}
+\contentsline {subsection}{\numberline {21.4.2}Attention Model}{80}
+\contentsline {chapter}{\numberline {22}Generative Adversarial Networks(GAN)}{82}
+\contentsline {chapter}{\numberline {23}Reinforcement Learning}{83}
