@@ -94,7 +94,7 @@ Concepts:
      $$ X= UDV^T$$
 \end{itemize}
 
-Matrix Derivative:
+\subsection{Matrix Derivative}
 
 \begin{itemize}
 	\item $\frac{\partial y}{\partial x}$, $\frac{\partial \mathbf{y}}{\partial x}$, $\frac{\partial \mathbf{Y}}{\partial x}$ just list normal derivatives by column 
@@ -108,6 +108,11 @@ Matrix Derivative:
   				\frac{\partial{h_m}}{\partial x_1 } & \cdots & \frac{\partial h_m }{\partial x_n} 
 			\end{pmatrix} $$
 	\item For matrix to matrix, vector to matrix, more than one dimension tensors as result (result must include all results and can be used with Chain Rule)
+	\item $$ \frac{\partial \mathbf{a^T x}}{\mathbf{x}} = \frac{\partial  \mathbf{xa}}{\mathbf{x}} = \mathbf{a}$$
+	 $$ \frac{\partial \mathbf{A x}}{\mathbf{x}} = \mathbf{A},\frac{\partial \mathbf{ x^T A x}}{\partial{\mathbf{x}}}=( \mathbf{A} +  \mathbf{A^T} )\mathbf{x}$$ 
+	 $$\frac{\partial \mathbf{ x^T A x}}{\partial{\mathbf{x}} \partial{\mathbf{x}}}
+	 	= 2\mathbf{A} $$
+	 $$\frac{\partial( \mathbf{AX} +  b) \mathbf{C} ( \mathbf{DX} + e)}{\partial{\mathbf{x}}} = \mathbf{A^TC}(\mathbf{DX} + e) + \mathbf{D^TC^T} ( \mathbf{AX} +  b) $$
 \end{itemize}
 
 
@@ -294,7 +299,7 @@ Concepts
 \section{Concepts}
 \subsection{Basic}
 \begin{itemize}
-    \item parameter(constant for probability model), statistic (model of sample data), data, sample, population
+    \item parameter(constant for probability model), statistic (model of sample data), estimator, data, sample, population
     \item point estimation, interval estimation, Confidence Interval( $P(L \leq \theta \leq U )$, notice: $\theta$ is not random, L, U is random! ( We repeat constructing confidence interval a n times, $\alpha$ percent of the times, it will contain $theta$.
 \end{itemize}
 
@@ -304,6 +309,12 @@ Concepts
     \item Method of Moments: $E(X^k)$ based on LOLN.\\ 
     	If We have p parameters, we can use p moments to form a system of equations to solve $\theta_1,...\theta_p$
     	$$\sum_{i=1}^n X_i^j= E(X^j)$$, for j = 1,...,p
+    	Properties 
+    	\begin{itemize}
+    		\item Almost surely exist
+    		\item Consistent
+    		\item Asymptotically Normal (variance decrease at $\frac{1}{\sqrt{n}}$)
+    	\end{itemize}
     \item Maximum Likelihood Estimation. Multiply p.m.f/p.d.f since every sample is independent. Maximize the likelihood of finding samples. \\ If $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x, \theta)$, 
     	$$ l(\theta) =  \prod_{i=1}^n f_{X_i} (x_i; \theta), L(\theta ) = log l(\theta)$$
     	$$ \hat{\theta}_{MLE}= argmax_{\theta} f_x(x;\theta ) = argmax_{\theta} L(\theta )$$
@@ -322,7 +333,7 @@ Concepts
     		\item Asymptotic Normality 
     		$$ \sqrt{n}(\hat{\theta}_{MLE} - \theta_0) \rightarrow N(0, I^{-1}(\theta_0)) $$
     		$$ I(\theta_0) = E( -(\frac{\partial}{\partial \theta} [log f(x, \theta ) ])^2)=E(-\frac{\partial^2}{\partial \theta^2} [log f(x, \theta ) ] )$$ 
-    		called the Fisher Information
+    		called the \textbf{Fisher Information}
     		$$ \hat{\theta}_{MLE} \approx N(\theta_0, \frac{1}{n I(\theta_0)})$$
     		$$ n I(\theta_0) = E( -\frac{\partial^2}{\partial \theta^2} log L(\theta) )$$
     		\begin{itemize}
@@ -374,8 +385,9 @@ $$ A(f,\hat{f}) = -2 logL(\theta) + 2 p (\frac{n}{n-p+1})$$
 
 \begin{itemize}
     \item Hypothese, Test Statistic(T), Rejection Region
+    \item Significance $\alpha$, Power $1-\beta$( Pr( Reject $H_0$ | $H_1$ is True ))
     \item p-value ( chance of rejecting, largest choice of $\alpha$ that we would fail to reject $H_0$)   
-    \item type-I error(wrongly reject), type-II error(wrongly accept)
+    \item Type-I Error(wrongly reject, false reject,$1-\alpha$), Type-II error(wrongly accept, failed to reject)
 \end{itemize}
 
 Hypothesis Testings (Based on the distribution of $\hat{\theta}$)
@@ -410,7 +422,7 @@ Multiple Testing
 \begin{itemize}
     \item Law of Large Number
     \item Central Limit Theorem
-        \item Bias/Variance decomposition (error = bias + variance + noise)
+     \item Bias-Variance decomposition (error = bias + variance + noise)
         $$MSE(\mu(X) ) = E[(Y-\hat{\mu}(X))^2]  = = E[(Y-f(x) + f(x) -\hat{\mu}(X))^2]$$
     $$= E[(Y-f(x)]^2 + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + E[(f(x)-\hat{\mu}(X))^2]$$
      $$= E[(Y-f(x)]^2 + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + (f(x)-\hat{\mu}(X))^2$$
@@ -427,7 +439,7 @@ Multiple Testing
 		\item  $\frac{(n-1)s^2}{\sigma^2} \sim \chi_{n-1}^2$
 		\item  $\frac{\bar{X}-\mu }{s/\sqrt{n}} = \frac{\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}}{\frac{(n-1)s^2}{\sigma^2} \frac{1}{\sqrt{n-1}}} \sim t_{n-1}$
 	\end{enumerate}
-	\item Multi-variate normal distribution
+	\item Multivariate normal distribution
 	$$ f_x(x) = \frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))$$
 	\begin{enumerate}
 		\item $X_1,...X_n$ normal $\Leftarrow (X_1,...X_n)$ is multivariate normal. (Not equivalent)
@@ -514,10 +526,10 @@ Supervised Learning-Regression and Classification
     \item Confusion Matrix
     \begin{itemize}
     	\item Accuracy = $\int_{x\in D} \mathbb{I}(f(x)\neq y) p(x)dx$
-    	\item Precision = TP/(TP+FP)
-    	\item Recall = True Positive Rate = TP/(TP+FN)
+    	\item $$Precision = \frac{T}{TP+FP}$$ (Analogy to Type I error when Positive means rejecting, predict when you are very certain $H_0$) 
+    	\item $$Recall = \text{True Positive Rate}= \frac{TP}{TP+FN}$$(Analogy to Type II error)
     	\item False Positive Rate = FP/(FP+TN)
-    	\item P-R Curve
+    	\item P-R Curve: Precision vs Recall (like Type I error, Type II error trade-off)
     	\item $F-\beta$ Measure
     	$$\frac{1}{F_{\beta}} = \frac{1}{1+\beta^2}(\frac{1}{P}+\frac{\beta^2}{R})$$
     	$${F_{\beta}} = \frac{(1+\beta^2) \times P \times R}{(\beta^2 \times P) + R}$$
@@ -738,6 +750,7 @@ Common Terms
 \end{enumerate}
 
 \subsection{Assumptions}
+
 Classic Assumptions for Statistics:
 \begin{enumerate}
     \item Linear Relationship between covariates and dependent variable
@@ -748,7 +761,7 @@ Classic Assumptions for Statistics:
     \item (optional, Gauss-Markov Theorem) $\varepsilon$ is normal - when it is, OLS and MLE agrees and to be BLUE(Best Linear Unbiased Estimator)
 \end{enumerate}
 
-Testing the Assumptions of Linear Regression 
+\subsection{Testing the Assumptions of Linear Regression}
 
 \begin{itemize}
     \item Scatter Plot \\ Linear Relationship and Outliers
@@ -1172,6 +1185,13 @@ Assume certain dependencies between attributes. The most common case is "One-Dep
 	\item Super-Parent ODE
 	\item Tree Augmented Naive Bayes: Use the Maximum Weighted Spanning Tree. Weighted by mutual information (conditional entropy), Build a complete graph on attributes. 
 	\item Average One-Dependent Estimator: Ensemble on the SPODE Models 	
+\end{itemize}
+
+\section{Model Benefits and Short-comings}
+
+\begin{itemize}
+	\item Robust to Missing Values
+	\item 
 \end{itemize}
 
 \chapter{Max Entropy Model}
