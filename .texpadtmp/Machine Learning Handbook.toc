@@ -22,7 +22,7 @@
 \contentsline {subsection}{\numberline {2.1.3}Model Selection}{17}
 \contentsline {subsection}{\numberline {2.1.4}Hypothesis Testing}{17}
 \contentsline {section}{\numberline {2.2}Theorems}{19}
-\contentsline {section}{\numberline {2.3}Important Distributions}{19}
+\contentsline {section}{\numberline {2.3}Important Distributions}{20}
 \contentsline {section}{\numberline {2.4}Practice/Examples}{21}
 \contentsline {chapter}{\numberline {3}Computational Learning Theory}{23}
 \contentsline {chapter}{\numberline {4}Model Evaluation and Model Selection}{24}
@@ -71,6 +71,7 @@
 \contentsline {section}{\numberline {11.1} Bayesian Decision Theory}{54}
 \contentsline {section}{\numberline {11.2}Model and Assumption}{54}
 \contentsline {subsection}{\numberline {11.2.1}Semi-naive Bayesian Classifier}{56}
+\contentsline {section}{\numberline {11.3}Model Benefits and Short-comings}{56}
 \contentsline {chapter}{\numberline {12}Max Entropy Model}{57}
 \contentsline {chapter}{\numberline {13}Hidden Markov Model}{58}
 \contentsline {chapter}{\numberline {14}Conditional Probabilistic Field}{59}

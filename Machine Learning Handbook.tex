@@ -12,6 +12,7 @@
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
 \DeclareMathOperator*{\argmax}{arg\,max}  % in your preamble
 \DeclareMathOperator*{\argmin}{arg\,min}  % in your preamble 
+\DeclareMathOperator{\E}{\mathbb{E}}
 
 \title{\bf Machine Learning Handbook}    % Supply information
 \author{Xinhe Liu}              %   for the title page.
@@ -422,11 +423,21 @@ Multiple Testing
 \begin{itemize}
     \item Law of Large Number
     \item Central Limit Theorem
-     \item Bias-Variance decomposition (error = bias + variance + noise)
-        $$MSE(\mu(X) ) = E[(Y-\hat{\mu}(X))^2]  = = E[(Y-f(x) + f(x) -\hat{\mu}(X))^2]$$
-    $$= E[(Y-f(x)]^2 + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + E[(f(x)-\hat{\mu}(X))^2]$$
-     $$= E[(Y-f(x)]^2 + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + (f(x)-\hat{\mu}(X))^2$$
-    $$ =\sigma_x^2 + Bias(\hat{\mu}(X))^2 + Var(\hat{\mu}(X))$$
+     \item Bias-Variance decomposition (error = bias + variance + noise) under MSE
+        $$ \sigma _x^2 =- \E(( Y - \E(Y|X))^2|X), \E(Y|X) = f(X), \E[(Y-f(x))|X] = 0$$
+        $$\E L(\mu(X) ) = \E[(Y-\hat{\mu}(X))^2]  $$ 
+        $$= \E[(Y-f(x) + f(x) -\hat{\mu}(X))^2]$$
+        $$= \E[(Y-f(x))^2] + 2\E[(Y-f(x))(f(x) - \hat{\mu}(X))] + \E[(f(x)-\hat{\mu}(X))^2]$$
+     $$= \E[(Y-f(x))^2]  + \E(f(x)-\hat{\mu}(X))^2  +  2(f(x) - \E(\hat{\mu}(X))) \E[(Y-f(x))] $$
+      $$ =\sigma_x^2 + \E(f(x)-\hat{\mu}(X))^2 + 0$$ 
+      $$ =\sigma_x^2 + \E[\E(f(x)-\hat{\mu}(X))^2|X]$$ 
+      (conditional expectation over X)
+      $$  \E((f(x)-\hat{\mu}(X))^2|X) =\E((f(x)-\E(\hat{\mu}(X)) + \E(\hat{\mu}(X)) - \hat{\mu}(X))^2|X) $$
+      $$ =\E((f(x)-\E(\hat{\mu}(X)))^2|X) + \E((\E(\hat{\mu}(X)- \hat{\mu}(X))^2|X) + 2((f(x)-\E(\hat{\mu}(X))\E((\E(\hat{\mu}(X)- \hat{\mu}(X))|X)$$
+       $$ =(f(x)-\E(\hat{\mu}(X)))^2 + \E((\E(\hat{\mu}(X)- \hat{\mu}(X))^2|X) + 2((f(x)-\E(\hat{\mu}(X))\times 0$$
+      $$ = (f(x)-\E(\hat{\mu}(X)))^2 +Var(\hat{\mu}(X)) $$
+      $$\Rightarrow$$
+    $$ \E L(\mu(X) ) =\sigma_x^2 + Bias(\hat{\mu}(X))^2 + Var(\hat{\mu}(X))$$
 \end{itemize}
 
 \section{Important Distributions}
@@ -935,11 +946,17 @@ Additive Model : no interactions/cross terms
 
 \subsection{Logistic Regression}
 
+
 Sigmoid/ Log Probability Function
 
 $$ \sigma(z) = \frac{1}{1+e^{-z}} = \frac{1}{1+e^{-w^Tx}}$$
 
-Loss Function
+Assume y is Bernoulli distributed and  $P(Y|X) = \sigma(X)$ (conditional probability plot), indeed we have odds
+
+$$Log(\frac{p}{1-p}) = w^Tx$$
+
+Loss Function （from Log MLE or entropy)
+
 $$J(z) = -ylogy + (1-y)log(1-y)$$
 
 Training of the Model
