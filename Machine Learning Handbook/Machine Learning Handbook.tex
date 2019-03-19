@@ -544,9 +544,9 @@ Supervised Learning-Regression and Classification
     \item Confusion Matrix
     \begin{itemize}
     	\item Accuracy = $\int_{x\in D} \mathbb{I}(f(x)\neq y) p(x)dx$
-    	\item $$Precision = \frac{T}{TP+FP}$$ (Analogy to Type I error when Positive means rejecting, predict when you are very certain $H_0$) 
-    	\item $$Recall = \text{True Positive Rate}= \frac{TP}{TP+FN}$$(Analogy to Type II error)
-    	\item False Positive Rate = FP/(FP+TN)
+    	\item Precision or Positive Predictive Value(PPV)$$Precision = \frac{T}{TP+FP}$$ (Analogy to Type I error when Positive means rejecting, predict when you are very certain $H_0$) 
+    	\item Recall, Sensitivity, or True Negative Rate(TNR)$$Recall = \text{True Positive Rate}= \frac{TP}{TP+FN} = 1 - FPR$$(Analogy to Type II error)
+    	\item False Positive Rate or Fall-out $$FPR = \frac{FP}{FP+TN}$$
     	\item P-R Curve: Precision vs Recall (like Type I error, Type II error trade-off)
     	\item $F-\beta$ Measure
     	$$\frac{1}{F_{\beta}} = \frac{1}{1+\beta^2}(\frac{1}{P}+\frac{\beta^2}{R})$$
@@ -852,8 +852,6 @@ to solve $\hat{\beta}$
 $$ min ||y_k - \mathbf{w^T x}_k ||^2 + \lambda ||\mathbf{w}||_1 $$
 
 
-
-
 Variance Error In Prediction
 
 $$V(\hat{y^*} - y^*) = \sigma^2 + \sigma^2[\frac{1}{n} + \frac{x^*-\bar{x})^2}{(n-1)s_x^2}]$$
@@ -1016,10 +1014,8 @@ $$P(Y=k|x) = \frac{e^{w^Tx}}{\sum_{i=1}{K}e^{w^Tx}}$$
     \item What is Anscombe's Quartet 
 \end{enumerate}
 
-\chapter{Classic Statistical Learning Models}
 
-
-\section{Support Vector Machine}
+\chapter{Support Vector Machine}
 
 \subsection{Model and Assumptions}
 
@@ -1073,7 +1069,7 @@ $$\left\{
    \right.$$ 
 
 
-See Optimization, could be solved using SMO(Sequential Minimal Optimization)
+(See Optimization), could be solved using SMO(Sequential Minimal Optimization)
 
 \subsection{Kernel Function}
 
@@ -1117,6 +1113,8 @@ $$\begin{pmatrix}
  
 
 \subsection{Soft Margin, Slack Variable and Regularization}
+
+
 
 \chapter{Tree Models and Ensemble Learning}
 
