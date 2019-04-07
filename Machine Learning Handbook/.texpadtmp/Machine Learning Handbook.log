@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  10 MAR 2019 22:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  7 APR 2019 00:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -285,11 +285,8 @@ Underfull \vbox (badness 3029) has occurred while \output is active []
 
 ]
 LaTeX Font Info:    Font shape `OT1/pplj/m/sl' in size <10.95> not available
-(Font)              Font shape `OT1/pplj/m/it' tried instead on input line 39.
- [3] [4]
-Underfull \vbox (badness 2302) has occurred while \output is active []
-
- [5] [6]
+(Font)              Font shape `OT1/pplj/m/it' tried instead on input line 49.
+ [3] [4] [5] [6]
 Missing character: There is no Ô in font pplr9o!
 Missing character: There is no º in font pplr9o!
 Missing character: There is no â in font pplr9o!
@@ -353,50 +350,63 @@ Chapter 2.
 [14
 
 ] [15]
-Overfull \hbox (52.88864pt too wide) detected at line 358
+Overfull \hbox (34.27364pt too wide) detected at line 360
 []\OT1/zplm/m/n/10.95 [\OML/zplm/m/it/10.95 logf\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 ^^R\OT1/zplm/m/n/10.95 )] \OMS/zplm/m/n/10.95 ^^T \OML/zplm/m/it/10.95 M\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 )\OT1/pplx/m/n/10.95 , \OMS/zplm/m/n/10.95 8\OML/zplm/m/it/10.95 x \OMS/zplm/m/n/10.95 2 \OML/zplm/m/it/10.95 ^^_\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 ^^R[] \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 c < ^^R < ^^R[] \OT1/zplm/m/n/10.95 + \OML/zplm/m/it/10.95 c\OT1/pplx/m/n/10.95 , \OML/zplm/m/it/10.95 E[]\OT1/zplm/m/n/10.95 [\OML/zplm/m/it/10.95 M\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 )] \OML/zplm/m/it/10.95 < \OMS/zplm/m/n/10.95 1
  []
 
-[16] [17] [18]
-LaTeX Font Info:    Try loading font information for U+fplmbb on input line 434.
+[16] [17] [18] [19] [20]
+Missing character: There is no Ô in font pplr9o!
+Missing character: There is no º in font pplr9o!
+Missing character: There is no ö in font pplr9o!
+LaTeX Font Info:    Try loading font information for U+fplmbb on input line 509.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
-)
-Overfull \hbox (2.93524pt too wide) detected at line 437
+) [21]
+Overfull \hbox (2.93524pt too wide) detected at line 512
 \OT1/zplm/m/n/10.95 = [][(\OML/zplm/m/it/10.95 Y \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ))[]] + \OT1/pplx/m/n/10.95 2 []\OT1/zplm/m/n/10.95 [(\OML/zplm/m/it/10.95 Y \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ))(\OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ []\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ))] + [][(\OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ []\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ))[]]
  []
 
 
-Overfull \hbox (13.69896pt too wide) detected at line 438
+Overfull \hbox (13.69896pt too wide) detected at line 513
 \OT1/zplm/m/n/10.95 = [][(\OML/zplm/m/it/10.95 Y \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ))[]] + [](\OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ []\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ))[] + \OT1/pplx/m/n/10.95 2\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ []\OT1/zplm/m/n/10.95 ([](\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ))) [][(\OML/zplm/m/it/10.95 Y \OMS/zplm/m/n/10.95 ^^@ \OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ))]
  []
 
 
-Overfull \hbox (147.84662pt too wide) detected at line 443
+Overfull \hbox (147.84662pt too wide) detected at line 518
 \OT1/zplm/m/n/10.95 = []((\OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ []\OT1/zplm/m/n/10.95 ([](\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 )))[]\OMS/zplm/m/n/10.95 j\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ) + [](([]([](\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ []\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ))[]\OMS/zplm/m/n/10.95 j\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ) + \OT1/pplx/m/n/10.95 2\OT1/zplm/m/n/10.95 ((\OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ []\OT1/zplm/m/n/10.95 ([](\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 )) [](([]([](\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ []\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ))\OMS/zplm/m/n/10.95 j\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 )
  []
 
 
-Overfull \hbox (20.55736pt too wide) detected at line 444
+Overfull \hbox (20.55736pt too wide) detected at line 519
 \OT1/zplm/m/n/10.95 = (\OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ []\OT1/zplm/m/n/10.95 ([](\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 )))[] + [](([]([](\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ []\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ))[]\OMS/zplm/m/n/10.95 j\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 ) + \OT1/pplx/m/n/10.95 2\OT1/zplm/m/n/10.95 ((\OML/zplm/m/it/10.95 f\OT1/zplm/m/n/10.95 (\OML/zplm/m/it/10.95 x\OT1/zplm/m/n/10.95 ) \OMS/zplm/m/n/10.95 ^^@ []\OT1/zplm/m/n/10.95 ([](\OML/zplm/m/it/10.95 X\OT1/zplm/m/n/10.95 )) \OMS/zplm/m/n/10.95 ^^B \OT1/pplx/m/n/10.95 0
  []
 
-[19] [20] [21] [22]
+[22] [23] [24] [25]
 Chapter 3.
-[23
+[26
 
 ]
 Chapter 4.
-[24
+[27
 
-] [25] [26]
+] <ConfusionMatrix.png, id=127, 1298.8525pt x 681.54625pt>
+File: ConfusionMatrix.png Graphic file (type png)
+ <use ConfusionMatrix.png>
+Package pdftex.def Info: ConfusionMatrix.png used on input line 628.
+(pdftex.def)             Requested size: 398.33858pt x 209.02045pt.
+
+Overfull \hbox (65.71364pt too wide) in paragraph at lines 627--629
+[]  
+ []
+
+[28 <./ConfusionMatrix.png>] [29]
 Chapter 5.
 
 Underfull \vbox (badness 3769) has occurred while \output is active []
 
- [27
+ [30
 
-] [28] [29]
+] [31] [32]
 Missing character: There is no ‚ in font pplr9o!
 Missing character: There is no Ä in font pplr9o!
 Missing character: There is no ú in font pplr9o!
@@ -433,17 +443,17 @@ Missing character: There is no ú in font pplr9o!
 Missing character: There is no ‚ in font pplr9o!
 Missing character: There is no Ä in font pplr9o!
 Missing character: There is no ù in font pplr9o!
- [30] <CBOW-SkipGram.png, id=137, 331.83975pt x 195.129pt>
+ [33] <CBOW-SkipGram.png, id=149, 331.83975pt x 195.129pt>
 File: CBOW-SkipGram.png Graphic file (type png)
  <use CBOW-SkipGram.png>
-Package pdftex.def Info: CBOW-SkipGram.png used on input line 680.
+Package pdftex.def Info: CBOW-SkipGram.png used on input line 765.
 (pdftex.def)             Requested size: 426.79134pt x 250.98201pt.
 
-Overfull \hbox (94.1664pt too wide) in paragraph at lines 679--682
+Overfull \hbox (94.1664pt too wide) in paragraph at lines 764--767
 [] 
  []
 
-[31 <./CBOW-SkipGram.png>]
+[34 <./CBOW-SkipGram.png>]
 Missing character: There is no ‚ in font pplr9o!
 Missing character: There is no Ä in font pplr9o!
 Missing character: There is no ¶ in font pplr9o!
@@ -459,63 +469,63 @@ Missing character: There is no à in font pplr9t!
 Missing character: There is no Ô in font pplr9t!
 Missing character: There is no º in font pplr9t!
 Missing character: There is no â in font pplr9t!
- [32]
+ [35]
 Chapter 6.
-[33
+[36
 
-] [34
+] [37
 
 ]
 Chapter 7.
-[35
+[38
 
-] [36] [37] [38] [39] [40] [41] [42]
+] [39] [40] [41] [42] [43] [44] [45]
 Missing character: There is no Ô in font pplr9o!
 Missing character: There is no º in font pplr9o!
 Missing character: There is no à in font pplr9o!
- [43] [44] [45]
+ [46] [47] [48]
 Chapter 8.
-[46
+[49
 
-] [47] [48] [49]
+] [50] [51] [52]
 Chapter 9.
-[50
+[53
 
 ]
 Chapter 10.
-[51
+[54
 
-] [52
+] [55
 
 ]
 Chapter 11.
-[53
+[56
 
-] [54] [55] [56]
+] [57] [58] [59]
 Chapter 12.
-[57
+[60
 
 ]
 Chapter 13.
-[58
-
-]
-Chapter 14.
-[59
-
-] [60
-
-]
-Chapter 15.
 [61
 
 ]
-Chapter 16.
+Chapter 14.
 [62
+
+] [63
+
+]
+Chapter 15.
+[64
+
+]
+Chapter 16.
+[65
 
 ]
 Chapter 17.
-[63
+[66
 
 ]
 Chapter 18.
@@ -534,7 +544,7 @@ Missing character: There is no ô in font pplr9t!
 Missing character: There is no ‚ in font pplr9t!
 Missing character: There is no Ä in font pplr9t!
 Missing character: There is no ô in font pplr9t!
-[64
+[67
 
 ]
 Missing character: There is no ‚ in font pplr9t!
@@ -546,25 +556,20 @@ Missing character: There is no ô in font pplr9t!
 Missing character: There is no ‚ in font pplr9t!
 Missing character: There is no Ä in font pplr9t!
 Missing character: There is no ô in font pplr9t!
- [65] [66
+ [68] [69
 
 ]
 Chapter 19.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [67
+ [70
 
-]
-Overfull \hbox (64.5674pt too wide) has occurred while \output is active
-\OT1/pplj/m/n/10.95 68 \OT1/pplj/m/it/10.95 CHAPTER 19.  DEEP LEARNING MODEL OPTIMIZATION AND REGULARIZATION
- []
-
-[68]
+] [71]
 Chapter 20.
-[69
+[72
 
-] [70]
+] [73]
 Missing character: There is no ‚ in font pplr9t!
 Missing character: There is no à in font pplr9t!
 Missing character: There is no í in font pplr9t!
@@ -574,17 +579,17 @@ Missing character: There is no ã in font pplr9t!
 Missing character: There is no ‚ in font pplr9t!
 Missing character: There is no à in font pplr9t!
 Missing character: There is no í in font pplr9t!
- [71] [72] [73]
+ [74] [75] [76]
 Missing character: There is no Ô in font pplr9o!
 Missing character: There is no º in font pplr9o!
 Missing character: There is no à in font pplr9o!
- [74]
+ [77]
 Missing character: There is no Ô in font pplr9o!
 Missing character: There is no º in font pplr9o!
 Missing character: There is no å in font pplr9o!
- [75] [76]
+ [78] [79]
 Chapter 21.
-[77
+[80
 
 ]
 Missing character: There is no Ô in font pplr9o!
@@ -593,81 +598,89 @@ Missing character: There is no à in font pplr9o!
 Missing character: There is no Ô in font pplb9o!
 Missing character: There is no º in font pplb9o!
 Missing character: There is no â in font pplb9o!
- <GRU-LSTM.png, id=288, 2113.8975pt x 668.4975pt>
+ <GRU-LSTM.png, id=300, 2113.8975pt x 668.4975pt>
 File: GRU-LSTM.png Graphic file (type png)
  <use GRU-LSTM.png>
-Package pdftex.def Info: GRU-LSTM.png used on input line 1583.
+Package pdftex.def Info: GRU-LSTM.png used on input line 1670.
 (pdftex.def)             Requested size: 426.79134pt x 134.96198pt.
 
-Overfull \hbox (66.79134pt too wide) in paragraph at lines 1583--1584
+Overfull \hbox (66.79134pt too wide) in paragraph at lines 1670--1671
 [][]  
  []
 
-[78 <./GRU-LSTM.png>] <Bidirectional.png, id=294, 766.865pt x 271.0125pt>
+Missing character: There is no œ in font pplri9o!
+Missing character: There is no ú in font pplri9o!
+Missing character: There is no â in font pplri9o!
+
+Overfull \hbox (107.71826pt too wide) has occurred while \output is active
+\OT1/pplj/m/it/10.95 21.2.  GATED RECURRENT UNIT (GRUAND LONG SHORT TERM MEMORY (LSTM) MODEL \OT1/pplj/m/n/10.95 81
+ []
+
+[81 <./GRU-LSTM.png>] <Bidirectional.png, id=305, 766.865pt x 271.0125pt>
 File: Bidirectional.png Graphic file (type png)
  <use Bidirectional.png>
-Package pdftex.def Info: Bidirectional.png used on input line 1606.
+Package pdftex.def Info: Bidirectional.png used on input line 1693.
 (pdftex.def)             Requested size: 426.79134pt x 150.83138pt.
 
-Overfull \hbox (66.79134pt too wide) in paragraph at lines 1606--1607
+Overfull \hbox (66.79134pt too wide) in paragraph at lines 1693--1694
 [][]  
  []
 
-<DeepRNN.png, id=295, 672.5125pt x 740.7675pt> [79 <./Bidirectional.png>]
+<DeepRNN.png, id=306, 672.5125pt x 740.7675pt> [82 <./Bidirectional.png>]
 File: DeepRNN.png Graphic file (type png)
  <use DeepRNN.png>
-Package pdftex.def Info: DeepRNN.png used on input line 1610.
+Package pdftex.def Info: DeepRNN.png used on input line 1697.
 (pdftex.def)             Requested size: 426.79134pt x 470.11086pt.
 
-Overfull \hbox (66.79134pt too wide) in paragraph at lines 1610--1611
+Overfull \hbox (66.79134pt too wide) in paragraph at lines 1697--1698
 [][]  
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [80 <./DeepRNN.png>]
+ [83 <./DeepRNN.png>]
 Missing character: There is no Ô in font pplr9o!
 Missing character: There is no º in font pplr9o!
 Missing character: There is no õ in font pplr9o!
- <SequenceToSequence.png, id=304, 1333.98375pt x 618.31pt>
+ <SequenceToSequence.png, id=316, 1333.98375pt x 618.31pt>
 File: SequenceToSequence.png Graphic file (type png)
  <use SequenceToSequence.png>
-Package pdftex.def Info: SequenceToSequence.png used on input line 1631.
+Package pdftex.def Info: SequenceToSequence.png used on input line 1718.
 (pdftex.def)             Requested size: 426.79134pt x 197.81607pt.
 
-Overfull \hbox (66.79134pt too wide) in paragraph at lines 1631--1632
+Overfull \hbox (66.79134pt too wide) in paragraph at lines 1718--1719
 [][]  
  []
 
-[81 <./SequenceToSequence.png (PNG copy)>]
+[84 <./SequenceToSequence.png (PNG copy)>]
 Missing character: There is no ‚ in font pplr9o!
 Missing character: There is no Ä in font pplr9o!
 Missing character: There is no ô in font pplr9o!
- <AttentionModel.png, id=308, 903.375pt x 672.5125pt>
+ <AttentionModel.png, id=320, 903.375pt x 672.5125pt>
 File: AttentionModel.png Graphic file (type png)
  <use AttentionModel.png>
-Package pdftex.def Info: AttentionModel.png used on input line 1653.
+Package pdftex.def Info: AttentionModel.png used on input line 1740.
 (pdftex.def)             Requested size: 426.79134pt x 317.72278pt.
 
-Overfull \hbox (66.79134pt too wide) in paragraph at lines 1653--1654
+Overfull \hbox (66.79134pt too wide) in paragraph at lines 1740--1741
 [][]  
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [82]
+ [85]
 Missing character: There is no ‚ in font pplr9t!
 Missing character: There is no Ä in font pplr9t!
 Missing character: There is no ô in font pplr9t!
- [83 <./AttentionModel.png>]
+ [86 <./AttentionModel.png>]
 Chapter 22.
-[84
+[87
 
 ]
 Chapter 23.
-[85
+[88
 
 ] (/Users/lIUxinhe/Documents/Github/MachineLearning/Machine Learning Handbook/.texpadtmp/Machine Learning Handbook.aux)
 
@@ -675,18 +688,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 3444 strings out of 493014
- 48719 string characters out of 6133351
+ 3449 strings out of 493014
+ 48833 string characters out of 6133351
  113773 words of memory out of 5000000
- 6847 multiletter control sequences out of 15000+600000
+ 6851 multiletter control sequences out of 15000+600000
  62314 words of font info for 161 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 51i,12n,27p,464b,348s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 51i,12n,27p,464b,287s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmbi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/Machine Learning Handbook/.texpadtmp/Machine Learning Handbook.pdf" (93 pages, 622984 bytes).
+Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/Machine Learning Handbook/.texpadtmp/Machine Learning Handbook.pdf" (96 pages, 773538 bytes).
 PDF statistics:
- 373 PDF objects out of 1000 (max. 8388607)
- 251 compressed objects within 3 object streams
+ 384 PDF objects out of 1000 (max. 8388607)
+ 257 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

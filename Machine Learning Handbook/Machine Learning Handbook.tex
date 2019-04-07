@@ -312,23 +312,25 @@ Concepts
 \end{itemize}
 
 \subsection{Estimator and Estimation}
-
-\begin{itemize}
-    \item Method of Moments: $E(X^k)$ based on LOLN.\\ 
-    	If We have p parameters, we can use p moments to form a system of equations to solve $\theta_1,...\theta_p$
+\subsubsection{Method of Moments}
+Estimate $E(X^k)$ based on Law Of Large Numbers\\ 
+If We have p parameters, we can use p moments to form a system of equations to solve $\theta_1,...\theta_p$
     	$$\sum_{i=1}^n X_i^j= E(X^j)$$, for j = 1,...,p
-    	Properties 
-    	\begin{itemize}
-    		\item Almost surely exist
-    		\item Consistent
-    		\item Asymptotically Normal (variance decrease at $\frac{1}{\sqrt{n}}$)
-    	\end{itemize}
-    \item Maximum Likelihood Estimation. Multiply p.m.f/p.d.f since every sample is independent. Maximize the likelihood of finding samples. \\ If $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x, \theta)$, 
+ Properties 
+    \begin{itemize}
+    	\item Almost surely exist
+    	\item Consistent
+    	\item Asymptotically Normal (variance decrease at $\frac{1}{\sqrt{n}}$)
+    \end{itemize}
+
+\subsubsection{Maximum Likelihood Estimation}
+
+Multiply p.m.f/p.d.f since every sample is independent. Maximize the likelihood of finding samples. \\ If $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x, \theta)$, 
     	$$ l(\theta) =  \prod_{i=1}^n f_{X_i} (x_i; \theta), L(\theta ) = log l(\theta)$$
     	$$ \hat{\theta}_{MLE}= argmax_{\theta} f_x(x;\theta ) = argmax_{\theta} L(\theta )$$
     	Analytical or Numerically solved. $$ \frac{\partial}{\partial \theta} [log L(\theta ) ] = 0, \frac{\partial^2}{\partial \theta^2} [log L(\theta ) ] < 0$$, for multiple parameters, we need the Hessian matrix to be negative definite $x^tHx<0, \forall x$ 
     	
-    \item Properties of MLE
+\paragraph{Properties of MLE}
     	\begin{enumerate}
     		\item Invariance $\hat{\theta}$ is MLE of $\theta$, then $g(\hat{\theta})$ is MLE of $g(\theta)$
     		\item Consistency $$P(\hat{\theta} - \theta ) \rightarrow 0$$ as $n \rightarrow 0, \forall \epsilon > 0$ Under the conditions
@@ -360,7 +362,9 @@ Concepts
     		\end{itemize}
     	\end{enumerate}
     	
-    \item $\Delta$ -Method: $g(\hat{theta}_{MLE})$ is approximately
+\paragraph{$\Delta$ -Method}
+
+	$g(\hat{\theta}_{MLE})$ is approximately
     	  $$ N(g(\theta), (g'(\theta))^2 \frac{1}{nI(\theta)})$$ if asymptotic normality is satisfied. \\
     	  In Multivariate Case:
     	  $$ \hat{\theta} \sim N(\theta, \Sigma/n), \theta,\hat{\theta} \in R^p $$
@@ -371,34 +375,45 @@ Concepts
   				\vdots & \ddots & \vdots \\
   				\frac{\partial{g_m(\theta)}}{\partial{\theta_1}}& \cdots & \frac{\partial{g_m(\theta)}}{\partial{\theta_p}} 
 			\end{pmatrix} $$
-    \item Estimation criteria
+			
+\paragraph{Estimation criteria}
    		\begin{itemize}
    		 \item Unbiased $E(\hat{\theta}) = \theta$
    		 \item Minimum Variance (MVUE, minimum variance unbiased estimator) $Var(\hat{\theta}) < Var(\theta')$
    		 \item Efficient
    		 \item Coherent
    		 \end{itemize}
-\end{itemize}
+
 
 \subsection{Model Selection}
 
-AIC - Akaike Information Criterion
+\subsubsection{AIC - Akaike Information Criterion}
 
-By K-L Distance
-$$D_{KL}(f,\hat{f})) = \int_{-\infty}^{\infty} log(\frac{f_X(x)}{\hat{f(x)}})f_X(x)dx $$
-$$ = const + \frac{1}{2} \int (-2log\hat{f}(x))f(x)dx = const + AIC $$
-$$ A(f,\hat{f}) = -2 logL(\theta) + 2 p (\frac{n}{n-p+1})$$
+	K-L Distance
+	$$D_{KL}(f,\hat{f})) = \int_{-\infty}^{\infty} log(\frac{f_X(x)}{\hat{f(x)}})f_X(x)dx $$
+	$$ = const + \frac{1}{2} \int (-2log\hat{f}(x))f(x)dx = const + AIC $$
+	$$ A(f,\hat{f}) = -2 logL(\theta) + 2 p (\frac{n}{n-p+1})$$
 
 \subsection{Hypothesis Testing}
 
 \begin{itemize}
-    \item Hypothese, Test Statistic(T), Rejection Region
-    \item Significance $\alpha$, Power $1-\beta$( Pr( Reject $H_0$ | $H_1$ is True ))
-    \item p-value ( chance of rejecting, largest choice of $\alpha$ that we would fail to reject $H_0$)   
-    \item Type-I Error(wrongly reject, false reject,$1-\alpha$), Type-II error(wrongly accept, failed to reject)
+	\item Basic Logic: a conditional statement is equivalent to its contrapositive statement
+		$$ A \rightarrow \neg (\cup B_i) \Leftrightarrow \cup B_i \rightarrow \neg A$$ 
+		notice, 
+		$$\neg (\cup B_i) = \cap (\neg B_i)$$
+    \item Hypothese, Test Statistic(T), Rejection Region,One-tail Test, Two-tail Test
+    \item 
+    	\subitem Significance $\alpha$
+    	\subitem Power $1-\beta$( Pr( Reject $H_0$ | $H_1$ is True ))
+    \item p-value (the probability to observe as or more extreme result than current evidence under $H_0$)   
+    \item 
+    	\subitem Type-I Error(wrongly reject, false reject,$1-\alpha$)
+    	\subitem Type-II error(wrongly accept, failed to reject)
 \end{itemize}
 
-Hypothesis Testings (Based on the distribution of $\hat{\theta}$)
+\subsubsection{Hypothesis Testings}
+
+\paragraph{Based on the distribution of $\hat{\theta}$}
 
 \begin{itemize}
     \item Wald Test $$T = \frac{\hat{\theta} - \theta_0}{Se(\hat{\theta})}$$
@@ -406,16 +421,34 @@ Hypothesis Testings (Based on the distribution of $\hat{\theta}$)
    $$T = \frac{\hat{\theta} - \theta_0}{\sqrt{\frac{1}{nI(\theta_0)})}}$$
     \item Likelihood Ratio Test
     \item Score Test
+    \item Rank based tests - used to test mean, mean-like statistics, not as efficient as Computational based test
+    	\subitem Wilcoxon signed-rank test
+    	\subitem Mann-Whitney U test
 \end{itemize}
 
-*Computation-based hypothesis testing approach
+\paragraph{Multivariate Testing}
+
+\begin{itemize}
+	\item Pearson's Chi-Square Test for Independence 
+		$$ U = \frac{X_{ij} - E_{ij}}{E_{ij}}$$
+		$$ E_{ij} = \frac{X_iX_j}{n}$$
+	\item Test Discrete Random Variable vs. Continuous Random Variable
+		\begin{itemize}
+			\item Test $$sup|\hat{F}_1 - \hat{F}_2|$$ Y is independent of Z if CDF is the same
+			\item Do with regression (with categorical parameter) - test $\beta$
+		\end{itemize}
+	\item Wald Test*
+\end{itemize}
+
+
+\paragraph{Computation-based hypothesis testing approach}
 
 \begin{itemize}
     \item Permutation tests: \\ Test $X_1,..X_n \sim F, Y_1,...Y_n \sim G, if F=G$. Use $T = Mean(X_i )- Mean(Y_i)$, each time scramble X and V labels and should not not change the distributions of vectors $X_1,...X_n, Y_1...,Y_n$
     \item Bootstrapping: \\ $X_1,...X_n \sim F$ with $T = T(X_1,...,X_n)$, to get the distribution of T, \textbf{sample with replacement.} The belief is $(\hat{\theta} - \theta)$ should behave the same as $(\theta* - \hat{theta})$. The first quantity can be treated like a pivot.  (use $(\theta*_1 - \hat{\theta}_1),...(\theta*_n - \hat{\theta}_n)$ to test. 
 \end{itemize}
 
-Multiple Testing 
+\subsection{Multiple Testing Examples}
 
 \begin{itemize}
     \item Family-wise Error Rate(FWER) the probability of rejecting at least one of at least one null hypothesis \\ 
@@ -426,10 +459,52 @@ Multiple Testing
     \item False Discovery Rate(FDR): bound the fraction of type-I errors. R be the total number of hypotheses rejected. V be the number of rejected hypotheses that were actually null. Let FDR = V/max(R,1), control $E(FDR) \leq \alpha$.
 \end{itemize}
 
+\subsection{A/B Testing}
+
+Application of Hypothesis Testing in industry
+
+\begin{enumerate}
+	\item define metrics
+		\subitem Direct metrics vs Compound Metrics
+		\subitem High-level (Unified) Metrics vs Low-level metrics: level of aggregation
+		\subitem Primary Metric vs Secondary Metrics \\
+			(primary metrics - usually explains metric change)
+	\item Compare metrics
+	\item Experiment Design
+		\subitem Experiment meaning you have to modify the user/object
+		\subitem Experiment group vs control group/ treatment group
+		\subitem Confounding Variables and control of Confounding Variables
+		\subitem Randomized experiment 
+		\begin{enumerate}
+			\item approximation for treatment effect
+			\item random sampling -hashing cookie id
+			\item randomization - flipping a coin 
+			\item novelty effect - the difference between groups are too large
+		\end{enumerate}
+		\subitem Techniques
+			\begin{itemize}
+				\item Matching
+					\subitem one-to-one match on selected segmentations
+					\subitem set-to-set matching with frequency of selected factors
+					\subitem propensity score matching(propensity score is estimated any classification model, typically logistic regression)
+				\item Segmentation ： divide objects to sub-groups
+						\subitem deal with sub-group effect
+						\subitem if you suspect the randomization is not perfect
+				\item Advanced control group settings
+					\subitem Holdout group (group that you don't expose to new environment) to understand the effect of additional environment changes
+					\subitem Double control group (AAB test) to detect potential bias of the testing
+				\item Sample Size
+			\end{itemize}
+	\item Hypothesis Testing based on Experiment
+		\subitem Usually need to approximate discontinuous data using continuous distribution hypothesis test( t-test, Z-test). Convert multi-class metrics to binary metrics (ask yes or no questions)
+\end{enumerate}
+
 \section{Theorems}
 \begin{itemize}
     \item Law of Large Number
     \item Central Limit Theorem
+    	\subitem Casual definition of C.L.T
+    	\subitem Regularization Condition of C.L.T. (eg. Cauchy has infinite variance)
      \item Bias-Variance decomposition (error = bias + variance + noise) under MSE
         $$ \sigma _x^2 =- \E(( Y - \E(Y|X))^2|X), \E(Y|X) = f(X), \E[(Y-f(x))|X] = 0$$
         $$\E L(\mu(X) ) = \E[(Y-\hat{\mu}(X))^2]  $$ 
@@ -512,6 +587,14 @@ More Generalized Distributions
  	\item (Permutation test) how can you test $X_1,...,X_n \sim F$, how can you test if F is symmetric? (Multiply -1 on all two form two sample groups)
  	\item Draw a bootstrap sample, what fraction of original data points appear in this sample on average?  
  	\\ Define I be the indicator is it is in the sample. $E(\frac{1}{n}\sum I_i= E(I_i) = P(\text{ith point shows up})= 1- (1-\frac{1}{n})^n$
+ 	\item Explain A/B Testing on 1.) Binary Data (click rate) 2.) Continuous Data (Conversion Rate) 
+ 		\subitem form statistics 
+ 	     $$Z = \frac{\hat{p}_0 - p_0}{\sqrt{p_0 (1-p_0)/n}}$$
+ 	     $$Z = \frac{\hat{p}_1 - \hat{p_2}}{\sqrt{\hat{p} (1-\hat{p})(\frac{1}{n_1} + \frac{1}{n_1})}}, \hat{p} = \frac{n_1 \hat{p}_1 + n_2 \hat{p}_2}{n_1 + n_2}$$
+ 	      $$ \text{Z or t} = \frac{\hat{\mu} -\mu_0}{\sqrt{s_n/n}}$$
+ 	     $$ \text{Z or t} = \frac{\hat{\mu_1} -\hat{\mu_2}}{\sqrt{\hat{\sigma_1}/n_1 + \hat{\sigma_2}/n_2}}$$
+ 	     $$ (df = \frac{(\hat{\sigma_1}/n_1 + \hat{\sigma_2}/n_2)^2}{\frac{(\hat{\sigma_1}/n_1)^2}{n_1-1} + \frac{(\hat{\sigma_2}/n_2)^2}{n_2-1}})$$
+ 	     (t is used only you have normal distribution assumptions)
 \end{enumerate}
 
 \chapter{Computational Learning Theory}
@@ -542,6 +625,8 @@ More Generalized Distributions
 Supervised Learning-Regression and Classification
 \begin{itemize}
     \item Confusion Matrix
+    \includegraphics[width=14cm]{ConfusionMatrix.png}
+    
     \begin{itemize}
     	\item Accuracy = $\int_{x\in D} \mathbb{I}(f(x)\neq y) p(x)dx$
     	\item Precision or Positive Predictive Value(PPV)$$Precision = \frac{T}{TP+FP}$$ (Analogy to Type I error when Positive means rejecting, predict when you are very certain $H_0$) 
