@@ -478,6 +478,12 @@ Application of Hypothesis Testing in industry
 		\begin{enumerate}
 			\item approximation for treatment effect
 			\item random sampling -hashing cookie id
+			\subitem Other sampling methods
+				\begin{itemize}
+					\item Stratified Sampling
+					\item Cluster Sampling
+				\end{itemize}
+
 			\item randomization - flipping a coin 
 			\item novelty effect - the difference between groups are too large
 		\end{enumerate}
@@ -492,8 +498,13 @@ Application of Hypothesis Testing in industry
 						\subitem if you suspect the randomization is not perfect
 				\item Advanced control group settings
 					\subitem Holdout group (group that you don't expose to new environment) to understand the effect of additional environment changes
-					\subitem Double control group (AAB test) to detect potential bias of the testing
-				\item Sample Size
+					\subitem Double control group (AAB test, AA test) to detect potential bias of the testing
+				\item Sample Size (7\% on one day or 1\% over 7 days)
+				\begin{itemize}
+					\item correlations between days (autocorrelation)
+					\item day effects
+					\item allow to measure long term effects
+				\end{itemize}
 			\end{itemize}
 	\item Hypothesis Testing based on Experiment
 		\subitem Usually need to approximate discontinuous data using continuous distribution hypothesis test( t-test, Z-test). Convert multi-class metrics to binary metrics (ask yes or no questions)
@@ -1202,6 +1213,15 @@ $$\begin{pmatrix}
 
 
 \chapter{Tree Models and Ensemble Learning}
+
+
+\awxrion{Decision Trees}
+
+ID3 
+C4.5
+CART
+
+advantage intepratable (e.g. popular in marketing, biomedical)
 
 \subsection{Bagging and Random Forest}
 \subsection{Boosting and GBDT}
