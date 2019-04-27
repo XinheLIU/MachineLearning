@@ -1043,51 +1043,50 @@ $$Rss + \lambda \sum_{i=1}^p (\alpha|\beta_j| + (1-\alpha) \beta_j^2)$$
 
 Additive Model : no interactions/cross terms
 
-\section{Generalized Linear Model}
+\chapter{Classification and Generalized Linear Model}
 
-\subsection{Logistic Regression}
-
-
-Sigmoid/ Log Probability Function
-
-$$ \sigma(z) = \frac{1}{1+e^{-z}} = \frac{1}{1+e^{-w^Tx}}$$
-
-Assume y is Bernoulli distributed and  $P(Y|X) = \sigma(X)$ (conditional probability plot), indeed we have odds
-
-$$Log(\frac{p}{1-p}) = w^Tx$$
-
-Loss Function （from Log MLE or entropy)
-
-$$J(z) = -ylogy + (1-y)log(1-y)$$
-
-Training of the Model
-
-MLE of w based on a Bernoulli Distribution
-$$L(\mathbf{w}|\mathbf{x}) = \prod_{i=1}^N[p(y=1|\mathbf{x,w})]^{y_i}[1-p(y=1|\mathbf{x,w})]^{1-y_i}$$
-Take Log to get the Loss Function 
-$$log L(\mathbf{w}|\mathbf{x}) = \sum_{i=1}^N -y_i logy_i+ (1-y_i)log(1-y_i)$$
-$$l(\mathbf{w}|\mathbf{x}) = log L(\mathbf{w}|\mathbf{x}) = \sum_{i=1}^N (y_i\mathbf{w}^T\mathbf{x}_i - log(1+e^{\mathbf{w}^T\mathbf{x}_i}))$$
-
-Intuition
+\section{Logistic Regression}
 
 \begin{itemize}
-    \item The log odds (logit function) $$ ln\frac{y}{1-y} = \mathbf{w}^T\mathbf{x} +b$$ 
-     $$ p(y=1|x) = \frac{e^{\mathbf{w}^T\mathbf{x}}}{1+e^{\mathbf{w}^T\mathbf{x}}}$$
-     $$p(y=0|x) = \frac{1}{1+e^{\mathbf{w}^T\mathbf{x}}}$$
-    \item Exponential Family
-    \item Maximum Entropy (See Loss function) of the exponential family 
-    $$2 \sum_{i]1}^N -y_i log\frac{y_i}{\hat{p_i}}+ (1-y_i)log(\frac{1-y_i}{1-\hat{p_i}})$$
-\end{itemize}
+	\item Sigmoid/ Log Probability Function (linkage function)
+		$$ \sigma(z) = \frac{1}{1+e^{-z}} = \frac{1}{1+e^{-\mathbf{w}^T\mathbf{x}}}$$
+	Assume y is Bernoulli distributed and  $P(Y|X) = \sigma(X)$ (conditional probability plot), indeed we have odds
+	
+	\item Interpretation: 
+	\begin{itemize}
+		\item the odds be represented as a linear relation 
+		$$Log(\frac{p}{1-p}) = \mathbf{w}^T\mathbf{x}$$ (log odds, logit function)
+		$$\frac{p}{1-p} = e^{\mathbf{w}^T\mathbf{x}}$$
+     	$$ p(y=1|x) = \frac{e^{\mathbf{w}^T\mathbf{x}}}{1+e^{\mathbf{w}^T\mathbf{x}}}$$
+     	$$p(y=0|x) = \frac{1}{1+e^{\mathbf{w}^T\mathbf{x}}}$$
+     	\item Maximum Entropy (See Loss function) of the exponential family 
+     	$$2 \sum_{i]1}^N -y_i log\frac{y_i}{\hat{p_i}}+ (1-y_i)log(\frac{1-y_i}{1-\hat{p_i}})$$
+     \end{itemize}
+     
+	\item Loss Function （from Log MLE (of Bernoulli, assuming i.i.d.) or entropy
+	$$J(z) = -ylogy + (1-y)log(1-y)$$
+	MLE of w based on a Bernoulli Distribution
+	$$l(\mathbf{w}|\mathbf{x}) = L(\mathbf{w}|\mathbf{x}) = \prod_{i=1}^N[p(y=1|\mathbf{x,w})]^{y_i}[1-p(y=1|\mathbf{x,w})]^{1-y_i}$$
+		Log likelihood
+	$$log L(\mathbf{w}|\mathbf{x}) = \sum_{i=1}^N -y_i log p_i + (1-y_i)log(1-p_i)$$
 
-Regularization techniques:
-
-\begin{itemize}
-    \item With L-1 or L-2 norm (Frobenius Norm)
+	\item Model Training: 
+	\subitem Train to maximize log likelihood
+	Get Derivatives 
+	$$
+	\frac{\partial l }{\partial \mathbf{w}} = \frac{\partial l }{\partial p_i}
+					\frac{\partial p_i }{\partial z_i} \frac{\partial z_i }{\partial \mathbf{w}} = 
+					(\frac{y_i}{p_i} - \frac{1-y_i}{1-p_i})(p_i(1-p_i))(\mathbf{x})
+	$$
+	*Here we used the derivative of sigmoid
+	$$ \frac{\partial \sigma(z)}{\partial z} = \frac{\partial p }{\partial z} 
+		= \frac{-e^{-z}}{(1+e^{-z})^2}
+		= \sigma(z)(1-\sigma(z))$$
+	\subitem Regularization techniques:With L-1 or L-2 norm (Frobenius Norm)
     $$J(z) = \frac{1}{m} \sum_{i=1}^m L(y_i,\hat{y}_i) + \frac{\lambda}{2m}\norm{\mathbf{w}}^2_F$$
+    Another Intuition about minimizing the loss function is to minimize the \textbf{K-L Divergence} with Maximum-Entropy Model 
 \end{itemize}
 
-
-Another Intuition about minimizing the loss function is to minimize the \textbf{K-L Divergence} with Maximum-Entropy Model 
 
 *Connection with Naive Bayesian
 
@@ -1100,9 +1099,26 @@ Another Intuition about minimizing the loss function is to minimize the \textbf{
     \item The rate of convergence is also different, logistic regression needs more data feeding to perform better.
 \end{itemize}
 
-\subsection{Extension: Softmax}
+\section{Multi-Class Classification}
 
-$$P(Y=k|x) = \frac{e^{w^Tx}}{\sum_{i=1}{K}e^{w^Tx}}$$
+\subsection{Use binary classifier}
+\begin{itemize}
+	\item One-vs-One(OvO): $\frac{N(N-1)}{2}$ two-class classifications: Then vote among classification results
+	\item One-vs-Rest(OvR): one as positive, consider all rest negative: combine the results 
+	\item Many-vs-Many(MvM): Cut N Samples with M partitions, do classification on M training examples. Use Error Correction Output Codes(EOOC) to get minimum-distance ones as result
+\end{itemize}
+
+\subsection{softmax}
+
+$$P(Y=k|x) = \frac{e^{\mathbf{w}^T\mathbf{x}}}{\sum_{i=1}^{K}e^{\mathbf{w}^T\mathbf{x}}}$$
+
+notice, $\mathbf{w} = (\theta_1, ..., \theta_n)$ has redundancy, when K = 2, it is logistic regression
+
+\section{Generalized Linear Model}
+
+$$y(\mathbf{x}) = g^{-1}(\mathbf{w}^T\mathbf{x} + b)$$
+
+$g$ is the linkage function
 
 \section{Practice/Examples}
 
@@ -1215,7 +1231,7 @@ $$\begin{pmatrix}
 \chapter{Tree Models and Ensemble Learning}
 
 
-\awxrion{Decision Trees}
+\section{Decision Trees}
 
 ID3 
 C4.5
