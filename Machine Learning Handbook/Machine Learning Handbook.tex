@@ -1398,7 +1398,7 @@ Characteristics of Deep-Learning
 
 \begin{itemize}
     \item Advantage of Deep-learning is significant mostly with large data set.
-    \item traditional bias-variance trade-off can largely be overcome by adding more data (reducing variance) and training a larger network(reducing bias) cycle when data is sufficient.
+    \item Traditional bias-variance trade-off can largely be overcome by adding more data (reducing variance) and training a larger network(reducing bias) cycle when data is sufficient.
     \item Optimization becomes more crucial in the training process. Dataset normalization, gradient checking are needed. Initialization carefully to avoid 
     \begin{itemize}
     	\item Gradient Vanishing/Exploding	
@@ -1412,14 +1412,14 @@ Characteristics of Deep-Learning
 \textbf{weight decay}. ) Reduces variance.
 	$$J(z) = \frac{1}{m} \sum_{i=1}^m L(y_i,\hat{y}_i) + \sum_{l=1}^L\frac{\lambda}{2m}\norm{\mathbf{w}^{[l]}}^2_F$$
    \item Dropout: randomly shutting down (with certain probability) nodes during every training. Still predicting with the whole network. Reduces over-reliance on a certain node.
-  \item Data augmentation: adding transformed data to expand training set. 
+  \item Data Augmentation: adding transformed data to expand training set. 
   		\subitem: Adjust color (use PCA to analyze RGB values, add noises on each direction)
   		\subitem: Random rotate, crop, shift, change size, symmetric transform
   		\subitem: Add noise (Gaussian Noise, Salt-and-Pepper Noise)
   		\subitem: Change resolution, sharpness, contrast
   		\subitem: Use Generative Model to generate new samples(GAN)
   		\subitem: Extract features first, then use up-sampling/SMOTE
- \item Early stoping: early stopping during the optimization of parameters to avoid overfit.
+ \item Early Stoping: early stopping during the optimization of parameters to avoid overfit.
 \end{itemize}
 
 \section{Key Questions and Status Quo}
@@ -1472,34 +1472,33 @@ Deep Learning sees most results in supervised Learning.
 Feedforward neural network 
 
 
-
 \section{Convolutional Neural Network(CNN)}
 
 Basic Idea is to use Convolution to engineer (extract and filter out) the features. (the "Edge Detection Problem")
 
 \subsection{Convolution and Pooling}
 
-The "Convolution" in DL is really Cross-Correlation. (See "Convolution" on wikipedia)
+Convolution: The "Convolution" in DL is really Cross-Correlation. (See "Convolution" on wikipedia)
 \begin{itemize}
-\item Convolute the Image Data with a Filter(Kernel) (eg. Sobel Filter, Scharr Filter)
-$$(n.n) * (f, f) \rightarrow (n-f+1, n-f+1)$$
-\item Padding: add zeros entries so the output size same as input size
-$(n+2p-f+1, n+2p-f+1)$ as result
-\begin{itemize}
-	\item Valid Padding: No Padding out
-	\item Same Padding: Output the Same Size
-	\item FULL Padding: Maximum Padding does not result in a convolution on just padded elements(eg. for a filter of size k, k-1)
-\end{itemize}
-\item Stride:steps to take
-$(\lfloor \frac{n+2p−f}{s}⌋+1 \rfloor, \lfloor \frac{n+2p−f}{s}\rfloor + 1)$ rounding down (dont do when it is out)
-\item Convolution over Volume: Traditionally, use a filter with same number of channels (each 3-dimensional filter result an matrix output)
-\item Convolution of tensor - still all number multiply then sum together
-could use m filters to result an m channel output
-\item 1-layer Convolution Network: Input $\rightarrow$ n filters $\rightarrow$ ReLu on each output (bias parameter added here) $\rightarrow$ Stack the output together result an n channel output 
-\item Why convolution works
+	\item Convolute the Image Data with a Filter(Kernel) (eg. Sobel Filter, Scharr Filter)
+	$$(n.n) * (f, f) \rightarrow (n-f+1, n-f+1)$$
+	\item Padding: add zeros entries so the output size same as input size
+	$(n+2p-f+1, n+2p-f+1)$ as result
 	\begin{itemize}
-	\item Parameter Sharing: One feature detector is useful for one part of image probably be useful for all parts
-	\item Sparsity of Connections: In each layer, each output value depends only on a small number of inputs
+		\item Valid Padding: No Padding out
+		\item Same Padding: Output the Same Size
+		\item FULL Padding: Maximum Padding does not result in a convolution on just padded elements(eg. for a filter of size k, k-1)
+	\end{itemize}
+	\item Stride:steps to take
+	$(\lfloor \frac{n+2p−f}{s}⌋+1 \rfloor, \lfloor \frac{n+2p−f}{s}\rfloor + 1)$ rounding down (dont do when it is out)
+	\item Convolution over volume: Traditionally, use a filter with same number of channels (each 3-dimensional filter result an matrix output)
+	\item Convolution of tensor - still all number multiply then sum together
+could use m filters to result an m channel output
+	\item 1-layer Convolution Network: Input $\rightarrow$ n filters $\rightarrow$ ReLu on each output (bias parameter added here) $\rightarrow$ Stack the output together result an n channel output 
+	\item Why convolution works
+		\begin{itemize}
+		\item Parameter Sharing: One feature detector is useful for one part of image probably be useful for all parts(fewer parameters)
+		\item Sparsity of Connections: In each layer, each output value depends only on a small number of inputs
 	\end{itemize}
 \end{itemize}
 
@@ -1508,9 +1507,8 @@ Pooling:
 	\item Max Pooling - Take max of sub-areas' outputs, result a matrix
 	\item Average Pooling - Take the average of sub-areas, Used less often
 	\item No padding
+	\item Act as \textbf{Dimension Reduction} and \textbf{Down-sampling}
 \end{itemize}
-
-
 
 \subsection{Convolutional Neural Network(CNN)}
 
