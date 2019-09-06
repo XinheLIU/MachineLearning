@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  2 AUG 2019 07:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  25 AUG 2019 16:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -290,16 +290,18 @@ LaTeX Font Info:    Font shape `OT1/pplj/m/sl' in size <10.95> not available
 Missing character: There is no ï in font pplr9o!
 Missing character: There is no ¼ in font pplr9o!
 Missing character: There is no ‰ in font pplr9o!
-)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7])
 \tf@toc=\write3
 \openout3 = `"Machine Learning Handbook.toc"'.
 
- [7] [8
-
-]
+ [8]
 LaTeX Font Info:    Font shape `OT1/pplj/bx/n' in size <20.74> not available
 (Font)              Font shape `OT1/pplj/b/n' tried instead on input line 28.
  [1
+
 
 ]
 Chapter 1.
@@ -506,11 +508,11 @@ Chapter 11.
 Chapter 12.
 [58
 
-] [59] [60] [61]
+] [59]
 Chapter 13.
-[62
+[60
 
-]
+] [61] [62]
 Chapter 14.
 [63
 
@@ -518,11 +520,11 @@ Chapter 14.
 Chapter 15.
 [64
 
-] [65
-
 ]
 Chapter 16.
-[66
+[65
+
+] [66
 
 ]
 Chapter 17.
@@ -534,6 +536,10 @@ Chapter 18.
 
 ]
 Chapter 19.
+[69
+
+]
+Chapter 20.
 Missing character: There is no â in font pplr9t!
 Missing character: There is no € in font pplr9t!
 Missing character: There is no ¦ in font pplr9t!
@@ -549,7 +555,7 @@ Missing character: There is no ™ in font pplr9t!
 Missing character: There is no â in font pplr9t!
 Missing character: There is no € in font pplr9t!
 Missing character: There is no ™ in font pplr9t!
-[69
+[70
 
 ]
 Missing character: There is no â in font pplr9t!
@@ -561,20 +567,25 @@ Missing character: There is no ™ in font pplr9t!
 Missing character: There is no â in font pplr9t!
 Missing character: There is no € in font pplr9t!
 Missing character: There is no ™ in font pplr9t!
- [70] [71
+ [71] [72
 
 ]
-Chapter 20.
+Chapter 21.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [72
+ [73
 
-] [73]
-Chapter 21.
-[74
+]
+Overfull \hbox (64.5674pt too wide) has occurred while \output is active
+\OT1/pplj/m/n/10.95 74 \OT1/pplj/m/it/10.95 CHAPTER 21.  DEEP LEARNING MODEL OPTIMIZATION AND REGULARIZATION
+ []
 
-] [75]
+[74]
+Chapter 22.
+[75
+
+] [76]
 Missing character: There is no â in font pplr9t!
 Missing character: There is no ˆ in font pplr9t!
 Missing character: There is no ’ in font pplr9t!
@@ -584,17 +595,17 @@ Missing character: There is no ‹ in font pplr9t!
 Missing character: There is no â in font pplr9t!
 Missing character: There is no ˆ in font pplr9t!
 Missing character: There is no ’ in font pplr9t!
- [76] [77] [78]
+ [77] [78] [79]
 Missing character: There is no ï in font pplr9o!
 Missing character: There is no ¼ in font pplr9o!
 Missing character: There is no ˆ in font pplr9o!
- [79]
+ [80]
 Missing character: There is no ï in font pplr9o!
 Missing character: There is no ¼ in font pplr9o!
 Missing character: There is no Œ in font pplr9o!
- [80] [81]
-Chapter 22.
-[82
+ [81] [82]
+Chapter 23.
+[83
 
 ]
 Missing character: There is no ï in font pplr9o!
@@ -603,89 +614,81 @@ Missing character: There is no ˆ in font pplr9o!
 Missing character: There is no ï in font pplb9o!
 Missing character: There is no ¼ in font pplb9o!
 Missing character: There is no ‰ in font pplb9o!
- <GRU-LSTM.png, id=306, 2113.8975pt x 668.4975pt>
+ <GRU-LSTM.png, id=310, 2113.8975pt x 668.4975pt>
 File: GRU-LSTM.png Graphic file (type png)
  <use GRU-LSTM.png>
-Package pdftex.def Info: GRU-LSTM.png used on input line 1704.
+Package pdftex.def Info: GRU-LSTM.png used on input line 1718.
 (pdftex.def)             Requested size: 426.79134pt x 134.96198pt.
 
-Overfull \hbox (66.79134pt too wide) in paragraph at lines 1704--1705
+Overfull \hbox (66.79134pt too wide) in paragraph at lines 1718--1719
 [][]  
  []
 
-Missing character: There is no Ï in font pplri9o!
-Missing character: There is no œ in font pplri9o!
-Missing character: There is no ‰ in font pplri9o!
-
-Overfull \hbox (107.71826pt too wide) has occurred while \output is active
-\OT1/pplj/m/it/10.95 22.2.  GATED RECURRENT UNIT (GRUAND LONG SHORT TERM MEMORY (LSTM) MODEL \OT1/pplj/m/n/10.95 83
- []
-
-[83 <./GRU-LSTM.png>] <Bidirectional.png, id=312, 766.865pt x 271.0125pt>
+[84 <./GRU-LSTM.png>] <Bidirectional.png, id=315, 766.865pt x 271.0125pt>
 File: Bidirectional.png Graphic file (type png)
  <use Bidirectional.png>
-Package pdftex.def Info: Bidirectional.png used on input line 1727.
+Package pdftex.def Info: Bidirectional.png used on input line 1741.
 (pdftex.def)             Requested size: 426.79134pt x 150.83138pt.
 
-Overfull \hbox (66.79134pt too wide) in paragraph at lines 1727--1728
+Overfull \hbox (66.79134pt too wide) in paragraph at lines 1741--1742
 [][]  
  []
 
-<DeepRNN.png, id=313, 672.5125pt x 740.7675pt> [84 <./Bidirectional.png>]
+<DeepRNN.png, id=316, 672.5125pt x 740.7675pt> [85 <./Bidirectional.png>]
 File: DeepRNN.png Graphic file (type png)
  <use DeepRNN.png>
-Package pdftex.def Info: DeepRNN.png used on input line 1731.
+Package pdftex.def Info: DeepRNN.png used on input line 1745.
 (pdftex.def)             Requested size: 426.79134pt x 470.11086pt.
 
-Overfull \hbox (66.79134pt too wide) in paragraph at lines 1731--1732
+Overfull \hbox (66.79134pt too wide) in paragraph at lines 1745--1746
 [][]  
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [85 <./DeepRNN.png>]
+ [86 <./DeepRNN.png>]
 Missing character: There is no ï in font pplr9o!
 Missing character: There is no ¼ in font pplr9o!
 Missing character: There is no › in font pplr9o!
- <SequenceToSequence.png, id=322, 1333.98375pt x 618.31pt>
+ <SequenceToSequence.png, id=325, 1333.98375pt x 618.31pt>
 File: SequenceToSequence.png Graphic file (type png)
  <use SequenceToSequence.png>
-Package pdftex.def Info: SequenceToSequence.png used on input line 1752.
+Package pdftex.def Info: SequenceToSequence.png used on input line 1766.
 (pdftex.def)             Requested size: 426.79134pt x 197.81607pt.
 
-Overfull \hbox (66.79134pt too wide) in paragraph at lines 1752--1753
+Overfull \hbox (66.79134pt too wide) in paragraph at lines 1766--1767
 [][]  
  []
 
-[86 <./SequenceToSequence.png (PNG copy)>]
+[87 <./SequenceToSequence.png (PNG copy)>]
 Missing character: There is no â in font pplr9o!
 Missing character: There is no € in font pplr9o!
 Missing character: There is no ™ in font pplr9o!
- <AttentionModel.png, id=326, 903.375pt x 672.5125pt>
+ <AttentionModel.png, id=329, 903.375pt x 672.5125pt>
 File: AttentionModel.png Graphic file (type png)
  <use AttentionModel.png>
-Package pdftex.def Info: AttentionModel.png used on input line 1774.
+Package pdftex.def Info: AttentionModel.png used on input line 1788.
 (pdftex.def)             Requested size: 426.79134pt x 317.72278pt.
 
-Overfull \hbox (66.79134pt too wide) in paragraph at lines 1774--1775
+Overfull \hbox (66.79134pt too wide) in paragraph at lines 1788--1789
 [][]  
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [87]
+ [88]
 Missing character: There is no â in font pplr9t!
 Missing character: There is no € in font pplr9t!
 Missing character: There is no ™ in font pplr9t!
- [88 <./AttentionModel.png>]
-Chapter 23.
-[89
-
-]
+ [89 <./AttentionModel.png>]
 Chapter 24.
 [90
+
+]
+Chapter 25.
+[91
 
 ] (/Users/lIUxinhe/Documents/Github/MachineLearning/Machine Learning Handbook/.texpadtmp/Machine Learning Handbook.aux)
 
@@ -701,10 +704,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  51i,12n,27p,464b,287s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/fpl/fplbj8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmbi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/Machine Learning Handbook/.texpadtmp/Machine Learning Handbook.pdf" (98 pages, 776243 bytes).
+Output written on "/Users/lIUxinhe/Documents/Github/MachineLearning/Machine Learning Handbook/.texpadtmp/Machine Learning Handbook.pdf" (99 pages, 776995 bytes).
 PDF statistics:
- 391 PDF objects out of 1000 (max. 8388607)
- 262 compressed objects within 3 object streams
+ 394 PDF objects out of 1000 (max. 8388607)
+ 264 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

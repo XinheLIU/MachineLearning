@@ -1247,7 +1247,31 @@ advantage intepratable (e.g. popular in marketing, biomedical)
 
 \part{Probabilistic Graphical Models}
 
-\chapter{Naive Bayes}
+\chapter{Bayesian Probability Theory}
+
+\section{Basic Concepts}
+
+\begin{itemize}
+	\item Bayesian Theorem: $$P(\theta|X) = \frac{P(X|\theta) P(\theta)}{P(X)}$$
+		\subitem $P(\theta|X)$ is posterior probability
+		\subitem $P(\theta)$ is prior
+		\subitem $P(X|\theta)$ is likelihood
+		\subitem $P(X)$ is evidence
+	\item Marginalization: $$P(X) = \int p(X,Y) dY$$
+	\item Bayesian integral as prediction
+	\item Probalistic model
+	\item Bayesian network
+   	\subitem Plate notation
+\end{itemize}
+
+\section{ Bayesian Decision Theory}
+
+In State $\omega$ we take action $a \in A$, incur Loss $L(\omega,a)$, how to choose a to minimize
+Risk:
+$$R(a|x) = \sum_{j=1}^k L(\omega_j, a) P(\omega_j |\mathbf{x} )$$
+Decision Rule $d \in A$
+$$d^*(x) = \argmin_{a \in A} R(a|\mathbf{x})$$
+$d^*(x)$ here is a Bayes optimal classifier here. and $R(d^*(x)|\mathbf{x})$ is the Bayes Risk.
 
 Bayes' Rule 
 $$ f_{Y|X}(y|x) = \frac{f_{(X,Y)}(x,y)}{f_X(x)} = \frac{f_{(X,Y)}(x,y)}{\int f(x|y)f(y)dy}$$
@@ -1271,14 +1295,8 @@ The prior mean ( second term ) influences less as n grows.
 
 Poisson($\theta$) and $Gamma(\alpha + \sum X_i, \beta + n )$ 
 
-\section{ Bayesian Decision Theory}
+\chapter{Naive Bayes}
 
-In State $\omega$ we take action $a \in A$, incurr Loss $L(\omega,a)$, how to choose a to minimize
-Risk:
-$$R(a|x) = \sum_{j=1}^k L(\omega_j, a) P(\omega_j |\mathbf{x} )$$
-Decision Rule $d \in A$
-$$d^*(x) = \argmin_{a \in A} R(a|\mathbf{x})$$
-$d^*(x)$ here is a Bayes optimal classifier here. and $R(d^*(x)|\mathbf{x})$ is the Bayes Risk.
 
 
 
