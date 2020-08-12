@@ -3,6 +3,7 @@
 \raggedright                            % do not right justify
 
 \usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{commath}
 \usepackage[sc,osf]{mathpazo}
@@ -1257,11 +1258,29 @@ advantage intepratable (e.g. popular in marketing, biomedical)
 		\subitem $P(\theta)$ is prior
 		\subitem $P(X|\theta)$ is likelihood
 		\subitem $P(X)$ is evidence
+		
+		$$ f_{Y|X}(y|x) = \frac{f_{(X,Y)}(x,y)}{f_X(x)} = \frac{f_{(X,Y)}(x,y)}{\int f(x|y)f(y)dy}$$
+		$$\pi(\theta|x) =  \frac{f(x|\theta) \pi(\theta)}{\int f(x|\theta)\pi(\theta)d\theta}$$
+		$$\pi(\theta|x) \sim  f(x|\theta) \pi(\theta)$$
+	\item Bayes Estimator
+	$$\hat{\theta}_{Bayes} = E(\theta | X) = \int \theta \pi(\theta |X ) d\theta$$
 	\item Marginalization: $$P(X) = \int p(X,Y) dY$$
-	\item Bayesian integral as prediction
-	\item Probalistic model
 	\item Bayesian network
+	\subitem $$P(X_1,...,X_n) = \prod_{k=1}^n P(X_k | Pa(X_k))$$
    	\subitem Plate notation
+   	\item Analytical Inference
+   	\subitem Maximum a Posterior (MAP) Estimation
+   	\item \textbf{Conjugate Distribution}:
+	$f(x), \pi$ is called conjugate distributions if model $\pi(\theta|x), \pi(\theta)$ follows the same Distribution
+
+eg. Bernoulli($\theta$) and Beta($\alpha,\beta$),  ( $\pi(\theta|x) \sim$ Beta($\alpha+\sum X_i, \beta + n - \sum X_i$) ($f(x|\theta) = \prod_{i=1}^n f_{X_i}(X_i|\theta)$)
+$$\hat{\theta}_{Bayes} = E(\theta | X) = \frac{ \alpha + \sum X_i}{ \alpha + \beta + n} $$
+$$= \frac{\sum X_i}{n}\frac{n}{\alpha + \beta + n} + \frac{\alpha}{\alpha + \beta}\frac{ \alpha + \beta}{\alpha + \beta + n}$$
+
+The prior mean ( second term ) influences less as n grows.
+
+Poisson($\theta$) and $Gamma(\alpha + \sum X_i, \beta + n )$ 
+
 \end{itemize}
 
 \section{ Bayesian Decision Theory}
@@ -1273,37 +1292,44 @@ Decision Rule $d \in A$
 $$d^*(x) = \argmin_{a \in A} R(a|\mathbf{x})$$
 $d^*(x)$ here is a Bayes optimal classifier here. and $R(d^*(x)|\mathbf{x})$ is the Bayes Risk.
 
-Bayes' Rule 
-$$ f_{Y|X}(y|x) = \frac{f_{(X,Y)}(x,y)}{f_X(x)} = \frac{f_{(X,Y)}(x,y)}{\int f(x|y)f(y)dy}$$
-Byesian Inference:\\
-All parameters are random variables,
-$$\pi(\theta|x) =  \frac{f(x|\theta) \pi(\theta)}{\int f(x|\theta)\pi(\theta)d\theta}$$
-$$\pi(\theta|x) \sim  f(x|\theta) \pi(\theta)$$
-$\pi(\theta)$ is the prior distribution, $\pi(\theta|x)$ is the posterior distribution for $\theta$ given x. 
+\section{Latent Variable Models}
 
-Bayes Estimator
-$$\hat{\theta}_{Bayes} = E(\theta | X) = \int \theta \pi(\theta |X ) d\theta$$
-
-\textbf{Conjugate Distribution}:
-$f(x), \pi$ is called conjugate distributions if model $\pi(\theta|x), \pi(\theta)$ follows the same Distribution
-
-eg. Bernoulli($\theta$) and Beta($\alpha,\beta$),  ( $\pi(\theta|x) \sim$ Beta($\alpha+\sum X_i, \beta + n - \sum X_i$) ($f(x|\theta) = \prod_{i=1}^n f_{X_i}(X_i|\theta)$)
-$$\hat{\theta}_{Bayes} = E(\theta | X) = \frac{ \alpha + \sum X_i}{ \alpha + \beta + n} $$
-$$= \frac{\sum X_i}{n}\frac{n}{\alpha + \beta + n} + \frac{\alpha}{\alpha + \beta}\frac{ \alpha + \beta}{\alpha + \beta + n}$$
-
-The prior mean ( second term ) influences less as n grows.
-
-Poisson($\theta$) and $Gamma(\alpha + \sum X_i, \beta + n )$ 
+\begin{itemize}
+	\item Latent Variable Models
+		\subitem Pros: simpler model(network), few parameters, sometimes has meaningful explanations
+		\subitem Cons: harder to work with
+		\subitem handle missing data, model missing data as latent variable (distribution). eg \textit{Probabilistic PCA}
+	\item Expectation - Maximization (EM) Algorithm
+		\subitem 
+			\subsubitem E- Step: calculate latent variable distribution
+				$$q(t_i) = p(t_i|x_i, \theta)$$
+				for each data point
+			\subsubitem M- Step: $$p(t_i|x_i, \theta)$$
+			\subsubitem E-M: $$max_{\theta} \E_{q} log p(X, T|\theta)$$
+		\subitem Example: Training Gaussian Mixture Model
+		$$ log p( X|\theta) = \sum log p(x_i|\theta) = \sum log \sum \frac{q(t_i = c)}{q(t_i=c)}p(x_i, t_i = c |\theta) \geq$$ 
+		$$\sum \sum q(t_i=c) log \frac{p(x_i, t_i = c |\theta)}{q(t_i = c)} = \mathcal{L}(\theta, q )$$
+		E-Step:	
+		$$q_{k+1} = \argmax_q \mathcal{L}(\theta^k, q)$$	
+		$$log p(X|\theta) - \mathcal{L} = \sum \mathcal{KL} (q(t_i) || p(t_i | x_i, \theta))$$
+		$$\mathcal{L}(\theta,q) = \sum_i \sum_c q(t_i=c) log \frac{p(x_i,t_i =c|\theta)}{q(t_i=c)}$$
+		$$=  \sum_i \sum_c q(t_i=c) log p(x_i,t_i =c|\theta) - \sum_i \sum_c q(t_i=c) log q(t_i=c)$$
+		$$ = \E_q  log p(X, T|\theta) + const$$
+		usually use concave function to optimize
+		M-Step:	
+		$$\theta_{k+1} = \argmax_{\theta} \mathcal{L}(\theta, q^{k+1})$$	
+		
+		Notice the usage of Jensen's inequality here.
+		
+\end{itemize}
 
 \chapter{Naive Bayes}
-
-
 
 
 \section{Model and Assumption}
 When we have a 0-1 loss
 
-$$L = = \left\{
+$$L = \left\{
              \begin{array}{lr}
              0 \text{ , if i=j} &  \\
              1, \text{ otherwise } &  
@@ -1703,7 +1729,7 @@ Sequence models deal with sequence data ( speech, music, DNA, Sentiment Classifi
 	\begin{itemize}
   		\item Standard RNN(many-to-many RNN)
     	\item encoder + decoder(x RNN connects to y RNN in sequence
-  		\item many-to-one RNN（only one out put at t)
+  		\item many-to-one RNN (only one output at t)
   		\item One-to-One (only one time piece)
   		\item One-to-Many (only one input at time 0)
   	\end{itemize}
