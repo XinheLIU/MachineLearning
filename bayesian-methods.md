@@ -2,9 +2,7 @@
 
 ![image](./assets/Bayesian-Methods.png)
 
-## Concepts
-
-### Basic Concepts
+## Basic Concepts
 
 * [Bayesian Interpretation of Probability](https://en.wikipedia.org/wiki/Bayesian_probability)
   * $$P(\theta|X) = \frac{P(X|\theta) P(\theta)}{P(X)}$$
@@ -12,7 +10,6 @@
     * $P(\theta)$ is prior
     * $P(X|\theta)$ is likelihood
     * $P(X)$ is evidence
-* [Probabilistic graphical models](https://en.wikipedia.org/wiki/Graphical_model)\(PGM\)
 * [Maximize a Posterior](https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation)\(MAP\) estimation
 * Bayesian Estimator
   * $$\hat{\theta}_{Bayes} = E(\theta | X) = \int \theta \pi(\theta |X ) d\theta$$
@@ -22,7 +19,6 @@
   * [Gamma Prior](https://en.wikipedia.org/wiki/Gamma_distribution#Conjugate_prior)
     * with normal distribution
       * $$p(\gamma)  = \Gamma(a,b), p(\gamma|x) \propto (\gamma^{\frac{1}{2}} e^{-\gamma\frac{(x-\mu)^2}{2}})(\gamma^{a-1}e^{-b\gamma}) = \Gamma(a+ \frac{1}{2}, b+ \frac{(x-\mu)^2}{2})$$
-* [Generative Models](https://en.wikipedia.org/wiki/Generative_model)
 * [Entropy](https://en.wikipedia.org/wiki/Entropy_%28information_theory%29)
 * [Kullback-Leibler Divergence](https://en.wikipedia.org/wiki/Kullback–Leibler_divergence)
   * [zero-avoiding and zero-forcing properties](https://wiseodd.github.io/techblog/2016/12/21/forward-reverse-kl/)
@@ -30,47 +26,11 @@
 * [Bayesian Decision Theory](https://www.cc.gatech.edu/~hic/CS7616/pdf/lecture2.pdf)
   * Bayesian Risk
 
-### [Latent Variable Models](https://en.wikipedia.org/wiki/Latent_variable_model)
+## Bayesian Inference
 
-[Expectation Maximization](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)
+[Inference vs Learning](https://stats.stackexchange.com/questions/205253/what-is-the-difference-between-learning-and-inference)
 
-* deal with missing data
-* sequence of simple tasks instead of optimization
-* guaranties convergence
-  * only local maximum
-* extensions
-  * variational E-step
-  * sampling M-step
-
-Example
-
-* train a Gaussian Mixture Model
-
-$$max_{\theta} E_{q} log p(X, T|\theta)$$
-
-$$log p( X|\theta) = \sum log p(x_i|\theta) = \sum log \sum \frac{q(t_i = c)}{q(t_i=c)}p(x_i, t_i = c |\theta) \geq$$
-
-$$\sum \sum q(t_i=c) log \frac{p(x_i, t_i = c |\theta)}{q(t_i = c)} = \mathcal{L}(\theta, q )$$
-
-* E-Step:
-
-$$q_{k+1} = \argmax_q \mathcal{L}(\theta^k, q)$$
-$$log p(X|\theta) - \mathcal{L} = \sum \mathcal{KL} (q(t_i) || p(t_i | x_i, \theta))$$
-$$\mathcal{L}(\theta,q) = \sum_i \sum_c q(t_i=c) log \frac{p(x_i,t_i =c|\theta)}{q(t_i=c)}$$
-$$=  \sum_i \sum_c q(t_i=c) log p(x_i,t_i =c|\theta) - \sum_i \sum_c q(t_i=c) log q(t_i=c)$$
-$$ = E_q  log p(X, T|\theta) + const$$
-
-(usually use concave function to optimize)
-
-* M-Step:
-  
-$$\theta_{k+1} = \argmax_{\theta} \mathcal{L}(\theta, q^{k+1})$$	
-
-Notice the usage of Jensen's inequality here.
-
-### Bayesian Inference
-
-#### Exact Inference
+### Exact Inference
 
 * variable elimination
   * [sum-product variable elimination](https://en.wikipedia.org/wiki/Belief_propagation#Description_of_the_sum-product_algorithm)
@@ -79,7 +39,7 @@ Notice the usage of Jensen's inequality here.
   * collect
   * distribute
 
-#### [Approximate Inference](https://en.wikipedia.org/wiki/Approximate_inference)
+### [Approximate Inference](https://en.wikipedia.org/wiki/Approximate_inference)
 
 * Deterministic Approximation
   * [Variational Inference](https://en.wikipedia.org/wiki/Variational_Bayesian_methods)
@@ -102,9 +62,79 @@ Notice the usage of Jensen's inequality here.
 
 [High-Level Explanation of Variational Inference](https://www.cs.jhu.edu/~jason/tutorials/variational.html)
 
+## Models
 
+### Model Type Concepts
 
-### Models
+* [Probabilistic graphical models](https://en.wikipedia.org/wiki/Graphical_model)\(PGM\)
+* [Generative Models](https://en.wikipedia.org/wiki/Generative_model)
+* [Latent Variable Models](https://en.wikipedia.org/wiki/Latent_variable_model)
+
+### Latent Variable Models
+
+#### [Expectation Maximization](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)
+
+* E-Step
+  * $$q_{k+1} = argmin_q\mathcal{KL}[q(T)||p(T|X, \theta_k)]$$
+* M-Step
+  * $$\theta_{k+1} = argmax_\theta E_q[log p(X,T|\theta)]$$
+
+* deal with missing data
+* sequence of simple tasks instead of optimization
+* guaranties convergence
+  * only local maximum
+* extensions
+  * variational E-step
+  * sampling M-step
+
+Example
+
+Train a Gaussian Mixture Model
+
+$$max_{\theta} E_{q} log p(X, T|\theta)$$
+
+$$log p( X|\theta) = \sum log p(x_i|\theta) = \sum log \sum \frac{q(t_i = c)}{q(t_i=c)}p(x_i, t_i = c |\theta) \geq$$
+
+$$\sum \sum q(t_i=c) log \frac{p(x_i, t_i = c |\theta)}{q(t_i = c)} = \mathcal{L}(\theta, q )$$
+
+* E-Step:
+
+$$q_{k+1} = \argmax_q \mathcal{L}(\theta^k, q)$$
+$$log p(X|\theta) = \sum_i \sum_c \frac{q(t_i=c)}{q(t_i=c)} log p(x_i,t_i =c|\theta)\geq \sum_i \sum_c q(t_i=c) log \frac{p(x_i,t_i =c|\theta)}{q(t_i=c)} = \mathcal{L}(\theta,q)$$
+$$log p(X|\theta) - \mathcal{L}(\theta, q) = \sum \mathcal{KL} (q(t_i) || p(t_i | x_i, \theta))$$
+$$\mathcal{L}(\theta,q) = \sum_i \sum_c q(t_i=c) log \frac{p(x_i,t_i =c|\theta)}{q(t_i=c)}$$
+$$=  \sum_i \sum_c q(t_i=c) log p(x_i,t_i =c|\theta) - \sum_i \sum_c q(t_i=c) log q(t_i=c)$$
+$$ = E_q  log p(X, T|\theta) + const$$
+
+(usually use concave function to optimize)
+
+$\mathcal{L}$ is a variational lower bound here
+
+* M-Step:
+  
+$$\theta_{k+1} = \argmax_{\theta} \mathcal{L}(\theta, q^{k+1})$$
+
+Notice the usage of Jensen's inequality here.
+
+Train a K-Means Model
+
+* K-Means is actually Gaussian with fixed covariance matrix $\Sigma=I$
+* variational q is a set of delta functions
+
+#### Latent Variable Models Examples
+
+* [Bayesian Regression](https://en.wikipedia.org/wiki/Bayesian_linear_regression)
+* [K-Means](https://en.wikipedia.org/wiki/K-means_clustering)
+* [Mixture Models](https://en.wikipedia.org/wiki/Mixture_model)
+* [Probabilistic PCA](https://www.cs.ubc.ca/~schmidtm/Courses/540-W16/L12.pdf)
+* Mean-field models
+  * [Ising Model](https://en.wikipedia.org/wiki/Ising_model)
+* [Latent Dirichlet Allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation)
+  * [Dirichlet Distribution](https://en.wikipedia.org/wiki/Dirichlet_distribution)
+    * Multinomial Distribution
+* Bayesian Neural Network
+  * [Langevin Monte Carlo](https://en.wikipedia.org/wiki/Metropolis-adjusted_Langevin_algorithm) Methods
+* Variational Autoencoder
 
 #### Probabilisitic Graphical Models
 
@@ -160,22 +190,7 @@ Notice the usage of Jensen's inequality here.
   * Conditional Random Field
     * Discriminative
 
-#### Latent Variable Models
-
-* [Bayesian Regression](https://en.wikipedia.org/wiki/Bayesian_linear_regression)
-* [K-Means](https://en.wikipedia.org/wiki/K-means_clustering)
-* [Mixture Mode](https://en.wikipedia.org/wiki/Mixture_model)ls
-* [Probabilistic PCA](https://www.cs.ubc.ca/~schmidtm/Courses/540-W16/L12.pdf)
-* Mean-field models
-  * [Ising Model](https://en.wikipedia.org/wiki/Ising_model)
-* [Latent Dirichlet Allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation)
-  * [Dirichlet Distribution](https://en.wikipedia.org/wiki/Dirichlet_distribution)
-    * Multinomial Distribution
-* Bayesian Neural Network
-  * [Langevin Monte Carlo](https://en.wikipedia.org/wiki/Metropolis-adjusted_Langevin_algorithm) Methods
-* Variational Autoencoder
-
-#### Bayesian Optimization
+### Bayesian Optimization
 
 * [Gaussian Process](https://en.wikipedia.org/wiki/Gaussian_process)
   * Kernels
