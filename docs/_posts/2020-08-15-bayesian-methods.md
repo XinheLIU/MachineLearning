@@ -1,6 +1,11 @@
-# Bayesian Methods
+---
+layout: page
+title: "Bayesian Methods"
+date: 2020-08-30 15:00:00 -0000
+categories: Bayesian
+---
 
-![image](./assets/Bayesian-Methods.png)
+<!---![image](./assets/Bayesian-Methods.png)--->
 
 ## Basic Concepts
 

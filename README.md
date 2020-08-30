@@ -1,1 +1,1 @@
-Machine Learning Projects and a Handbook summarized knowledge and concepts.
+Machine Learning Basics in a [blog](https://xinheliu.github.io/MachineLearning/) format 
