@@ -10,9 +10,9 @@ categories: Bayesian
 
 * [Bayesian Interpretation of Probability](https://en.wikipedia.org/wiki/Bayesian_probability)
   * $$P(\theta|X) = \frac{P(X|\theta) P(\theta)}{P(X)}$$
-    * $P(\theta|X)$ is posterior probability
+    * $P(\theta \vert X)$is posterior probability
     * $P(\theta)$ is prior
-    * $P(X|\theta)$ is likelihood
+    * $P(X \vert \theta)$ is likelihood
     * $P(X)$ is evidence
 * [Maximize a Posterior](https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation)\(MAP\) estimation
 * Bayesian Estimator
@@ -126,28 +126,26 @@ Example
 
 Train a Gaussian Mixture Model
 
-$$max_{\theta} E_{q} log p(X, T|\theta)$$
+$$argmax_{\theta} E_{q} log p(X, T|\theta)$$
 
 $$log p( X|\theta) = \sum log p(x_i|\theta) = \sum log \sum \frac{q(t_i = c)}{q(t_i=c)}p(x_i, t_i = c |\theta) \geq$$
 
 $$\sum \sum q(t_i=c) log \frac{p(x_i, t_i = c |\theta)}{q(t_i = c)} = \mathcal{L}(\theta, q )$$
 
 * E-Step:
-
-$$q_{k+1} = \argmax_q \mathcal{L}(\theta^k, q)$$
-$$log p(X|\theta) = \sum_i \sum_c \frac{q(t_i=c)}{q(t_i=c)} log p(x_i,t_i =c|\theta)\geq \sum_i \sum_c q(t_i=c) log \frac{p(x_i,t_i =c|\theta)}{q(t_i=c)} = \mathcal{L}(\theta,q)$$
-$$log p(X|\theta) - \mathcal{L}(\theta, q) = \sum \mathcal{KL} (q(t_i) || p(t_i | x_i, \theta))$$
-$$\mathcal{L}(\theta,q) = \sum_i \sum_c q(t_i=c) log \frac{p(x_i,t_i =c|\theta)}{q(t_i=c)}$$
-$$=  \sum_i \sum_c q(t_i=c) log p(x_i,t_i =c|\theta) - \sum_i \sum_c q(t_i=c) log q(t_i=c)$$
-$$ = E_q  log p(X, T|\theta) + const$$
+  * $$q_{k+1} = argmax_q \mathcal{L}(\theta^k, q)$$
+  * $$log p(X|\theta) = \sum_i \sum_c \frac{q(t_i=c)}{q(t_i=c)} log p(x_i,t_i =c|\theta)\geq \sum_i \sum_c q(t_i=c) log \frac{p(x_i,t_i =c|\theta)}{q(t_i=c)} = \mathcal{L}(\theta,q)$$
+  * $$log p(X|\theta) - \mathcal{L}(\theta, q) = \sum \mathcal{KL} (q(t_i) || p(t_i | x_i, \theta))$$
+  * $$\mathcal{L}(\theta,q) = \sum_i \sum_c q(t_i=c) log \frac{p(x_i,t_i =c|\theta)}{q(t_i=c)}$$
+  * $$=  \sum_i \sum_c q(t_i=c) log p(x_i,t_i =c|\theta) - \sum_i \sum_c q(t_i=c) log q(t_i=c)$$
+  * $$ = E_q  log p(X, T|\theta) + const$$
 
 (usually use concave function to optimize)
 
 $\mathcal{L}$ is a variational lower bound here
 
 * M-Step:
-  
-$$\theta_{k+1} = \argmax_{\theta} \mathcal{L}(\theta, q^{k+1})$$
+  * $$\theta_{k+1} = \argmax_{\theta} \mathcal{L}(\theta, q^{k+1})$$
 
 Notice the usage of Jensen's inequality here.
 
