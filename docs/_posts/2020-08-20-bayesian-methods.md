@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Bayesian Methods"
-date: 2020-08-30 15:00:00 -0000
+date: 2020-08-20 15:00:00 -0000
 categories: Bayesian
 ---
 <!---![image](./assets/Bayesian-Methods.png)--->
