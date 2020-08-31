@@ -4,18 +4,6 @@ title: "Bayesian Methods"
 date: 2020-08-30 15:00:00 -0000
 categories: Bayesian
 ---
-<head>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            inlineMath: [['$','$']]
-            }
-        });
-    </script>
-</head>
----
 <!---![image](./assets/Bayesian-Methods.png)--->
 
 ## Basic Concepts
