@@ -6,9 +6,11 @@ categories: Math
 ---
 
 - [Basic Concepts](#basic-concepts)
+  - [Theorems](#theorems)
+  - [Important Distributions](#important-distributions)
+    - [More Generalized Distributions](#more-generalized-distributions)
   - [Descriptive Statistics](#descriptive-statistics)
   - [Statistical Inference](#statistical-inference)
-    - [Theorems](#theorems)
     - [Estimation Methods](#estimation-methods)
       - [Method of Moments](#method-of-moments)
     - [Maximum Likelihood Estimation(MLE)](#maximum-likelihood-estimationmle)
@@ -24,6 +26,68 @@ categories: Math
 - [A/B Testing](#ab-testing)
 
 ## Basic Concepts
+
+### Theorems
+
+- [Law of Large Numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers)
+- [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem)
+  - Casual definition of C.L.T
+  - Regularization Condition of C.L.T. (eg. Cauchy has infinite variance)
+- [Bias-Variance decomposition](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff) (error = bias + variance + noise) under MSE
+    $$ \sigma _x^2 =- E(( Y - E(Y|X))^2|X), E(Y|X) = f(X), E[(Y-f(x))|X] = 0$$
+    $$E L(\mu(X) ) = E[(Y-\hat{\mu}(X))^2]  $$ 
+    $$= E[(Y-f(x) + f(x) -\hat{\mu}(X))^2]$$
+    $$= E[(Y-f(x))^2] + 2E[(Y-f(x))(f(x) - \hat{\mu}(X))] + E[(f(x)-\hat{\mu}(X))^2]$$
+  $$= E[(Y-f(x))^2]  + E(f(x)-\hat{\mu}(X))^2  +  2(f(x) - E(\hat{\mu}(X))) E[(Y-f(x))] $$
+  $$ =\sigma_x^2 + E(f(x)-\hat{\mu}(X))^2 + 0$$ 
+  $$ =\sigma_x^2 + E[E(f(x)-\hat{\mu}(X))^2|X]$$ 
+  (conditional expectation over X)
+  $$  E((f(x)-\hat{\mu}(X))^2|X) =E((f(x)-E(\hat{\mu}(X)) + E(\hat{\mu}(X)) - \hat{\mu}(X))^2|X) $$
+  $$ =E((f(x)-E(\hat{\mu}(X)))^2|X) + E((E(\hat{\mu}(X)- \hat{\mu}(X))^2|X) + 2((f(x)-E(\hat{\mu}(X))E((E(\hat{\mu}(X)- \hat{\mu}(X))|X)$$
+    $$ =(f(x)-E(\hat{\mu}(X)))^2 + E((E(\hat{\mu}(X)- \hat{\mu}(X))^2|X) + 2((f(x)-E(\hat{\mu}(X))\times 0$$
+  $$ = (f(x)-E(\hat{\mu}(X)))^2 +Var(\hat{\mu}(X)) $$
+  $$\Rightarrow$$
+$$ E L(\mu(X) ) =\sigma_x^2 + Bias(\hat{\mu}(X))^2 + Var(\hat{\mu}(X))$$
+- Independence and Correlation
+  - dependent but zero correlation
+    - X, X^2 \(normal, Chi-square\)
+
+### Important Distributions
+
+- Normal Distribution, 
+  - $X_1,...X_n \sim N(\mu,\sigma^2)$ then
+    - $\bar{X}$ and $s^2$ are independent
+    - $\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} \sim N(0,1)$
+    - $\frac{(n-1)s^2}{\sigma^2} \sim \chi_{n-1}^2$
+    - $\frac{\bar{X}-\mu }{s/\sqrt{n}} = \frac{\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}}{\frac{(n-1)s^2}{\sigma^2} \frac{1}{\sqrt{n-1}}} \sim t_{n-1}$
+- Multivariate normal distribution
+  - $$ f_x(x) = \frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))$$
+  - $X_1,...X_n$ normal $\Leftarrow (X_1,...X_n)$ is multivariate normal. (Not equivalent)
+  - $E(X)=\mu, Var(X) = \Sigma$
+  - Linear transformations $AX+b \sim N(A\mu+b, A\Sigma A^T)$ remain multivariate normal
+  - Marginals are multivariate normal, each sub-vector is multivariate normal, the parameters are just sub-matrices.
+  - All conditionals are multivariate normal 
+- t-distribution: like normal distribution, but heavier tails
+  - $Z \sim N(0,1), Y \sim \chi^2_{\nu}$, Z, Y independent, 
+  - $$X= Z/\sqrt{Y/\nu} \sim t_{\nu} $$
+  - pdf has polynomial tails (decays much slower than exponential ones)
+  - $\nu=1$, it is the [Cauchy Distribution](https://en.wikipedia.org/wiki/Cauchy_distribution), with very heavy tails (no expectation)
+  - The MGF not exist. $E(|X|^k) < \infty$ for $k<\nu$, $E(|X|^k) = \infty$ for $k>\nu$
+  - $X\sim t_\nu, E(X)=0, Var(X)=\frac{\nu}{\nu-2}$
+  $$ f_X(x)=\frac{1}{\pi(1+x^2)}$$
+- $\chi^2$ distribution
+  - $$ f_x(x) = \frac{1}{(2^{k/2}\Gamma(k/2)}x^{\frac{k}{2}-1}e^{-\frac{x}{2}}, x\in [0,\infty) \sim Gamma(\frac{k}{2},\frac{1}{2})$$
+  - $E(X)=k, Var(X)=2k, M_X(t)= (\frac{1}{1-2^t})^{k/2}$
+  - $X \sim N(0,1) \Rightarrow X^2 \sim \chi^2$, $X_1,...X_n \sim N(0,1) i.i.d \Rightarrow \sum X_i^2 \sim \chi^2$,
+  - $$ f_X(x)=\frac{1}{\pi(1+x^2)}$$
+- [F-Distribution](https://en.wikipedia.org/wiki/F-distribution)
+
+#### More Generalized Distributions
+
+- Generalized Error Distribution (symmetric)
+- Non-standard t-distribution (shift and scaling, heavy tailed, symmetric)
+- Theodossious skewed t-distribution
+- Theodossious skewed t-distribution plus shift
 
 ### Descriptive Statistics
 
@@ -55,17 +119,6 @@ categories: Math
   - Confidence Interval
     - $P(L \leq \theta \leq U )$ q is not random, L, U is random! 
       - ( We repeat constructing condence inter val a n times, a percent of the times, it will contain t h e t a
-
-#### Theorems
-
-- Independence and Correlation
-  - dependent but zero correlation
-    - X, X^2 \(normal, Chi-square\)
-- Law of Large Number
-- Central Limit Theorem
-  - i.i.d. assumption
-  - regularization condition
-  - convergence rate
 
 #### Estimation Methods
 
@@ -111,7 +164,7 @@ Invariance
 Consistency
 
 - $$P(\hat{\theta} - \theta ) \rightarrow 0$$
-- as $n \rightarrow 0, \forall \epsilon > 0$ Under the conditions
+- as $n \rightarrow 0, \forall Epsilon > 0$ Under the conditions
   1. $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x|\theta)$
   2. parameters are identifiable, $\theta \neq \theta', f_x(x|\theta) \neq f_x(x|\theta')$
   3. densities $f_x(x|\theta)$ has common support(set of x with positive density/probability), $f_x(x|\theta)$ is differentiable at $\theta$
@@ -143,7 +196,7 @@ when we use numerical approach.
 Under the above **4 conditions**, we need to following to have asympotic normality
 	
 -  $\forall x \in \chi$, $f_x(x|\theta)$ is three times differentiable with respect to $\theta$, and third derivative is continuous at $\theta$, and $\int f_x(x|\theta) dx$ can be differentiated three times under integral sign
--  $\forall \theta \in \Omega, \exists c, M(x)$ (both depends on $\theta_0$) such that
+-  $\forall \theta \in \Omega, Exists c, M(x)$ (both depends on $\theta_0$) such that
 $$ \frac{\partial^3}{\partial \theta^3} [log f(x, \theta ) ] \leq M(x), \forall x \in \chi, \theta_0-c<\theta < \theta_0+c, E_{\theta_0} [M(x)] < \infty$$
 
 ##### $\Delta$ Method
@@ -160,11 +213,11 @@ $$\hat{\theta} \sim N(\theta, \Sigma/n), \theta,\hat{\theta} \in R^p$$
 $$g: R^p \rightarrow R^m$$
 $$g(\hat{\theta}) \sim N(g(\theta), G\Sigma G^T/n)$$
 
-$$ G = \begin{pmatrix} 
-    \frac{\partial{g_1(\theta)}}{\partial{\theta_1}}& \cdots & \frac{\partial{g_1(\theta)}}{\partial{\theta_p}}\\ 
+$$G = \begin{pmatrix}
+    \frac{\partial{g_1(\theta)}}{\partial{\theta_1}}& \cdots & \frac{\partial{g_1(\theta)}}{\partial{\theta_p}}\\
     \vdots & \ddots & \vdots \\
-    \frac{\partial{g_m(\theta)}}{\partial{\theta_1}}& \cdots & \frac{\partial{g_m(\theta)}}{\partial{\theta_p}} 
-\end{pmatrix} $$
+    \frac{\partial{g_m(\theta)}}{\partial{\theta_1}}& \cdots & \frac{\partial{g_m(\theta)}}{\partial{\theta_p}}
+\end{pmatrix}$$
 
 ### [Hypothesis Testing](https://en.wikipedia.org/wiki/Statistical_hypothesis_testing)
 

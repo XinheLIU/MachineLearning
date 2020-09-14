@@ -37,6 +37,7 @@ categories: Deep Learning
     - [Regularization](#regularization)
     - [how to debug](#how-to-debug)
     - [\(unsupervised\) training on each layer](#unsupervised-training-on-each-layer)
+    - [Hyper-parameter Tuning](#hyper-parameter-tuning)
 - [Natural Language Processing Basics](#natural-language-processing-basics)
   - [Basic Concepts](#basic-concepts)
   - [Language Models](#language-models)
@@ -393,7 +394,13 @@ Characteristics of Deep-Learning
 
 The distribution of activation inputs' distributions get closer to upper and lower limits when we go deeper(gradient vanishing), use normalization to normalize the distribution and get larger gradient
 
-- estimate mu and sigma \(exponential smoothing\)
+$$z_{norm} = \frac{z^{(i)}-\mu}{\sqrt{\sigma^2 + \epsilon}}$$
+$$\tilde{z} = \gamma z_{norm}  + \beta$$
+
+Can speed up learning and add some noise to avoid overfitting. (Similar to dropout).
+
+- estimate $\mu$ and $\sigma$ (exponential smoothing)
+  - In test time, usually use the EWMA across mini-batches on the mean and variance series to normalize the use trained $\beta, \gamma$ to transform.
 - normalize neuron output before activation
 - Regularization
   - dropout
@@ -429,6 +436,12 @@ The distribution of activation inputs' distributions get closer to upper and low
 - proposed by Hinton for restricted Boltzman machine
 - help on gradient vanishing
 - as effective as good weight initialization
+
+#### Hyper-parameter Tuning
+
+- Grid Search
+- Use Batch Normalization
+- Beam Search
 
 ## Natural Language Processing Basics
 
@@ -470,6 +483,7 @@ Or a *many to one* RNN with sentiment as the (only) output at the last step.
 ![Sequence to Sequence Model](/assets/img/SequenceToSequence.png)
 
 - Use [Beam Search](https://en.wikipedia.org/wiki/Beam_search#:~:text=In%20computer%20science%2C%20beam%20search,that%20reduces%20its%20memory%20requirements.) to train
+  - keep the top B answers in each training step (a heuristic method that generalized Greedy)
 
 usually refine to
 
