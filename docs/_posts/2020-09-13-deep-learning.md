@@ -27,7 +27,7 @@ categories: Deep Learning
   - [Autoencoder](#autoencoder)
   - [Generative Adversarial Networks](#generative-adversarial-networks)
   - [Deep Belief Network](#deep-belief-network)
-- [Training Neural Nets](#training-neural-nets)
+- [Training Deep Learning Models](#training-deep-learning-models)
   - [Gradient Descent](#gradient-descent)
   - [Deep Neural Network Training](#deep-neural-network-training)
     - [Gradient Vanishing and Explosiong](#gradient-vanishing-and-explosiong)
@@ -306,25 +306,49 @@ $$a^{<t>} = \Gamma_o c^{<t>}$$
 - [Deep belief network](https://en.wikipedia.org/wiki/Deep_belief_network)
   - training by layers + fine tune
 
-## Training Neural Nets
+## Training Deep Learning Models
 
 ### [Gradient Descent](https://en.wikipedia.org/wiki/Gradient_descent)
 
 $$w_i(t+1) = w_i(t) + \eta [d_j-y_j(t)]x_{j,i}$$
 
-- [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)
-  - Noise Reduction
-    - dynamic sampling
-    - iterative averaging
-    - gradient averating
-- Mini-batch gradient descent
+[Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)
+- Noise Reduction
+  - dynamic sampling
+  - iterative averaging
+  - gradient averating
+  
+Mini-batch gradient descent
+
+- Use one batch (subset) of sample to compute the gradient each time. ( one “epoch”) ( one batch size =1, it is Stochastic gradient descent)
+  
   - Momentum on Gradient
     - $$w_t = w_{t-1} - h_t, h_t = \alpha h_{t-1} + \eta_t g_t$$
+
+
+
+Momentum Methods
+
+- Smooth the gradient series with EWMA (Exponentially weighted averages)
+	$$ V_{dw} = \beta_1V_{dw} + (1-\beta_1) dw, V_{dw} /= (1-\beta_1^t)$$
+ 	$$ V_{db} = \beta_1V_{db} + (1-\beta_1) dw,V_{db} /= (1-\beta_1^t)$$
+- Nesterov Momentum
+- AdaGrad
   - Adaptive Methods to eliminate learning rates sensitivity
-    1. Nesterov Momentum
-    2. AdaGrad
-    3. RMSprop
-    4. Adam
+- Root-Mean Square Prop (RMSProp)
+ 	$$ S_{dw} = \beta S_{dw} + (1-\beta) dw^2 $$
+ 	$$ S_{db} = \beta S_{db} + (1-\beta) dw^2 $$
+	$$ w:= w- \alpha \frac{dw}{\sqrt{sdw}}, b:= b- \alpha \frac{db}{\sqrt{sdb}}$$
+- Adam(Adaptive Moment Estimation) Algorithm that Combines RMSProp and Momentum
+	$$ V_{dw} = \beta_1V_{dw} + (1-\beta_1) dw, V_{dw} /= (1-\beta_1^t)$$
+ 	$$ V_{db} = \beta_1V_{db} + (1-\beta_1) dw,V_{db} /= (1-\beta_1^t)$$
+ 	$$ S_{dw} = \beta_2S_{dw} + (1-\beta_2) dw^2 $$
+ 	$$ S_{db} = \beta_2S_{db} + (1-\beta_2) dw^2 $$
+	$$w:= w- \alpha \frac{v_{dw}}{\sqrt{sdw}+\epsilon}, b:= b- \alpha \frac{v_{db}}{\sqrt{sdb}+\epsilon}$$
+	$$w:= w- \alpha \frac{dw}{\sqrt{sdb}+\epsilon}, b:= b- \alpha \frac{db}{\sqrt{sdb}+\epsilon}$$
+- Learning Rate Decay
+  $$ \alpha = \frac{1}{1+\text{decay rate} \times \text{epoch num}}$$	
+
 
 ### Deep Neural Network Training
 
