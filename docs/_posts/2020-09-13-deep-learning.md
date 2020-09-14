@@ -2,7 +2,7 @@
 layout: page
 title: "Deep Learning"
 date: 2020-09-13 15:00:00 -0000
-categories: Mathematics
+categories: Deep Learning
 ---
 
 - [Artificial Neural Networks](#artificial-neural-networks)
