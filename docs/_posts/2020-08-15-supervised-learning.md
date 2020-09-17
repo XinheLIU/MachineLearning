@@ -5,7 +5,9 @@ date: 2020-08-15 15:00:00 -0000
 categories: Classic
 ---
 - [Concepts](#concepts)
-- [Regression Models](#regression-models)
+  - [Bias Variance Decomposition](#bias-variance-decomposition)
+  - [Cross-Validation)](#cross-validation)
+- [Regression](#regression)
   - [Linear Regression](#linear-regression)
     - [Assumptions](#assumptions)
     - [Linear Regression Model](#linear-regression-model)
@@ -54,11 +56,26 @@ categories: Classic
   
 ## Concepts
 
-- [Bias Variance Decomposition](https://en.wikipedia.org/wiki/Bias–variance_tradeoff)
-  - Overfit
-  - [Regularization](https://en.wikipedia.org/wiki/Regularization_%28mathematics%29)
+### [Bias Variance Decomposition](https://en.wikipedia.org/wiki/Bias–variance_tradeoff)
 
-## [Regression Models](https://en.wikipedia.org/wiki/Regression_analysis)
+- Overfit
+- [Regularization](https://en.wikipedia.org/wiki/Regularization_%28mathematics%29)
+
+### [Cross-Validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics))
+
+Out-of-sample testing, particularly useful for hyperparameter tuning in Machine Learning set-ups.
+
+- hold-one out vs k-fold
+  - information leaking when use to validate parameters
+- Use Bootstrapping
+  - 1/e rule
+- Time-Series Data
+  - not use future information
+  - ARIMA
+- Decompose bias and variance
+  - in-sample vs out-of sample error
+
+## [Regression](https://en.wikipedia.org/wiki/Regression_analysis)
 
 ### [Linear Regression](https://en.wikipedia.org/wiki/Linear_regression)
 
@@ -435,6 +452,14 @@ Usually serve as a base line model because of nice intepretation and Principle o
 - [Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)
   - XGBoost
   - Catboost
+  - LightGBM
+    - faster, histogram based
+    - ligher, bins for continuous data
+    - accuracy boosting
+    - leaf-wise split
+      - other methods split level-wise
+      - generate more complex trees
+    - supports parallelization
   
 ---
 
@@ -460,7 +485,7 @@ $$\gamma = \frac{2}{\|\mathbf{w}\|}$$
 ($\frac{\mathbf{w}^T\mathbf{x} + b}{\|\mathbf{w}\|}$ is the point distance to plane)
 
 So the problem is
-$$ \argmax_{\mathbf{w},b} \frac{2}{\|\mathbf{w}\|}$$
+$$ argmax_{\mathbf{w},b} \frac{2}{\|\mathbf{w}\|}$$
 $$s.t. (\mathbf{w}^T\mathbf{x}_i + b)y_i \geq 1$$
 
 Equivalent to
@@ -478,7 +503,7 @@ $$\mathbf{w} = \sum_{i=1}^m \alpha_i y_i \mathbf{x}_i, b = \sum_{i=1}^m \alpha_i
 
 Then we get the [dual problem](https://en.wikipedia.org/wiki/Duality_(optimization))
 
-$$\argmax_{\boldsymbol{\alpha}}  \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T\mathbf{x}_j$$
+$$argmax_{\boldsymbol{\alpha}}  \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \mathbf{x}_i^T\mathbf{x}_j$$
 $$s.t \sum_{i=1}^m \alpha_i y_i = 0$$
 $$ \alpha_i \geq 0$$
 
@@ -509,10 +534,10 @@ $$\sum_i^m [1-y_i(\mathbf{w} x_i + b)]_+ \lambda \|w\|^2$$
 
 For Linear Un-separable problems, we can project to higher-dimensions
 
-$$ \argmax_{\mathbf{w},b} \frac{2}{\|\mathbf{w}||}$$
+$$ argmax_{\mathbf{w},b} \frac{2}{\|\mathbf{w}||}$$
 $$s.t. (\mathbf{w}^T\phi(\mathbf{x}_i)+ b)y_i \geq 1$$
 
-$$\argmax_{\boldsymbol{\alpha}}  \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \phi(\mathbf{x}_i)^T\phi(\mathbf{x}_j)$$
+$$argmax_{\boldsymbol{\alpha}}  \sum_{i=1}^m \alpha_i - \frac{1}{2} \sum_{i=1}^m \sum_{j=1}^m \alpha_i \alpha_j y_i y_j \phi(\mathbf{x}_i)^T\phi(\mathbf{x}_j)$$
 $$s.t \sum_{i=1}^m \alpha_i y_i = 0$$
 $$ \alpha_i \geq 0$$
 
@@ -596,7 +621,7 @@ $$L = \left\{
 the risk become
 
 $$R(a|x) = 1- P(\omega_j |\mathbf{x} )$$
-$$d^*(x) = \argmax_{a \in A} P(a|\mathbf{x})$$
+$$d^*(x) = argmax_{a \in A} P(a|\mathbf{x})$$
 
 If we build model around $P(a|\mathbf{x})$ directly, this is a \textbf{Discriminative Model}. If We try to model the joint distribution $P(\mathbf{x},a)$, this is a **Generative Model**. Same as we get the Bayesian estimator, we try to find
 
