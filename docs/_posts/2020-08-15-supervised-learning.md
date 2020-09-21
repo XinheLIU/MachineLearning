@@ -11,6 +11,10 @@ categories: Classic
   - [Linear Regression](#linear-regression)
     - [Assumptions](#assumptions)
     - [Linear Regression Model](#linear-regression-model)
+      - [Least Square Approximation](#least-square-approximation)
+      - [Multivariate Case](#multivariate-case)
+      - [MLE(Maximum Likelihood) Solution](#mlemaximum-likelihood-solution)
+      - [Prediction Confidence](#prediction-confidence)
     - [Testing of Assumptions](#testing-of-assumptions)
     - [Resolutions of Assumption Violations](#resolutions-of-assumption-violations)
     - [Model Selection](#model-selection)
@@ -96,6 +100,8 @@ Intuition - based on Least Sqaure Distance
 
 #### Linear Regression Model
 
+##### Least Square Approximation
+
 Under Normal Condition, we have
 $$y \sim N(\beta_0 + \beta x_i, \sigma^2)$$
 $$ L(\theta) = (\frac{1}{\sqrt{2\pi} \sigma})^n exp( - \frac{\sum_{i=1}^n (y_i - (\beta_0 +\beta_1x_i))^2}{2\sigma^2})$$
@@ -107,14 +113,43 @@ $$\partial_{\beta_i} RSS = 0, i =0,1$$
 , we get
 $$ r_{xy} = \frac{s_{xy}}{s_xs_y}, \beta_1 = r_{xy}\frac{s_y}{s_x} =\frac{s_{xy}}{s_x^2},\beta_0 = \bar{y}-\hat{\beta}\bar{x} $$
 
+##### Multivariate Case
+
 In Multi-variate Case:
+
+Algebra approach
 
 $$ f(x) = \mathbf{w}^T \mathbf{x} = \sum_{i=1}^n w_i x_i $$
 
-$$\mathbf{w*} = \argmin_{\mathbf{\hat{w}}}(\mathbf{y}-\mathbf{X \hat{w}} )^T(\mathbf{y}-\mathbf{X \hat{w}} )$$
+$$\mathbf{w^*} = argmin_{\mathbf{\hat{w}}}(\mathbf{y}-\mathbf{X \hat{w}} )^T(\mathbf{y}-\mathbf{X \hat{w}} )$$
 
 $$\frac{\partial{E}}{\partial{\mathbf{\hat{w}}}} = 2 \mathbf{X}^T(\mathbf{X \hat{w}} - \mathbf{y})$$
-$$ \mathbf{w*} = (\mathbf{X^T X})^{-1} \mathbf{X^T y} $$
+$$ \mathbf{w^*} = (\mathbf{X^T X})^{-1} \mathbf{X^T y} $$
+
+Geometry Approach
+
+$\mathbf{e} = \mathbf{b} - \mathbf{Ax}$ has no solution because there are too many equations. So we try
+
+$$A^TA\mathbf{\hat{x}} = A^Tb$$
+
+This is indeed a projection of b to column space of A.
+
+$$A^T(b-A\mathbf{\hat{x}}) = 0$$
+
+$$p=\hat{x_1}\mathbf{a_1} + \hat{x_2}\mathbf{a_2} + ...\hat{x_n}\mathbf{a_n}= A\mathbf{\hat{x}}$$
+
+is the projection. Plug in $\mathbf{\hat{x}}$
+
+$$P = \mathbf{\hat{x}} = A(A^TA)^{-1}A^T$$
+
+[Hat Matrix](https://en.wikipedia.org/wiki/Projection_matrix): The relationship of predicted value and response
+
+$$Y = H\hat{Y}$$
+$$H = X(X^TX)^{-1}X^T$$
+
+The Diagonal Entires $h_{ii}$ are the **Leverages.**
+
+##### MLE(Maximum Likelihood) Solution
 
 Assuming noise is normal, maximize
 
@@ -127,6 +162,8 @@ $$f(\beta) = min (Y-X\beta)^T(Y-X\beta), f'(\beta) = 2X^T(Y-X\hat{\beta}) = 0$$
 to solve $\hat{\beta}$
 
 $$ min ||y_k - \mathbf{w^T x}_k ||^2 + \lambda ||\mathbf{w}||_1 $$
+
+##### Prediction Confidence
 
 Variance Error In Prediction
 
@@ -145,12 +182,6 @@ Note that $0 \leq R^2 \leq 1$ It only tells predictive power if the model is a g
 
 Adjusted $R^2$: $R^2$ + penalty P
 
-[Hat Matrix](https://en.wikipedia.org/wiki/Projection_matrix): The relationship of predicted value and response
-
-$$Y = H\hat{Y}$$
-$$H = X(X^TX)^{-1}X^T$$
-
-The Diagonal Entires $h_{ii}$ are the **Leverages.**
 
 #### Testing of Assumptions
 
@@ -490,7 +521,7 @@ $$s.t. (\mathbf{w}^T\mathbf{x}_i + b)y_i \geq 1$$
 
 Equivalent to
 
-$$ \argmin_{\mathbf{w},b} \frac{1}{2}\|\mathbf{w}\|^2$$
+$$ argmin_{\mathbf{w},b} \frac{1}{2}\|\mathbf{w}\|^2$$
 $$s.t. (\mathbf{w}^T\mathbf{x}_i + b)y_i \geq 1$$
 
 Lagrange Multiplier
@@ -579,7 +610,7 @@ Common Kernels are
 
 Introduce Slace varaible $\xi$ to allow soft margin.
 
-$$\argmin_{\mathbf{w},b} \frac{1}{2}\|\mathbf{w}\|^2 + C\sum_{i=1}^m \xi_i$$
+$$argmin_{\mathbf{w},b} \frac{1}{2}\|\mathbf{w}\|^2 + C\sum_{i=1}^m \xi_i$$
 $$s.t. (\mathbf{w}^T\mathbf{x}_i + b)y_i \geq 1 - \xi_i$$
 $$\xi_i \geq 0$$
 

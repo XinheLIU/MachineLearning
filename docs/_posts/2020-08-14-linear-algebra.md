@@ -181,23 +181,28 @@ categories: Math
 
 ### [Matrix Calculus](https://en.wikipedia.org/wiki/Matrix_calculus)
 
-$\frac{\partial y}{\partial x}$, $\frac{\partial \mathbf{y}}{\partial x}$, $\frac{\partial \mathbf{Y}}{\partial x}$ just list normal derivatives by column 
-$$a = \mathbf{XW}, \frac{\partial A}{\partial W} = \mathbf{X}^T$$
+- $\frac{\partial y}{\partial x}$, $\frac{\partial \mathbf{y}}{\partial x}$, $\frac{\partial \mathbf{Y}}{\partial x}$ just list normal derivatives by column
+  
+- $$\mathbf{a} = \mathbf{XW}, \frac{\partial \mathbf{a}}{\partial W} = \mathbf{X}^T$$
+  
+- $\frac{\partial y}{\mathbf{x}},\frac{\partial y}{\mathbf{X}}$ list the result according to denominator
+  
+- Jacobian $(x_1, ... , x_n) \rightarrow (h_1,...h_m)$
 
-$\frac{\partial y}{\mathbf{x}},\frac{\partial y}{\mathbf{X}}$ list the result according to denominator
-
-Jacobian $(x_1, ... , x_n) \rightarrow (h_1,...h_m)$
-$$\frac{\partial \mathbf{h}}{\partial \mathbf{x}} = 
-\begin{pmatrix} 
+$$\frac{\partial \mathbf{h}}{\partial \mathbf{x}} =
+  \begin{pmatrix}
 				\frac{\partial h_1 }{\partial x} & \cdots & \frac{\partial h_1 }{\partial x_n}\\ 
 				\vdots & \ddots & \vdots \\
-				\frac{\partial{h_m}}{\partial x_1 } & \cdots & \frac{\partial h_m }{\partial x_n} 
-	\end{pmatrix} $$
+				\frac{\partial{h_m}}{\partial x_1 } & \cdots & \frac{\partial h_m }{\partial x_n}
+	- \end{pmatrix}$$
 
-For matrix to matrix, vector to matrix, more than one dimension tensors as result (result must include all results and can be used with Chain Rule)
+- For matrix to matrix, vector to matrix, more than one dimension tensors as result (result must include all results and can be used with Chain Rule)
+
+Formulas
 
 $$ \frac{\partial \mathbf{a^T x}}{\mathbf{x}} = \frac{\partial  \mathbf{xa}}{\mathbf{x}} = \mathbf{a}$$
-$$ \frac{\partial \mathbf{A x}}{\mathbf{x}} = \mathbf{A},\frac{\partial \mathbf{ x^T A x}}{\partial{\mathbf{x}}}=( \mathbf{A} +  \mathbf{A^T} )\mathbf{x}$$ 
+$$ \frac{\partial \mathbf{A x}}{\mathbf{x}} = \mathbf{A}$$
+$$\frac{\partial \mathbf{ x^T A x}}{\partial{\mathbf{x}}}=( \mathbf{A} +  \mathbf{A^T} )\mathbf{x}$$ 
 $$\frac{\partial \mathbf{ x^T A x}}{\partial{\mathbf{x}} \partial{\mathbf{x}}}
 	= 2\mathbf{A} $$
 $$\frac{\partial( \mathbf{AX} +  b) \mathbf{C} ( \mathbf{DX} + e)}{\partial{\mathbf{x}}} = \mathbf{A^TC}(\mathbf{DX} + e) + \mathbf{D^TC^T} ( \mathbf{AX} +  b) $$
