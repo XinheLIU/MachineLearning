@@ -7,6 +7,9 @@ categories: Math
 
 - [Basic Concepts](#basic-concepts)
   - [Theorems](#theorems)
+    - [Law of Large Numbers](#law-of-large-numbers)
+    - [Central Limit Theorem](#central-limit-theorem)
+    - [Bias-Variance decomposition (error = bias + variance + noise) under MSE](#bias-variance-decomposition-error--bias--variance--noise-under-mse)
   - [Important Distributions](#important-distributions)
     - [More Generalized Distributions](#more-generalized-distributions)
   - [Descriptive Statistics](#descriptive-statistics)
@@ -14,26 +17,55 @@ categories: Math
     - [Estimation Methods](#estimation-methods)
       - [Method of Moments](#method-of-moments)
     - [Maximum Likelihood Estimation(MLE)](#maximum-likelihood-estimationmle)
-      - [Properties](#properties)
+      - [Properties of MLE](#properties-of-mle)
       - [$\Delta$ Method](#delta-method)
   - [Hypothesis Testing](#hypothesis-testing)
     - [Single Variable Distribution Based Test](#single-variable-distribution-based-test)
-    - [Test Multiple Variables](#test-multiple-variables)
+      - [Wald Test](#wald-test)
+      - [Likelihood Ratio Test](#likelihood-ratio-test)
+      - [Score Test/Lagrange Multipliers Test](#score-testlagrange-multipliers-test)
+    - [Rank based Tests](#rank-based-tests)
+      - [Wilcoxon signed-rank test](#wilcoxon-signed-rank-test)
+      - [Mann-Whitney U test](#mann-whitney-u-test)
+    - [Test of Multiple Variables](#test-of-multiple-variables)
     - [Computation-based hypothesis Testing Approach](#computation-based-hypothesis-testing-approach)
-    - [Test Multiple Hypothesis](#test-multiple-hypothesis)
-    - [Computational Approach for Hypothesis Tests](#computational-approach-for-hypothesis-tests)
+      - [Permutation Test](#permutation-test)
+      - [Bootstrapping](#bootstrapping)
+    - [Test of Multiple Hypothesis](#test-of-multiple-hypothesis)
 - [Model Selection](#model-selection)
 - [A/B Testing](#ab-testing)
 
 ## Basic Concepts
 
+Convergence
+
+- converge almost surely
+- converge in probability
+- converge in distribution
+- [Slutsky’s theorem](https://en.wikipedia.org/wiki/Slutsky%27s_theorem)
+
+
+Independence and Correlation
+
+- dependent but zero correlation
+  - X, X^2 \(normal, Chi-square\)
+
 ### Theorems
 
-- [Law of Large Numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers)
-- [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem)
-  - Casual definition of C.L.T
-  - Regularization Condition of C.L.T. (eg. Cauchy has infinite variance)
-- [Bias-Variance decomposition](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff) (error = bias + variance + noise) under MSE
+#### [Law of Large Numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers)
+
+- Weak Law of Large Numbers
+  - converge in probability
+- Strong Law of Large Numbers
+  - converges almost surely
+  
+#### [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem)
+
+- Casual definition of C.L.T
+- Regularization Condition of C.L.T. (eg. Cauchy has infinite variance)
+
+#### [Bias-Variance decomposition](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff) (error = bias + variance + noise) under MSE
+
     $$ \sigma _x^2 =- E(( Y - E(Y|X))^2|X), E(Y|X) = f(X), E[(Y-f(x))|X] = 0$$
     $$E L(\mu(X) ) = E[(Y-\hat{\mu}(X))^2]  $$ 
     $$= E[(Y-f(x) + f(x) -\hat{\mu}(X))^2]$$
@@ -43,18 +75,16 @@ categories: Math
   $$ =\sigma_x^2 + E[E(f(x)-\hat{\mu}(X))^2|X]$$ 
   (conditional expectation over X)
   $$  E((f(x)-\hat{\mu}(X))^2|X) =E((f(x)-E(\hat{\mu}(X)) + E(\hat{\mu}(X)) - \hat{\mu}(X))^2|X) $$
-  $$ =E((f(x)-E(\hat{\mu}(X)))^2|X) + E((E(\hat{\mu}(X)- \hat{\mu}(X))^2|X) + 2((f(x)-E(\hat{\mu}(X))E((E(\hat{\mu}(X)- \hat{\mu}(X))|X)$$
-    $$ =(f(x)-E(\hat{\mu}(X)))^2 + E((E(\hat{\mu}(X)- \hat{\mu}(X))^2|X) + 2((f(x)-E(\hat{\mu}(X))\times 0$$
+  $$=E((f(x)-E(\hat{\mu}(X)))^2|X) + E((E(\hat{\mu}(X)- \hat{\mu}(X))^2|X) + 2((f(x)-E(\hat{\mu}(X))E((E(\hat{\mu}(X)- \hat{\mu}(X))|X)$$
+  $$=(f(x)-E(\hat{\mu}(X)))^2 + E((E(\hat{\mu}(X)- \hat{\mu}(X))^2|X) + 2((f(x)-E(\hat{\mu}(X))\times 0$$
   $$ = (f(x)-E(\hat{\mu}(X)))^2 +Var(\hat{\mu}(X)) $$
   $$\Rightarrow$$
-$$ E L(\mu(X) ) =\sigma_x^2 + Bias(\hat{\mu}(X))^2 + Var(\hat{\mu}(X))$$
-- Independence and Correlation
-  - dependent but zero correlation
-    - X, X^2 \(normal, Chi-square\)
+$$E L(\mu(X) ) =\sigma_x^2 + Bias(\hat{\mu}(X))^2 + Var(\hat{\mu}(X))$$
+
 
 ### Important Distributions
 
-- Normal Distribution, 
+- Normal Distribution
   - $X_1,...X_n \sim N(\mu,\sigma^2)$ then
     - $\bar{X}$ and $s^2$ are independent
     - $\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} \sim N(0,1)$
@@ -114,7 +144,7 @@ $$ E L(\mu(X) ) =\sigma_x^2 + Bias(\hat{\mu}(X))^2 + Var(\hat{\mu}(X))$$
 - statistic
   - model of sample data
 - estimator
-- data, sample, population  
+- data, sample, population
 - point estimation, interval estimation
   - Confidence Interval
     - $P(L \leq \theta \leq U )$ q is not random, L, U is random! 
@@ -145,7 +175,9 @@ Properties
 
 #### [Maximum Likelihood Estimation(MLE)](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation)
 
-Multiply p.m.f/p.d.f since every sample is independent. Maximize the likelihood of finding samples. \\ If $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x, \theta)$, 
+Multiply p.m.f/p.d.f since every sample is independent. Maximize the likelihood of finding samples. 
+
+If $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x, \theta)$, 
 
 $$ l(\theta) =  \prod_{i=1}^n f_{X_i} (x_i; \theta), L(\theta ) = log l(\theta)$$
 $$ \hat{\theta}_{MLE}= argmax_{\theta} f_x(x;\theta ) = argmax_{\theta} L(\theta )$$
@@ -156,21 +188,18 @@ $$\frac{\partial}{\partial \theta} [log L(\theta ) ] = 0, \frac{\partial^2}{\par
 
 ,for multiple parameters, we need the Hessian matrix to be negative definite $x^tHx<0, \forall x$ 
 
-##### Properties
+##### Properties of MLE
 
-Invariance
-   -  $\hat{\theta}$ is MLE of $\theta$, then $g(\hat{\theta})$ is MLE of $g(\theta)$
-
-Consistency
-
-- $$P(\hat{\theta} - \theta ) \rightarrow 0$$
-- as $n \rightarrow 0, \forall Epsilon > 0$ Under the conditions
-  1. $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x|\theta)$
-  2. parameters are identifiable, $\theta \neq \theta', f_x(x|\theta) \neq f_x(x|\theta')$
-  3. densities $f_x(x|\theta)$ has common support(set of x with positive density/probability), $f_x(x|\theta)$ is differentiable at $\theta$
-  4. parameter space $\Omega$ contains open set $\omega$ where true $\theta_0$ is an interior point
-
-Asymptotic Normality 
+1. Invariance
+   - $\hat{\theta}$ is MLE of $\theta$, then $g(\hat{\theta})$ is MLE of $g(\theta)$
+2. Consistency
+   - $$P(\hat{\theta} - \theta ) \rightarrow 0, n \rightarrow 0, \forall \epsilon > 0$$
+   - Under the conditions
+     1. $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x|\theta)$
+     2. parameters are identifiable, $\theta \neq \theta', f_x(x|\theta) \neq f_x(x|\theta')$
+     3. densities $f_x(x|\theta)$ has common support(set of x with positive density/probability), $f_x(x|\theta)$ is differentiable at $\theta$
+     4. parameter space $\Omega$ contains open set $\omega$ where true $\theta_0$ is an interior point
+3. Asymptotic Normality
 
 $$ \sqrt{n}(\hat{\theta}_{MLE} - \theta_0) \rightarrow N(0, I^{-1}(\theta_0)) $$
 $$ I(\theta_0) = E( -(\frac{\partial}{\partial \theta} [log f(x, \theta ) ])^2)=E(-\frac{\partial^2}{\partial \theta^2} [log f(x, \theta ) ] )$$
@@ -182,8 +211,9 @@ $$ n I(\theta_0) = E( -\frac{\partial^2}{\partial \theta^2} log L(\theta) )$$
 
 So the Variance of MLE( $1/ E( -\frac{\partial^2}{\partial \theta^2} log L(\theta) )$) is the reciprocal of amount of curvature at MLE. 
 
-Usually, We can just use the \textit{observed Fisher Information} (curvature near $\hat{\theta_{MLE}}$) instead. ($I(\hat{\theta_{MLE}})$) 
-$\frac{1}{ n I(\theta_0)}$ is called **Cramer-Rao Lower Bound.** 
+Usually, We can just use the *observed Fisher Information* (curvature near $\hat{\theta_{MLE}}$) instead. ($I(\hat{\theta_{MLE}})$)
+
+$\frac{1}{ n I(\theta_0)}$ is called [Cramer-Rao Lower Bound.](https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound)
 
 Under Multi-dimensional Case,
  		
@@ -194,9 +224,9 @@ $$Hessian \approx nI(\theta_0) Hessian^{-1} \approx nI(\theta_0)$$
 when we use numerical approach. 
 
 Under the above **4 conditions**, we need to following to have asympotic normality
-	
--  $\forall x \in \chi$, $f_x(x|\theta)$ is three times differentiable with respect to $\theta$, and third derivative is continuous at $\theta$, and $\int f_x(x|\theta) dx$ can be differentiated three times under integral sign
--  $\forall \theta \in \Omega, Exists c, M(x)$ (both depends on $\theta_0$) such that
+
+- $\forall x \in \chi$, $f_x(x|\theta)$ is three times differentiable with respect to $\theta$, and third derivative is continuous at $\theta$, and $\int f_x(x|\theta) dx$ can be differentiated three times under integral sign
+- $\forall \theta \in \Omega, \exists c, M(x)$ (both depends on $\theta_0$) such that
 $$ \frac{\partial^3}{\partial \theta^3} [log f(x, \theta ) ] \leq M(x), \forall x \in \chi, \theta_0-c<\theta < \theta_0+c, E_{\theta_0} [M(x)] < \infty$$
 
 ##### $\Delta$ Method
@@ -222,38 +252,46 @@ $$G = \begin{pmatrix}
 ### [Hypothesis Testing](https://en.wikipedia.org/wiki/Statistical_hypothesis_testing)
 
 Basic Logic: a conditional statement is equivalent to its contrapositive statement
+
+
   $$ A \rightarrow \neg (\cup B_i) \Leftrightarrow \cup B_i \rightarrow \neg A$$ 
   notice, 
   $$\neg (\cup B_i) = \cap (\neg B_i)$$
 
-- Type I error, (wrongly reject, false reject,$1-\alpha$)
+- [Type I error](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_I_error), (wrongly reject, false reject,$1-\alpha$)
   - Significance $\alpha$
-  - Connection with Precision
-- Type II error, power (wrongly accept, failed to reject)
+  - FPR
+  - Connection with **Precision**
+- [Type II error](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_II_error), power (wrongly accept, failed to reject)
   - Power $1-\beta$( Pr( Reject $H_0$ | $H_1$ is True ))
-  - Connection with Recall
+  - FNR
+  - Connection with **Recall**
+- [p-value](https://en.wikipedia.org/wiki/P-value)
+  - Given a realized value of sample x, p(x) is the frequency of observing values of the test statistic larger than the value corresponding this observed sample if we repeat the sampling and testing for many times and if the null hypothesis is true. 
 
 #### Single Variable Distribution Based Test
 
-[Wald Test](https://en.wikipedia.org/wiki/Wald_test) 
+-  The test statistics in all these three tests have the same asymptotic distribution 
+  - reference: Engle (1984), “*Wald, Likelihood Ratio, and Lagrange Multiplier Tests in Econometrics*” 
+
+##### [Wald Test](https://en.wikipedia.org/wiki/Wald_test) 
 $$T = \frac{\hat{\theta} - \theta_0}{Se(\hat{\theta})}$$
 $$ \hat{\theta}_{MLE} \approx N(\theta_0, \frac{1}{n I(\theta_0)})$$
 $$T = \frac{\hat{\theta} - \theta_0}{\sqrt{\frac{1}{nI(\theta_0)})}}$$
 
-[Likelihood Ratio Test](https://en.wikipedia.org/wiki/Likelihood-ratio_test)
+##### [Likelihood Ratio Test](https://en.wikipedia.org/wiki/Likelihood-ratio_test)
 
-[Score Test](https://en.wikipedia.org/wiki/Score_test)
+##### [Score Test](https://en.wikipedia.org/wiki/Score_test)/Lagrange Multipliers Test
 
-- Based on Lagrange Multipliers
-
-Rank based tests
+#### Rank based Tests
 
 used to test mean, mean-like statistics, not as efficient as Computational based test
 
-- Wilcoxon signed-rank test
-- subitem Mann-Whitney U test
+##### Wilcoxon signed-rank test
 
-#### Test Multiple Variables
+##### Mann-Whitney U test
+
+#### Test of Multiple Variables
 
 Pearson's Chi-Square Test for Independence
 
@@ -269,20 +307,20 @@ Test Discrete Random Variable vs. Continuous Random Variable
 
 #### Computation-based hypothesis Testing Approach
 
-Permutation tests: 
+##### Permutation Test
 
-  - Test $X_1,..X_n \sim F, Y_1,...Y_n \sim G, if F=G$.
-  - Use $T = Mean(X_i )- Mean(Y_i)$, each time scramble X and V labels and should not not change the distributions of vectors $X_1,...X_n, Y_1...,Y_n$
+- Test $X_1,..X_n \sim F, Y_1,...Y_n \sim G, if F=G$.
+- Use $T = Mean(X_i )- Mean(Y_i)$, each time scramble X and V labels and should not not change the distributions of vectors $X_1,...X_n, Y_1...,Y_n$
 
-Bootstrapping:
+##### Bootstrapping
 
-- $X_1,...X_n \sim F$ with $T = T(X_1,...,X_n)$, to get the distribution of T, \textbf{sample with replacement.} 
+- $X_1,...X_n \sim F$ with $T = T(X_1,...,X_n)$, to get the distribution of T(sample with replacement.)
 - The belief is $(\hat{\theta} - \theta)$ should behave the same as $(\theta* - \hat{theta})$.
 -  The first quantity can be treated like a pivot.  (use $(\theta*_1 - \hat{\theta}_1),...(\theta*_n - \hat{\theta}_n)$ to test.
 
-#### Test Multiple Hypothesis
+#### Test of Multiple Hypothesis
 
-how to test multiple hypothesis\(FWER vs FDR\)
+how to test multiple hypothesis - FWER vs FDR
 
 - Family-wise Error Rate(FWER) the probability of rejecting at least one of at least one null hypothesis 
 Under independence, the probability of making mistake when all null are true: P( any type I mistake) = 1-P(no type I mistake for all) = $1-(1-\alpha)^M=\beta$)
@@ -292,13 +330,6 @@ Under independence, the probability of making mistake when all null are true: P(
   - $\alpha$ being to small will impact power of the individual tests!
 - False Discovery Rate(FDR): 
   - bound the fraction of type-I errors. R be the total number of hypotheses rejected. V be the number of rejected hypotheses that were actually null. Let FDR = V/max(R,1), control $E(FDR) \leq \alpha$.
-
-
-#### Computational Approach for Hypothesis Tests
-
-- Permutation Test
-- BootStrapping
-  - what is the percentage left out of sample? \(N -&gt; inf for sampling times and sample size\)
 
 ## [Model Selection](https://en.wikipedia.org/wiki/Model_selection)
 

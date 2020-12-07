@@ -48,7 +48,7 @@ categories: Classic
       - [Kernel Method](#kernel-method)
       - [Soft Margin, Slack Variable and Regularization](#soft-margin-slack-variable-and-regularization)
       - [Pros and Cons of SVM](#pros-and-cons-of-svm)
-        - [Choose  kernels](#choose-kernels)
+        - [Choose  kernels](#choose--kernels)
     - [Naive Bayes](#naive-bayes)
       - [Assumptions and Intuition of Naive Bayes](#assumptions-and-intuition-of-naive-bayes)
         - [The Independence Assumption](#the-independence-assumption)
@@ -301,20 +301,21 @@ Extensions
 
 #### [Confusion Matrix](https://en.wikipedia.org/wiki/Confusion_matrix)
 
-- Accuracy $$\int_{x\in D} \mathbb{I}(f(x)\neq y) p(x)dx$$
+- Accuracy 
+  - $$\int_{x\in D} \mathbb{I}(f(x)\neq y) p(x)dx$$
 - Precision, Positive Predictive Value \(PPV\)
   - $$PPV =\frac{TP}{TP+FP}$$
   - $$P(H_1|x>\tau_{\alpha})$$
 - Recall, Sensitivity, True Positive Rate, Power of the Test
   - $$TPR = \frac{TP}{TP+FN}$$
   - $$1- \beta= P(x \geq \tau_{\alpha} \vert H_1)$$
-- False Positive Rate, Type II error Probability
+- False Positive Rate, Type I error Probability
   - $$FPR = \frac{FP}{FP+TN}$$
-  - $$\beta= P(x\leq\tau_{\alpha})|H_1)$$
-- False Negative Rate = Type I Error probability, Significance of the Test
-  - $$FNR = \frac{FN}{FN+TP}$$
   - $$\alpha=
-    P(x \leq\tau_{\alpha})|H_0)$$
+    P(x \leq\tau_{\alpha}|H_0)$$
+- False Negative Rate = Type II Error probability, Significance of the Test
+  - $$FNR = \frac{FN}{FN+TP}$$
+  - $$\beta= P(x\leq\tau_{\alpha}|H_1)$$
 - Specificity, Selectivity, True Negative Rate
   - $$TNR = \frac{TN}{TN+FP}$$
 - False Discover Rate
