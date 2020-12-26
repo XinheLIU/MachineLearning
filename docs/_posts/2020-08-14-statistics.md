@@ -20,6 +20,7 @@ categories: Math
       - [Properties of MLE](#properties-of-mle)
       - [$\Delta$ Method](#delta-method)
   - [Hypothesis Testing](#hypothesis-testing)
+    - [Type I and Type II Errors](#type-i-and-type-ii-errors)
     - [Single Variable Distribution Based Test](#single-variable-distribution-based-test)
       - [Wald Test](#wald-test)
       - [Likelihood Ratio Test](#likelihood-ratio-test)
@@ -54,10 +55,22 @@ Independence and Correlation
 
 #### [Law of Large Numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers)
 
+for i.i.d random variables,
+
+$$\frac{1}{n}\sum_{i=1}^n X \rightarrow \mu$$
+
 - Weak Law of Large Numbers
   - converge in probability
 - Strong Law of Large Numbers
   - converges almost surely
+
+Different forms
+
+- Bernoulli: frequency converge to probability
+- Khinchin：require i.i.d, arithmatic averge to expectation
+- Chebyshev: only require independence, general form
+  - related-Chebyshev inequality
+    - $$P(|X-\mu| <  \epsilon ) \geq 1 - \frac{\sigma^2}{\epsilon^2}, \forall \epsilon$$
   
 #### [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem)
 
@@ -194,12 +207,15 @@ $$\frac{\partial}{\partial \theta} [log L(\theta ) ] = 0, \frac{\partial^2}{\par
    - $\hat{\theta}$ is MLE of $\theta$, then $g(\hat{\theta})$ is MLE of $g(\theta)$
 2. Consistency
    - $$P(\hat{\theta} - \theta ) \rightarrow 0, n \rightarrow 0, \forall \epsilon > 0$$
-   - Under the conditions
-     1. $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x|\theta)$
-     2. parameters are identifiable, $\theta \neq \theta', f_x(x|\theta) \neq f_x(x|\theta')$
-     3. densities $f_x(x|\theta)$ has common support(set of x with positive density/probability), $f_x(x|\theta)$ is differentiable at $\theta$
-     4. parameter space $\Omega$ contains open set $\omega$ where true $\theta_0$ is an interior point
+
 3. Asymptotic Normality
+
+Under the conditions
+
+  1. $X_1,...X_n \stackrel{i.i.d}{\sim} f_x(x|\theta)$
+  2. parameters are identifiable, $\theta \neq \theta', f_x(x|\theta) \neq f_x(x|\theta')$
+  3. densities $f_x(x|\theta)$ has common support(set of x with positive density/probability), $f_x(x|\theta)$ is differentiable at $\theta$
+  4. parameter space $\Omega$ contains open set $\omega$ where true $\theta_0$ is an interior point
 
 $$ \sqrt{n}(\hat{\theta}_{MLE} - \theta_0) \rightarrow N(0, I^{-1}(\theta_0)) $$
 $$ I(\theta_0) = E( -(\frac{\partial}{\partial \theta} [log f(x, \theta ) ])^2)=E(-\frac{\partial^2}{\partial \theta^2} [log f(x, \theta ) ] )$$
@@ -258,13 +274,15 @@ Basic Logic: a conditional statement is equivalent to its contrapositive stateme
   notice, 
   $$\neg (\cup B_i) = \cap (\neg B_i)$$
 
+#### Type I and Type II Errors
+
 - [Type I error](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_I_error), (wrongly reject, false reject,$1-\alpha$)
   - Significance $\alpha$
-  - FPR
+  - False Positive Rate
   - Connection with **Precision**
 - [Type II error](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_II_error), power (wrongly accept, failed to reject)
   - Power $1-\beta$( Pr( Reject $H_0$ | $H_1$ is True ))
-  - FNR
+  - False Negative Rate
   - Connection with **Recall**
 - [p-value](https://en.wikipedia.org/wiki/P-value)
   - Given a realized value of sample x, p(x) is the frequency of observing values of the test statistic larger than the value corresponding this observed sample if we repeat the sampling and testing for many times and if the null hypothesis is true. 

@@ -369,7 +369,7 @@ $$p(y=0|x) = \frac{1}{1+e^{\mathbf{w}^T\mathbf{x}}}$$
 
 a more general inituition is the [Principle of Maximum Entropy](https://en.wikipedia.org/wiki/Principle_of_maximum_entropy) (See Loss function) of the exponential family
 
-$$2 \sum_{i]1}^N -y_i log\frac{y_i}{\hat{p_i}}+ (1-y_i)log(\frac{1-y_i}{1-\hat{p_i}})$$
+$$2 \sum_{i=1}^N -y_i log\frac{y_i}{\hat{p_i}}+ (1-y_i)log(\frac{1-y_i}{1-\hat{p_i}})$$
 
 ##### Loss Function
 

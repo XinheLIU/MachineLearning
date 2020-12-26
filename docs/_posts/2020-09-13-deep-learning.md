@@ -13,13 +13,6 @@ categories: Deep Learning
   - [Self-Organizing Feature Map\(SOM\)](#self-organizing-feature-mapsom)
   - [Fuzzy neural network](#fuzzy-neural-network)
 - [Deep Learning Models](#deep-learning-models)
-  - [Convolutional Neural Network](#convolutional-neural-network)
-    - [Convolution](#convolution)
-    - [Pooling](#pooling)
-    - [Basic Architecture of Image Classification](#basic-architecture-of-image-classification)
-    - [Modern CNN](#modern-cnn)
-      - [Inception V3\(2015\)](#inception-v32015)
-    - [ResNet \(2015\)](#resnet-2015)
   - [Recurrent Neural Network \(RNN\)](#recurrent-neural-network-rnn)
     - [Gated Recurrent Unit](#gated-recurrent-unit)
     - [Long Short-term Memory](#long-short-term-memory)
@@ -29,11 +22,14 @@ categories: Deep Learning
   - [Deep Belief Network](#deep-belief-network)
 - [Training Deep Learning Models](#training-deep-learning-models)
   - [Gradient Descent](#gradient-descent)
+    - [Stochastic Gradient Descent](#stochastic-gradient-descent)
+    - [Mini-batch gradient descent](#mini-batch-gradient-descent)
+    - [Momentum Methods and Adaptive Methods](#momentum-methods-and-adaptive-methods)
   - [Deep Neural Network Training](#deep-neural-network-training)
     - [Gradient Vanishing and Explosiong](#gradient-vanishing-and-explosiong)
-    - [weight initialization](#weight-initialization)
-    - [activation functions](#activation-functions)
+    - [Weight Initialization](#weight-initialization)
     - [Batch Normalization](#batch-normalization)
+    - [Activation Functions](#activation-functions)
     - [Regularization](#regularization)
     - [how to debug](#how-to-debug)
     - [\(unsupervised\) training on each layer](#unsupervised-training-on-each-layer)
@@ -43,11 +39,21 @@ categories: Deep Learning
   - [Language Models](#language-models)
     - [Sequence-to-Sequence Models](#sequence-to-sequence-models)
     - [Attention Models](#attention-models)
-- [Computer Vision Basics](#computer-vision-basics)
-  - [Computer Vision and YOLO Algorithm](#computer-vision-and-yolo-algorithm)
+- [Computer Vision and Deep Learning](#computer-vision-and-deep-learning)
+  - [Convolutional Neural Network](#convolutional-neural-network)
+    - [Convolution](#convolution)
+    - [Pooling](#pooling)
+    - [Basic Architecture of Image Classification](#basic-architecture-of-image-classification)
+    - [Modern CNN](#modern-cnn)
+      - [LeNet \(LeNet-5\)](#lenet-lenet-5)
+      - [AlexNet(2012)](#alexnet2012)
+      - [VGG(2015)](#vgg2015)
+      - [Inception V3(2015)](#inception-v32015)
+      - [ResNet (2015)](#resnet-2015)
+  - [Computer Vision Tasks](#computer-vision-tasks)
     - [Object Detection](#object-detection)
     - [Landmark Detection](#landmark-detection)
-    - [Convolutional Implementation of Sliding Windows + YOLO - You Only Look Once Algo( Bounding Box Detection)](#convolutional-implementation-of-sliding-windows--yolo---you-only-look-once-algo-bounding-box-detection)
+    - [Convolutional Implementation of Sliding Windows + YOLO - You Only Look Once Algo(Bounding Box Detection)](#convolutional-implementation-of-sliding-windows--yolo---you-only-look-once-algobounding-box-detection)
     - [Region Proposal](#region-proposal)
   - [Face Recognition](#face-recognition)
   - [Neural Style Transfer](#neural-style-transfer)
@@ -114,85 +120,6 @@ training
     - genetic algorithm based
 
 ## Deep Learning Models
-
-### [Convolutional Neural Network](hhttps://en.wikipedia.org/wiki/Convolutional_neural_network)
-
-#### Convolution
-
-- Convolute the Image Data with a Filter(Kernel) (eg. Sobel Filter, Scharr Filter)
-	- $$(n.n) * (f, f) \rightarrow (n-f+1, n-f+1)$$
-- Padding: add zeros entries so the output size same as input size
-$(n+2p-f+1, n+2p-f+1)$ as result
-   - Valid Padding: No Padding out
-   - Same Padding: Output the Same Size
-   - FULL Padding: Maximum Padding does not result in a convolution on just padded elements(eg. for a filter of size k, k-1)
-- Stride:steps to take
-   - $(\lfloor \frac{n+2p−f}{s}⌋+1 \rfloor, \lfloor \frac{n+2p−f}{s}\rfloor + 1)$ rounding down (dont do when it is out)
-- Convolution over volume: Traditionally, use a filter with same number of channels (each 3-dimensional filter result an matrix output)
-- Convolution of tensor - still all number multiply then sum together
-could use m filters to result an m channel output
-- 1-layer Convolution Network: Input $\rightarrow$ n filters $\rightarrow$ ReLu on each output (bias parameter added here) $\rightarrow$ Stack the output together result an n channel output 
-- Why convolution works
-   - Parameter Sharing: One feature detector is useful for one part of image probably be useful for all parts(fewer parameters)
-   - Sparsity of Connections: In each layer, each output value depends only on a small number of inputs
-   - translation invariance/translational equivalence
-  - feature map
-
-#### Pooling
-
-  - downsampling layer
-  - max pooling
-  - how to back-propagate on pooling layer
-
-#### Basic Architecture of Image Classification
-
-Image of Different Channels (RGB)  $\rightarrow$  Conv Layer  $\rightarrow$  Pooling (multiple layers of both)  $\rightarrow$  Fully connect layer (flatten all data)  $\rightarrow$  Sotfmax  $\rightarrow$ Prediction. Use Back propagation to train (Mini-batch gradient descent)
-
-#### Modern CNN
-
-- LeNet \(LeNet-5\)
-  - avg pool
-	- shrink each step
-	- no padding
-	- conv-pool, conv-pool pattern
-	- activation:sigmoid, ReLu
-- AlexNet\(2012\)
-  - much bigger network
-	- ReLU
-	- Multiple GPU Training
-	- Local Response Normalization (normalize over all channels)
-	- [Grouped Convolutions](https://towardsdatascience.com/grouped-convolutions-convolutions-in-parallel-3b8cc847e851#:~:text=This%20process%20of%20using%20different,convolutions%20on%20a%20single%20image.)
-- VGG\(2015\)
-  - 2 3x3 convolution vs. 5x5 convolution: add non-linearity, more discriminative
-- VGG-16, VGG-19
-  - even bigger
-
-##### Inception V3\(2015\)
-
-- inception block
-- 1x1 convolutions
-- Create a "bottleneck layer"
-  - reduce the number of channels and not hurting the quality of the model
-- model Gaussian blur filter
-  - filter decomposition
-  - nxn replaced with 1xn and nx1
-- Different (may be one or two layers of) Pooling/Convolutions in one layer, Channel Concatenation
-- Identity Blocks connected together
-
-#### ResNet \(2015\)
-
-- Train significant Deeper Networks
-- Build by Residual Blocks
-	- identity block
-	- convolution block
-- **Skip Connections/ Short Cut**
-$$ a^{[l+2]}= g(z^{[l+2]}) + a^{[l]})$$
-- helps gradient propagation
-- less likely to learn identity functions
-  - residual connections
-- Network in Network and 1x1 Convolution
-	- Adds no linearity to the neural Network
-	- Shrink the number of Channels
 
 ### [Recurrent Neural Network \(RNN\)](https://en.wikipedia.org/wiki/Recurrent_neural_network)
 
@@ -313,49 +240,55 @@ $$a^{<t>} = \Gamma_o c^{<t>}$$
 
 $$w_i(t+1) = w_i(t) + \eta [d_j-y_j(t)]x_{j,i}$$
 
-[Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)
-- Noise Reduction
-  - dynamic sampling
-  - iterative averaging
-  - gradient averating
+#### [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)
+
+- Noisy updates lead to fluctuations
+- Needs only one example on each step
+- Can be used in online setting
+- Learning rate should be chosen very carefully
   
-Mini-batch gradient descent
+#### Mini-batch gradient descent
 
 - Use one batch (subset) of sample to compute the gradient each time. ( one “epoch”) ( one batch size =1, it is Stochastic gradient descent)
+- Still can be used in online setting
+- Reduces the variance of gradient approximations
+- Learning rate 𝜂3 should be chosen very carefully
+
+Improved by *Noise Reduction methods*
+
+- dynamic sampling
+- iterative averaging
+- gradient averaging
   
+#### Momentum Methods and Adaptive Methods
+
+- **Momentum methods** smooth gradients and speed up convergence.
   - Momentum on Gradient
-    - $$w_t = w_{t-1} - h_t, h_t = \alpha h_{t-1} + \eta_t g_t$$
-
-
-
-Momentum Methods
-
-- Smooth the gradient series with EWMA (Exponentially weighted averages)
-	$$ V_{dw} = \beta_1V_{dw} + (1-\beta_1) dw, V_{dw} /= (1-\beta_1^t)$$
- 	$$ V_{db} = \beta_1V_{db} + (1-\beta_1) dw,V_{db} /= (1-\beta_1^t)$$
-- Nesterov Momentum
+    - $$w_t = w_{t-1} - h_t$$
+    - $$h_t = \alpha h_{t-1} + \eta_t g_t$$
+  - Smooth the gradient series with EWMA (Exponentially weighted averages)
+    - $$ V_{dw} = \beta_1V_{dw} + (1-\beta_1) dw$$
+  - Nesterov Momentum
+    - $$h_t = \alpha h_{t-1} + \eta_t \triangledown L(w_t - \alpha h_{t-1})$$
 - AdaGrad
-  - Adaptive Methods to eliminate learning rates sensitivity
+  - **Adaptive Methods** eliminates learning rates sensitivity
+  - $$G_j^t = G_{j-1}^t + g_{tj}^2 $$
+  - $$w_j^t = w_j^{t-1} - \eta_t \frac{g_{tj}}{G_j^t+\epsilon}$$
 - Root-Mean Square Prop (RMSProp)
- 	$$ S_{dw} = \beta S_{dw} + (1-\beta) dw^2 $$
- 	$$ S_{db} = \beta S_{db} + (1-\beta) dw^2 $$
-	$$ w:= w- \alpha \frac{dw}{\sqrt{sdw}}, b:= b- \alpha \frac{db}{\sqrt{sdb}}$$
-- Adam(Adaptive Moment Estimation) Algorithm that Combines RMSProp and Momentum
-	$$ V_{dw} = \beta_1V_{dw} + (1-\beta_1) dw, V_{dw} /= (1-\beta_1^t)$$
- 	$$ V_{db} = \beta_1V_{db} + (1-\beta_1) dw,V_{db} /= (1-\beta_1^t)$$
- 	$$ S_{dw} = \beta_2S_{dw} + (1-\beta_2) dw^2 $$
- 	$$ S_{db} = \beta_2S_{db} + (1-\beta_2) dw^2 $$
-	$$w:= w- \alpha \frac{v_{dw}}{\sqrt{sdw}+\epsilon}, b:= b- \alpha \frac{v_{db}}{\sqrt{sdb}+\epsilon}$$
-	$$w:= w- \alpha \frac{dw}{\sqrt{sdb}+\epsilon}, b:= b- \alpha \frac{db}{\sqrt{sdb}+\epsilon}$$
+  - $$ S_{dw} = \alpha S_{dw} + (1-\alpha) dw^2 $$
+  - $$ w:= w- \eta_t \frac{dw}{\sqrt{S_{dw}}}$$
+- [Adam](https://arxiv.org/abs/1412.6980) (Adaptive Moment Estimation) Algorithm that Combines RMSProp and Momentum
+  - $$ V_{dw} = \frac{\beta_1V_{dw} + (1-\beta_1) dw}{1-\beta_1^t}$$
+  - $$ S_{dw} = \frac{\beta_2S_{dw} + (1-\beta_2) dw^2}{1-\beta_2^t} $$
+  - $$w:= w- \alpha \frac{V_{dw}}{\sqrt{S_{dw}}+\epsilon}$$
 - Learning Rate Decay
   $$ \alpha = \frac{1}{1+\text{decay rate} \times \text{epoch num}}$$	
-
 
 ### Deep Neural Network Training
 
 Characteristics of Deep-Learning
 
-- advantage of Deep-learning is significant mostly with large data set.
+- advantage of Deep-learning is significant mostly with **large data set**.
 - Traditional bias-variance trade-off can largely be overcome by adding more data (reducing variance) and training a larger network(reducing bias) cycle when data is sufficient.
 - Optimization becomes more crucial in the training process. Dataset normalization, gradient checking are needed. Initialization carefully to avoid 
 
@@ -364,31 +297,15 @@ Characteristics of Deep-Learning
 - [Gradient Vanishing](https://en.wikipedia.org/wiki/Vanishing_gradient_problem)
 - Gradient Explosion
 
-#### weight initialization
+#### Weight Initialization
 
 - criteria
-  - E\(sum\(x_i w_\_i\)\) = 0
-  - Var\(sum\(xiwi\)\) = 1
+  - $$E(\sum(x_i w_i)) = 0$$
+  - $$Var(\sum(x_iw_i)) = 1$$
+  - Need to break symmetry
 - Types
   - Xavier initialization
   - He Initialization
-
-#### activation functions
-
-- Vanishing Gradient and Exploding Gradient
-- sigmoid
-- tanh
-- ReLU \(Rectified Linear Unit\)
-  - ["dying ReLU"](https://datascience.stackexchange.com/questions/5706/what-is-the-dying-relu-problem-in-neural-networks) problem
-    - sparsity
-  - Leaky ReLU
-  - exponential ReLU
-- evaluate activation functions
-  - gradient fast to compute
-  - gradient vanishing/exploding
-  - faster convergence
-  - zero-centered
-  - dying neuron \(dying ReLU\)
 
 #### Batch Normalization
 
@@ -402,9 +319,34 @@ Can speed up learning and add some noise to avoid overfitting. (Similar to dropo
 - estimate $\mu$ and $\sigma$ (exponential smoothing)
   - In test time, usually use the EWMA across mini-batches on the mean and variance series to normalize the use trained $\beta, \gamma$ to transform.
 - normalize neuron output before activation
-- Regularization
-  - dropout
-- training a neuron present with probability p testing always present
+
+#### Activation Functions
+
+- sigmoid
+  - Sigmoid neurons can saturate and lead to **vanishing gradients.**
+  - Not zero-centered.
+  - $e^x$ is computationally expensive.
+- tanh
+  - $$\frac{1}{1 + e^{-2x}} - 1$$
+  - zero-centered, still like sigmoid
+- ReLU \(Rectified Linear Unit\)
+  - Fast to compute.
+  - Gradients do not vanish for 𝑥 > 0.
+  - Provides faster convergence in practice!
+  - ["dying ReLU"](https://datascience.stackexchange.com/questions/5706/what-is-the-dying-relu-problem-in-neural-networks) problem: if not activated, never updates
+    - sparsity
+  - Not Zero-centered
+- Leaky ReLU
+  - $$max(ax, x)$$
+- exponential ReLU
+
+Evaluate activation functions
+
+- gradient fast to compute
+- gradient vanishing/exploding
+- faster convergence
+- zero-centered
+- dying neuron \(dying ReLU\)
 
 #### Regularization
 
@@ -417,6 +359,8 @@ Can speed up learning and add some noise to avoid overfitting. (Similar to dropo
   - Extract features first, then use up-sampling/SMOTE
 - dropout
   - works better on large amount of data
+  - in training a neuron present with probability p 
+  - in testing always present
 - weight sharing
 - activation regularization
   - MaxOut
@@ -509,37 +453,165 @@ Attentions are trained by a small-neural network
 $$a_{<t,t^`>} = \frac{exp(e_{<t,t^`>} ) }{\sum_{t^`=1}^{T_x} exp(e_{<t,t^`>}) }$$
 $$f(a_{<t’>}, s^{<t-1>}  ) = e_{<t,t^`>}$$
 
-## Computer Vision Basics
+## Computer Vision and Deep Learning
 
-### Computer Vision and YOLO Algorithm
+### [Convolutional Neural Network](hhttps://en.wikipedia.org/wiki/Convolutional_neural_network)
+
+#### Convolution
+
+- Convolute the Image Data with a Filter(Kernel, Receptive Field) (eg. Sobel Filter, Scharr Filter)
+  - $$(n.n) * (f, f) \rightarrow (n-f+1, n-f+1)$$
+- Padding: add zeros entries so the output size same as input size
+$(n+2p-f+1, n+2p-f+1)$ as result
+  - Valid Padding: No Padding out
+  - Same Padding: Output the Same Size
+  - FULL Padding: Maximum Padding does not result in a convolution on just padded elements(eg. for a filter of size k, k-1)
+- Stride: steps to take
+  - $(\lfloor \frac{n+2p−f}{s}⌋+1 \rfloor, \lfloor \frac{n+2p−f}{s}\rfloor + 1)$ rounding down (dont do when it is out)
+- Convolution over volume
+  - Traditionally, use a filter with same number of channels (each 3-dimensional filter result an matrix output)
+- Convolution of tensor - still all number multiply then sum together
+could use m filters to result an m channel output
+- 1-layer Convolution Network
+  - Input $\rightarrow$ n filters $\rightarrow$ ReLu on each output (bias parameter added here) $\rightarrow$ Stack the output together result an n channel output 
+- Why convolution works
+  - similar to correlation
+  - edge detection
+  - Parameter Sharing: One feature detector is useful for one part of image probably be useful for all parts(fewer parameters)
+  - Sparsity of Connections: In each layer, each output value depends only on a small number of inputs
+    - weight sharing
+  - **translation invariance**/translational equivalence
+  - feature map
+- Gradient of Convolution Layer
+  - gradients regarding to each (shared) weight is summed up
+
+#### Pooling
+
+Take maximum or average of inputs
+
+- downsampling layer
+- max pooling
+- how to back-propagate on pooling layer
+
+#### Basic Architecture of Image Classification
+
+Image of Different Channels (RGB)  $\rightarrow$  Conv Layer  $\rightarrow$  Pooling (multiple layers of both)  $\rightarrow$  Fully connect layer (flatten all data)  $\rightarrow$  Sotfmax  $\rightarrow$ Prediction. Use Back propagation to train (Mini-batch gradient descent)
+
+#### Modern CNN
+
+##### LeNet \(LeNet-5\)
+
+- avg pool
+- shrink each step
+- no padding
+- conv-pool, conv-pool pattern
+- activation:sigmoid, ReLu
+
+##### [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)(2012)
+
+- much bigger network
+  - 11x11, 5x5, 3x3 convolutions
+  - 60 million parameters
+- max pooling, dropout, data augmentation
+- ReLU activations
+- SGD with momentum
+- Multiple GPU Training
+  - Trains on 2 GPUs for 6 days
+- Local Response Normalization (normalize over all channels)
+- [Grouped Convolutions](https://towardsdatascience.com/grouped-convolutions-convolutions-in-parallel-3b8cc847e851#:~:text=This%20process%20of%20using%20different,convolutions%20on%20a%20single%20image.)
+
+##### VGG(2015)
+
+- Similar to AlexNet, only 3x3 convolutions, but lots of filters
+  - 2 3x3 convolution vs. 5x5 convolution: add non-linearity, more discriminative
+- training similar to AlexNet with additional multi-scale cropping.
+  - 138 million parameters
+- ImageNet top 5 error: 8.0% (single model)
+  - Trains on 4 GPUs for 2-3 weeks
+- VGG-16, VGG-19
+- even bigger
+
+##### [Inception V3](https://arxiv.org/pdf/1512.00567.pdf)(2015)
+
+- ImageNet top 5 error: 5.6% (single model), 3.6% (ensemble)
+- **Inception block**
+  - uses Inception block introduced in GoogLeNet (a.k.a. Inception V1)
+  - All operations inside a block use stride 1 and enough padding to output the same spatial dimensions (𝑊×𝐻) of feature map.
+  - 4 different feature maps are concatenated on depth at the end
+- **1x1 convolutions**
+  - Create a "bottleneck layer"
+    - reduce the number of channels and not hurting the quality of the model
+    - Dimensionality reduction with added ReLU activation
+- Replace 5x5 convolutions
+  - 5x5 convolutions are expensive! Let’s replace them with two layers of 3x3 convolutions which have an effective receptive field of 5x5.
+- model Gaussian blur filter
+  - replace each 3x3 layer with 1x3 layer followed by 3x1 layer.
+  - filter decomposition
+  - nxn replaced with 1xn and nx1
+- Different (may be one or two layers of) Pooling/Convolutions in one layer, Channel Concatenation
+- Identity Blocks connected together
+- Batch normalization, image distortions, RMSProp
+- 25 million parameters
+- Trains on 8 GPUs for 2 weeks
+
+##### [ResNet](https://arxiv.org/pdf/1512.03385.pdf) (2015)
+
+- Train significant Deeper Networks
+  - 152 layers, few 7x7 convolutional layers, the rest are 3x3, batch normalization, max and average pooling.
+  - 60 million parameters
+  - Trains on 8 GPUs for 2-3 weeks.
+- Build by Residual Blocks
+  - identity block
+  - convolution block
+- **Skip Connections/ Short Cut**
+$$ a^{[l+2]}= g(z^{[l+2]}) + a^{[l]})$$
+- helps gradient propagation
+- less likely to learn identity functions
+  - residual connections
+- Network in Network and 1x1 Convolution
+  - Adds no linearity to the neural Network
+  - Shrink the number of Channels
+
+### Computer Vision Tasks
+
+- Image Classification
+- Semantic segmentation
+  - Object Detection + Localization
+  - Max Unpooling
+    - Corresponding pairs of downsampling and upsampling layers
+    - Replace max pooling layer with convolutional layer that
+has a bigger stride
+    - Data Driven: object detection - We need to find a bounding box to localize an object. ((𝑥,𝑦,𝑤,h))
+- Face Recognition
+- Style Transfer
 
 #### Object Detection
 
 - Can have different objects (several objects)(little different than classification with detection)
 - Output a vector: $[p_c, b_x,b_y,b_h,b_w, c_1,c_2...c_n]$ for both location(center + bounding box) and class
-	-  use square loss function
+  - use square loss function
 - IOU - Intersection under union
-	-  Intersection of two bounding boxes/union of boxes ( predicted and actual) 
-	-  thredhold usually 0.5
+  - Intersection of two bounding boxes/union of boxes ( predicted and actual)
+  - thredhold usually 0.5
 
 #### Landmark Detection
 
 Output x y coordinates for important points in the image
 
-#### Convolutional Implementation of Sliding Windows + YOLO - You Only Look Once Algo( Bounding Box Detection)
+#### Convolutional Implementation of Sliding Windows + YOLO - You Only Look Once Algo(Bounding Box Detection)
 
 - Use convolution to replace （two) fully connected layers( two layers ) in the network
-	-  pic $\rightarrow$ Deep CNN  $\rightarrow$ encoding of dimension(m, grid, grid, $n_{anchor boxes}$, $n_{features}$)
-	-  $n_{features}$ is dimension of $[p_c, b_x,b_y,b_h,b_w, c_1,c_2...c_n]$
+	- pic $\rightarrow$ Deep CNN  $\rightarrow$ encoding of dimension(m, grid, grid, $n_{anchor boxes}$, $n_{features}$)
+	- $n_{features}$ is dimension of $[p_c, b_x,b_y,b_h,b_w, c_1,c_2...c_n]$
 - Assign center of the object to the grid
-- \textbf{Non-max suppression}: detect the object \textbf{only once}
+- **Non-max suppression**: detect the object only once
 	-  Use the $p_c$ probability, only keep the one with highest $p_c$ intersected rectangles
-	-  discard any box below a $p_c$ thredhold
-	-  once for each output class
+	- discard any box below a $p_c$ thredhold
+	- once for each output class
 - Anchor Boxes
-	-  different shape boxes to deal with overlapping objects
-	-  output becomes $[p_c, b_x,b_y,b_h,b_w, c_1,c_2...c_n]$ for two anchor boxes
-	-  each object assigned to the center grid cell and anchor box IOU
+	- different shape boxes to deal with overlapping objects
+	- output becomes $[p_c, b_x,b_y,b_h,b_w, c_1,c_2...c_n]$ for two anchor boxes
+	- each object assigned to the center grid cell and anchor box IOU
 
 #### Region Proposal
 
@@ -553,7 +625,7 @@ Output x y coordinates for important points in the image
 - One-shot Learning: learn using just one example
 - Learn a similarity function: $d(p1,p2) \leq t$， the same person
 - \textbf{Siamese network}: use neural network as encoding. $|f(x(i)) - f(x(j))|$ is small
--  Triplet Loss: encoding of the anchor-positive smaller than anchor-positive.
+- Triplet Loss: encoding of the anchor-positive smaller than anchor-positive.
 $$L(A,P,N) = max(( |f(A) - f(P)|^2 - |f(A) - f(N) |)^2 + \alpha, 0 )$$
 choose triplet that is hard rather than randomly to improve computational efficiency
 - $$\hat{y} = \sigma( \sum w_i|f(xi)k - f(xj)k| +b )$$
@@ -568,5 +640,5 @@ choose triplet that is hard rather than randomly to improve computational effici
 - Style Cost: correlation should be the measure of closeness in style. Use \textbf{Style matrix} - i,j,k is on dimension H,W,C
   - $$G_{kk}^l = \sum_i\sum_j a_{ijk}^{[l]} a_{ijk}^{[l]}$$ 
   - the gram matrix
-  - $$J(S,G) = |G[l](S) - G[l](G)|_F^2$$ 
-  - normalized 
+  - $$J(S,G) = |G[l](S) - G[l](G)|_F^2$$
+  - normalized
