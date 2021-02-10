@@ -53,7 +53,7 @@ categories: Bayesian
 
 ### Probabilisitic Graphical Models
 
-- Naive Bayes
+- [Naive Bayes](https://en.wikipedia.org/wiki/Naive_Bayes_classifier)
   - [Laplacian Smoothing](https://en.wikipedia.org/wiki/Additive_smoothing)
     - Bayesian Interpretation of Laplacian Smoothing
 - [Bayesian Network](https://en.wikipedia.org/wiki/Bayesian_network)
@@ -190,27 +190,29 @@ Train a K-Means Model
 
 Determinstic Approximation is a type of analytical approximation.
 
-- [Variational Inference](https://en.wikipedia.org/wiki/Variational_Bayesian_methods)
-  - [Mean-Field Approximation](https://en.wikipedia.org/wiki/Variational_Bayesian_methods#Mean_field_approximation)
-  - [Variational Message Passing](https://en.wikipedia.org/wiki/Variational_message_passing)
-  - Variational Bayes
-  - Variational EM
+##### [Variational Bayesian Inference](https://en.wikipedia.org/wiki/Variational_Bayesian_methods)
+
+- [Mean-Field Approximation](https://en.wikipedia.org/wiki/Variational_Bayesian_methods#Mean_field_approximation)
+- [Variational Message Passing](https://en.wikipedia.org/wiki/Variational_message_passing)
+- Variational Bayes
+- Variational EM
   
 #### Stochastic Approximation
 
 Stocahstic Approximation is a type of numerical approximation.
 
-- [Markov Chain Monte Carlo](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) (MCMC)
-  - Use sample distribution to get posterior distributions statistics
-  - [Markov Chain](https://en.wikipedia.org/wiki/Markov_chain)
-  - Monte Carlo Simulation
-    - [variance reduction](https://en.wikipedia.org/wiki/Variance_reduction)
-  - [Metropolis-Hastings Algorithm](https://en.wikipedia.org/wiki/Gibbs_sampling)
-    - detailed balance
-  - [Gibbs Sampling](https://en.wikipedia.org/wiki/Gibbs_sampling)
-    - reduce multi-dimensional sampling to sequential sampling
-    - highly correlated samples, slow convergence
-  - combine with Metroplis-Hasting to parallelize
+##### [Markov Chain Monte Carlo](https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo) (MCMC)
+
+- Use sample distribution to get posterior distributions statistics
+- [Markov Chain](https://en.wikipedia.org/wiki/Markov_chain)
+- Monte Carlo Simulation
+  - [variance reduction](https://en.wikipedia.org/wiki/Variance_reduction)
+- [Metropolis-Hastings Algorithm](https://en.wikipedia.org/wiki/Gibbs_sampling)
+  - detailed balance
+- [Gibbs Sampling](https://en.wikipedia.org/wiki/Gibbs_sampling)
+  - reduce multi-dimensional sampling to sequential sampling
+  - highly correlated samples, slow convergence
+- combine with Metroplis-Hasting to parallelize
 
 [High-Level Explanation of Variational Inference](https://www.cs.jhu.edu/~jason/tutorials/variational.html)
 

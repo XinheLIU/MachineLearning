@@ -350,24 +350,24 @@ Extensions
 
 ##### Intuition
 
-Sigmoid/ Log Probability Function (linkage function) - Logistic Regression is a type of [generalized linear model](https://en.wikipedia.org/wiki/Generalized_linear_model) with sigmoid linkage
+1. Sigmoid/ Log Probability Function (linkage function) - Logistic Regression is a type of [generalized linear model](https://en.wikipedia.org/wiki/Generalized_linear_model) with sigmoid linkage
 
 $$\sigma(z) = \frac{1}{1+e^{-z}} = \frac{1}{1+e^{-\mathbf{w}^T\mathbf{x}}}$$
 
 - different contribution of large/small data
   - exponential family and penalize
 
-Assume y is B**ernoulli distributed** and  $P(Y|X) = \sigma(X)$ (conditional probability plot), indeed we have **odds**
+2. Assume y is **Bernoulli distributed** and  $P(Y|X) = \sigma(X)$ (conditional probability plot), indeed we have **odds**
 
-$$Log(\frac{p}{1-p}) = \mathbf{w}^T\mathbf{x}$$
+$$\text{logit } p = log(\frac{p}{1-p}) = \mathbf{w}^T\mathbf{x}$$
 
 (log odds, logit function)
 
 $$\frac{p}{1-p} = e^{\mathbf{w}^T\mathbf{x}}$$
-$$ p(y=1|x) = \frac{e^{\mathbf{w}^T\mathbf{x}}}{1+e^{\mathbf{w}^T\mathbf{x}}}$$
+$$ p(y=1|x) = \frac{e^{\mathbf{w}^T\mathbf{x}}}{1+e^{\mathbf{w}^T\mathbf{x}}} = \frac{1}{1+e^{-\mathbf{w}^T\mathbf{x}}}$$
 $$p(y=0|x) = \frac{1}{1+e^{\mathbf{w}^T\mathbf{x}}}$$
 
-a more general inituition is the [Principle of Maximum Entropy](https://en.wikipedia.org/wiki/Principle_of_maximum_entropy) (See Loss function) of the exponential family
+3. a more general inituition is the [Principle of Maximum Entropy](https://en.wikipedia.org/wiki/Principle_of_maximum_entropy) (see Loss function) of the exponential family
 
 $$2 \sum_{i=1}^N -y_i log\frac{y_i}{\hat{p_i}}+ (1-y_i)log(\frac{1-y_i}{1-\hat{p_i}})$$
 
