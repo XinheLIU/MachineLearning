@@ -5,3 +5,10 @@ _site
 vendor
 docs/assets/.DS_Store
 .DS_Store
+venv/
+.vscode.example/
+.devcontainer/
+.env
+.cursorrules
+cursor-template/
+tools/
