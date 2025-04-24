@@ -18,7 +18,7 @@ categories: Classic
   - [Multi-dimensional Scaling](#multi-dimensional-scaling)
   - [Non-Linear Dimension Reduction](#non-linear-dimension-reduction)
     - [Manifold Learning](#manifold-learning)
-      - [Isometric Mapping \(IsoMap\)](#isometric-mapping-isomap)
+      - [Isometric Mapping (IsoMap)](#isometric-mapping-isomap)
     - [Locally Linear Embedding](#locally-linear-embedding)
 - [Distance Metric Learning](#distance-metric-learning)
 - [Association Rule Learning](#association-rule-learning)
@@ -61,14 +61,42 @@ Model Training
 
 #### Pros and Cons of K-Means
 
-- Guarantee local optimum
-  - Sensitive to the choice of cetners
-- Hard to choose K
+K-means is a fundamental clustering algorithm with several important characteristics:
 
-Extensions
+Pros:
 
-- [K-Medoid](https://en.wikipedia.org/wiki/K-medoids)
-- Customized Disimilarity and [distance](https://en.wikipedia.org/wiki/Distance)
+- Simplicity: Easy to understand and implement, based on minimizing distances between points and centroids
+- Scalability: Efficiently handles large datasets with many dimensions
+- Speed: Fast convergence, especially with high dimensions
+- Interpretability: Results are easy to visualize and explain
+
+Cons:
+
+- Initialization sensitivity: Final clusters depend heavily on initial centroid placement
+- Requires pre-specified K: Number of clusters must be chosen in advance
+- Outlier sensitivity: Outliers can significantly impact centroid calculations
+- Spherical cluster bias: Assumes equal-sized, spherical clusters
+  - Works best with round clusters by minimizing intercluster variance
+- Scale dependency: Features must be normalized/standardized first
+- Limited robustness: Struggles with uneven cluster sizes and varying densities
+
+Evaluation Metrics:
+
+- Inertia (elbow method)
+- Silhouette analysis
+  - [scikit-learn silhouette_score documentation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html?highlight=silhouette#sklearn.metrics.silhouette_score)
+  - [Original silhouette analysis paper](https://www.sciencedirect.com/science/article/pii/0377042787901257?via%3Dihub)
+
+Important Extensions:
+
+- K-means++: Improved initialization method
+  - Default in scikit-learn
+  - Uses probability-based centroid selection
+  - Helps avoid local minima by spacing initial centroids
+  - [Implementation details](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
+  - [Original K-means++ paper](https://theory.stanford.edu/~sergei/papers/kMeansPP-soda.pdf)
+- [K-Medoid](https://en.wikipedia.org/wiki/K-medoids): Variant using actual data points as centers
+- Customized dissimilarity measures using different [distance metrics](https://en.wikipedia.org/wiki/Distance)
 
 ### Hierarchical Clustering
 
@@ -89,20 +117,127 @@ Extensions
 
 ### [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN)
 
-features
+Algorithm
 
-- sensitive to E and minPts
+> - Available in [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html#sklearn.cluster.DBSCAN)
 
-pros and cons
+DBSCAN (Density-Based Spatial Clustering of Applications with Noise) is a density-based clustering algorithm that groups together points that are closely packed together while marking points in low-density regions as outliers/noise.
 
-- less sensitive to noise points
-- density based (K-means is instance based)
-- handle different shapes and size clusters better than K-Means
-- less reliance on centroids
-- no assumption on distribution of data
-  - K-Means assumes normal mixtures
-- stable result
-  - multiple runs will have same resules
+The pseudocode below outlines the core DBSCAN algorithm:
+
+1. The algorithm takes 3 inputs:
+   - D: The dataset to be clustered
+   - eps (ε): The radius that defines the neighborhood around each point
+   - min_samples: Minimum points required in a neighborhood to form a dense region
+
+2. Main algorithm flow:
+   - Iterates through each unvisited point P in the dataset
+   - For each point, finds all points within eps distance (its neighbors)
+   - If point has fewer than min_samples neighbors, marks it as noise
+   - Otherwise, starts a new cluster and expands it by recursively adding density-reachable points
+
+3. Cluster expansion process (expand_cluster):
+   - Adds the initial point to the current cluster
+   - For each neighbor:
+     - If unvisited, marks it as visited and checks its neighborhood
+     - If neighbor has enough points in its neighborhood, adds those points to be checked
+     - If neighbor isn't yet in a cluster, adds it to current cluster
+
+The algorithm effectively identifies clusters of arbitrary shapes based on density, while automatically detecting and marking noise points that don't belong to any dense region.
+
+```pseudocode
+DBSCAN(D, eps, min_samples):
+    # D: Dataset
+    # eps (ε): Radius of neighborhood
+    # min_samples: Minimum points required in ε-neighborhood
+    
+    C = 0  # Cluster counter
+    for point P in D:
+        if P is unvisited:
+            mark P as visited
+            neighbors = get_neighbors(P, eps)
+            
+            if len(neighbors) < min_samples:
+                mark P as noise
+            else:
+                C = C + 1  # Start new cluster
+                expand_cluster(P, neighbors, C, eps, min_samples)
+
+expand_cluster(P, neighbors, C, eps, min_samples):
+    add P to cluster C
+    for point P' in neighbors:
+        if P' is unvisited:
+            mark P' as visited
+            new_neighbors = get_neighbors(P', eps)
+            if len(new_neighbors) >= min_samples:
+                neighbors = neighbors ∪ new_neighbors
+        if P' is not yet member of any cluster:
+            add P' to cluster C
+```
+
+Hyperparameters
+
+- **eps (ε)**: The radius that defines the neighborhood around each point
+- **min_samples**: Minimum number of points required in the ε-neighborhood for a point to be considered a core point (including itself)
+
+#### Pros and Cons of DBSCAN
+
+Pros:
+
+- Less sensitive to noise points compared to other clustering methods
+- Density-based approach (unlike instance-based K-means)
+- Better handling of clusters with different shapes and sizes
+- Doesn't rely on centroids
+- No assumptions about data distribution (unlike K-means which assumes normal mixtures)
+- Stable results - multiple runs produce the same clustering
+
+Cons:
+
+- Sensitive to hyperparameters eps and min_samples
+- Requires careful tuning for different datasets
+- Not suitable for high-dimensional data
+
+### Agglomerative Clustering
+
+> - Available in [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html#sklearn.cluster.AgglomerativeClustering)
+
+Agglomerative clustering is a hierarchical clustering algorithm that builds clusters by merging points/clusters in a bottom-up approach.
+
+Algorithm:
+
+1. Start with each point in its own cluster
+2. Iteratively merge the two closest clusters until:
+   - Desired number of clusters is reached, or 
+   - Distance between clusters exceeds threshold
+3. For each merge:
+   - Calculate distances between all cluster pairs
+   - Merge closest pair based on linkage criteria
+   - Update distances to new merged cluster
+
+Hyperparameters:
+
+- **n_clusters**: Number of clusters to find (stopping criterion)
+- **linkage**: Method to calculate inter-cluster distances
+  - Single: Minimum distance between points in clusters
+  - Complete: Maximum distance between points in clusters  
+  - Average: Mean distance between points in clusters
+  - Ward: Minimize within-cluster variance
+- **affinity**: Distance metric between points (default: Euclidean)
+- **distance_threshold**: Maximum distance for merging clusters
+
+Pros:
+
+- Hierarchical structure provides insights into relationships
+- No assumptions about cluster shapes
+- Can handle different distance metrics
+- Deterministic results
+
+Cons:
+
+- Computationally expensive O(n^3)
+- Sensitive to noise and outliers
+- Cannot handle large datasets well
+- Hard to determine optimal number of clusters
 
 ### [OPTICS](https://en.wikipedia.org/wiki/OPTICS_algorithm)
 
