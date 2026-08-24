@@ -1,0 +1,17 @@
+/* Machine Learning Notes book theme: quiet academic look. */
+:root {
+  --vp-c-brand-1: #0f6b99;
+  --vp-c-brand-2: #1890c4;
+  --vp-c-brand-3: #0f6b99;
+}
+
+.vp-doc img {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+}
+
+.vp-doc .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}

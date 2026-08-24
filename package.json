@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "katex": "^0.18.4",
+    "markdown-it-katex": "^2.0.3",
+    "vitepress": "^1.6.4"
+  },
+  "scripts": {
+    "serve": "vitepress dev",
+    "build": "vitepress build && node scripts/generate-redirects.mjs",
+    "preview": "vitepress preview",
+    "build:mdbook": "mdbook build book",
+    "serve:mdbook": "mdbook serve book"
+  }
+}
