@@ -1,0 +1,102 @@
+# Book navigation and publication manifest for Machine Learning Notes.
+# Contract: https://github.com/XinheLIU/XinheLIU.github.io/blob/source/docs/architecture/CONTENT-CONTRACT.md
+id: machine-learning
+items:
+  - id: mathematical-foundations
+    source:
+      en: book/src/01-mathematical-foundations/README.md
+    part: foundations
+    order: 1
+    route: /MachineLearning/01-mathematical-foundations/
+    layout: chapter
+  - id: linear-algebra
+    source:
+      en: book/src/02-linear-algebra/README.md
+    part: foundations
+    order: 2
+    route: /MachineLearning/02-linear-algebra/
+    layout: chapter
+  - id: statistics
+    source:
+      en: book/src/03-statistics/README.md
+    part: foundations
+    order: 3
+    route: /MachineLearning/03-statistics/
+    layout: chapter
+  - id: data-analysis
+    source:
+      en: book/src/04-data-analysis/README.md
+    part: data
+    order: 4
+    route: /MachineLearning/04-data-analysis/
+    layout: chapter
+  - id: ml-pipeline
+    source:
+      en: book/src/05-ml-pipeline/README.md
+    part: data
+    order: 5
+    route: /MachineLearning/05-ml-pipeline/
+    layout: chapter
+  - id: supervised-learning-regression
+    source:
+      en: book/src/06-supervised-learning-regression/README.md
+    part: supervised
+    order: 6
+    route: /MachineLearning/06-supervised-learning-regression/
+    layout: chapter
+  - id: supervised-learning-classification
+    source:
+      en: book/src/07-supervised-learning-classification/README.md
+    part: supervised
+    order: 7
+    route: /MachineLearning/07-supervised-learning-classification/
+    layout: chapter
+  - id: supervised-learning-ensemble
+    source:
+      en: book/src/08-supervised-learning-ensemble/README.md
+    part: supervised
+    order: 8
+    route: /MachineLearning/08-supervised-learning-ensemble/
+    layout: chapter
+  - id: unsupervised-learning
+    source:
+      en: book/src/09-unsupervised-learning/README.md
+    part: unsupervised
+    order: 9
+    route: /MachineLearning/09-unsupervised-learning/
+    layout: chapter
+  - id: bayesian-methods
+    source:
+      en: book/src/10-bayesian-methods/README.md
+    part: unsupervised
+    order: 10
+    route: /MachineLearning/10-bayesian-methods/
+    layout: chapter
+  - id: deep-learning
+    source:
+      en: book/src/11-deep-learning/README.md
+    part: deep-learning
+    order: 11
+    route: /MachineLearning/11-deep-learning/
+    layout: chapter
+  - id: ai-business
+    source:
+      en: book/src/12-ai-business/README.md
+    part: more
+    order: 12
+    route: /MachineLearning/12-ai-business/
+    layout: chapter
+  - id: personal-insights
+    source:
+      en: book/src/13-personal-insights/README.md
+    part: more
+    order: 13
+    route: /MachineLearning/13-personal-insights/
+    layout: chapter
+  - id: book-summaries
+    source:
+      en: book/src/14-book-summaries/README.md
+    part: more
+    order: 14
+    route: /MachineLearning/14-book-summaries/
+    layout: chapter
